@@ -50,7 +50,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
             // Reload the page after browser undo & undo
             if (!!window.performance && window.performance.navigation.type === 2) {
-                wyp_load_note("Reloading Editor", "0");
+                wyp_load_note("Recargando Editor", "0");
                 window.location.reload();
             }
 
@@ -58,7 +58,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             window.loadStatus = false;
 
             // Document Load Note:
-            wyp_load_note("Loading Editor", "20");
+            wyp_load_note("Cargando Editor", "20");
 
             setTimeout(function(){
                 wyp_load_note(null, "23");
@@ -85,7 +85,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                 }
 
                 // 33%
-                wyp_load_note("Loading Page", "33");
+                wyp_load_note("Cargando Página", "33");
 
                 setTimeout(function(){
                     wyp_load_note(null, "33");
@@ -120,7 +120,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                             // show loading
                             document.querySelector(".wyp-iframe-loader").style.display = "block";
-                            document.querySelector(".loading-files").innerHTML = "Page was redirected!";
+                            document.querySelector(".loading-files").innerHTML = "¡Página redirigida!";
                             window.wyp_redirect_on = true;
 
                             // Get parent url
@@ -213,7 +213,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         document.head.appendChild(style);
 
                         style.onload = function(){
-                            wyp_load_note("Loading Styles", 39 + parseInt(21*i/(length - 1)));
+                            wyp_load_note("Cargando Estilos", 39 + parseInt(21*i/(length - 1)));
                         };
 
                     }
@@ -245,7 +245,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                     function wyp_start_editor(){
 
                         // Ready!:
-                        wyp_load_note("Ready!", "100");
+                        wyp_load_note("¡Listo!", "100");
 
                         // Set true.
                         window.loadStatus = true;
@@ -291,7 +291,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         document.head.appendChild(script);
 
                         script.onload = function(){
-                            wyp_load_note("Loading Scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
+                            wyp_load_note("Cargando Scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
                             // Load the next script
                             wyp_load_script(i + 1);
                         };
