@@ -23,11 +23,7 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "cookies",
     "storage"
-  ],
-  "host_permissions": [
-    "<all_urls>"
   ],
   "background": {
     "scripts": [

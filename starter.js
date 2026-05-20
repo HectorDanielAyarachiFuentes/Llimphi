@@ -61,18 +61,6 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             // Document Load Note:
             wyp_load_note("Cargando Editor", "20");
 
-            setTimeout(function(){
-                wyp_load_note(null, "23");
-            }, 300);
-
-            setTimeout(function(){
-                wyp_load_note(null, "26");
-            }, 600);
-
-            setTimeout(function(){
-                wyp_load_note(null, "29");
-            }, 900);
-
             // Document ready.
             (function() {
 
@@ -87,14 +75,6 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                 // 33%
                 wyp_load_note("Cargando Página", "33");
-
-                setTimeout(function(){
-                    wyp_load_note(null, "33");
-                }, 600);
-
-                setTimeout(function(){
-                    wyp_load_note(null, "36");
-                }, 900);
 
                 // Frame ready
                 var iframeReady = false;
