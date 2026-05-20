@@ -49,7 +49,8 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             }
 
             // Reload the page after browser undo & undo
-            if (!!window.performance && window.performance.navigation.type === 2) {
+            const navEntries = window.performance && window.performance.getEntriesByType ? window.performance.getEntriesByType("navigation") : [];
+            if (navEntries.length > 0 && navEntries[0].type === "back_forward") {
                 wyp_load_note("Recargando Editor", "0");
                 window.location.reload();
             }
