@@ -37,7 +37,8 @@
     {
       "resources": [
         "editor.html",
-        "editor/*"
+        "editor/*",
+        "editor/templates/*"
       ],
       "matches": [
         "<all_urls>"

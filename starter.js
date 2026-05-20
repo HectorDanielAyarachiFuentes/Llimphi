@@ -18,6 +18,22 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             var parser = new DOMParser();
             var newDoc = parser.parseFromString(editorHtml, 'text/html');
 
+            var placeholders = Array.from(newDoc.querySelectorAll('[data-wyp-template]'));
+            var fetchPromises = placeholders.map(placeholder => {
+                var templateName = placeholder.getAttribute('data-wyp-template');
+                var templateUrl = chrome.runtime.getURL(`editor/templates/${templateName}.html`);
+                return fetch(templateUrl)
+                    .then(response => response.text())
+                    .then(templateHtml => {
+                        // Replace placeholders with actual URLs in template content
+                        templateHtml = templateHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
+                        placeholder.outerHTML = templateHtml;
+                    });
+            });
+
+            return Promise.all(fetchPromises).then(() => newDoc);
+        })
+        .then(newDoc => {
             while (document.documentElement.firstChild) {
                 document.documentElement.removeChild(document.documentElement.firstChild);
             }
