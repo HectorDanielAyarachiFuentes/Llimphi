@@ -15,9 +15,23 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             // Replace placeholders with actual URLs
             editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
 
-            document.open();
-            document.write(editorHtml);
-            document.close();
+            var parser = new DOMParser();
+            var newDoc = parser.parseFromString(editorHtml, 'text/html');
+
+            while (document.documentElement.firstChild) {
+                document.documentElement.removeChild(document.documentElement.firstChild);
+            }
+
+            for (let attr of newDoc.documentElement.attributes) {
+                document.documentElement.setAttribute(attr.name, attr.value);
+            }
+
+            if (newDoc.head) {
+                document.documentElement.appendChild(document.importNode(newDoc.head, true));
+            }
+            if (newDoc.body) {
+                document.documentElement.appendChild(document.importNode(newDoc.body, true));
+            }
 
             // Vars
             window.bMode = true;
