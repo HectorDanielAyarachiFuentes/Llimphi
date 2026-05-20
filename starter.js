@@ -38,6 +38,20 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
             // Update loading notes.
             var oldP = 0;
+
+            // Proxy external fetches to bypass CSP
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'WYP_FETCH_UNSPLASH') {
+                    fetch(event.data.url)
+                        .then(response => response.json())
+                        .then(data => {
+                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: true, data: data }, '*');
+                        })
+                        .catch(err => {
+                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: false, error: err.message }, '*');
+                        });
+                }
+            });
             function wyp_load_note(text, p){
                 if(window.loadStatus == false && oldP < p){
                     if(text){

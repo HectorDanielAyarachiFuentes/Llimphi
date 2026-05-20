@@ -6163,19 +6163,29 @@
                 t = o("#unsplash-search").val(), "" == t.trim() && (t = null);
                 window.getJsonNow = !0, a = null == t ? "https://api.unsplash.com/photos" : "https://api.unsplash.com/search/photos", a +=
                         "?client_id=5746b12f75e91c251bddf6f83bd2ad0d658122676e9bd2444e110951f9a04af8", null != t && (a += "&query=" + t), null != e && (
-                                a += "&page=" + e), o.getJSON(a, function(e) {
-                                0 == e.total ? o(".wyp-unsplash-list").addClass("no-result") : o(".wyp-unsplash-list").removeClass("no-result"),
-                                        i = null == t ? e : e.results;
-                                var a;
-                                o.each(i, function(e, t) {
-                                        a = t.urls.thumb, o(".wyp-unsplash-list").append("<span style='background-color:" + t
-                                                .color + ";' data-id='" + t.id + "' data-regular='" + t.urls.regular +
-                                                "' data-small='" + t.urls.small + "' data-thumb='" + t.urls.thumb +
-                                                "' ><i>Upload</i></span>")
-                                }), window.getJsonNow = !1, Fi()
-                        }).fail(function() {
-                                Li("Loading Error", "Could Not Load Json library. (Unsplash API)", "jsonError")
-                        })
+                                a += "&page=" + e);
+
+                var listener = function(event) {
+                        if (event.data && event.data.type === 'WYP_FETCH_UNSPLASH_RESULT') {
+                                window.removeEventListener('message', listener);
+                                if (event.data.success) {
+                                        var e = event.data.data;
+                                        0 == e.total ? o(".wyp-unsplash-list").addClass("no-result") : o(".wyp-unsplash-list").removeClass("no-result"),
+                                                i = null == t ? e : e.results;
+                                        var a;
+                                        o.each(i, function(e, t) {
+                                                a = t.urls.thumb, o(".wyp-unsplash-list").append("<span style='background-color:" + t
+                                                        .color + ";' data-id='" + t.id + "' data-regular='" + t.urls.regular +
+                                                        "' data-small='" + t.urls.small + "' data-thumb='" + t.urls.thumb +
+                                                        "' ><i>Upload</i></span>")
+                                        }), window.getJsonNow = !1, Fi();
+                                } else {
+                                        Li("Loading Error", "Could Not Load Json library. (Unsplash API)", "jsonError");
+                                }
+                        }
+                };
+                window.addEventListener('message', listener);
+                window.postMessage({ type: 'WYP_FETCH_UNSPLASH', url: a }, '*');
         }
 
         function Fi() {
@@ -6239,8 +6249,8 @@
                 })
         }
         var qi = {};
-        qi.back_to_menu = "Back to menu", qi.close_editor = "Close Editor", qi.saving = window.bMode ? "Export" : "Saving", qi.save = window.bMode ?
-                "Export" : "Save", qi.saved = window.bMode ? "Export" : "Saved", qi.unknown = "Unknown", qi.no_el_selected = "No element selected", qi
+        qi.back_to_menu = "Back to menu", qi.close_editor = "Close Editor", qi.saving = window.bMode ? "Exportar" : "Guardando", qi.save = window.bMode ?
+                "Exportar" : "Guardar", qi.saved = window.bMode ? "Exportar" : "Guardado", qi.unknown = "Unknown", qi.no_el_selected = "No element selected", qi
                 .live_preview_alert = "This tool is disabled in demo mode!", qi.live_preview_text =
                 "You can download the free version of the plugin and try on your site.", qi.save_alert = "Saving is disabled in demo mode!", qi
                 .list_notice = "The selected element is not a list item, Select a list item to edit styles.", qi.list_notice1 =
