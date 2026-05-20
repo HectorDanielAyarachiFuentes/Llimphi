@@ -481,11 +481,11 @@
                 var a = "<style id='csseditor-personalized-view'>",
                         i = 0;
                 window.ypOption.fixed_left_bar && !window.ypData["wyp-css-ed-drgable"] && (i = 44), a +=
-                        "#cssData,#cssEditorBar,#leftAreaEditor{width:" + parseFloat(e) +
+                        "#css-data,#css-editor-bar,#left-area-editor{width:" + parseFloat(e) +
                         "px!important}body.wyp-css-ed-act:not(.wyp-res-mod):not(.wyp-css-ed-drgable) #iframe{left:" + (e + i) +
                         "px!important;margin-left:0 !important}body.wyp-css-ed-act:not(.wyp-css-ed-drgable):not(.wyp-fix-leftbar) .editor-leftbar,body.wyp-css-ed-act:not(.wyp-res-mod):not(.wyp-css-ed-drgable) .metric-top-tooltip,body.wyp-css-ed-act:not(.wyp-res-mod):not(.wyp-css-ed-drgable):not(.wyp-crnt-el-menu) .context-menu-root:not(.dom_contextmenu){margin-left:" +
                         (e + i) + "px!important}", window.ypOption.fixed_left_bar && (a +=
-                                "body.wyp-fix-leftbar:not(.wyp-css-ed-drgable) #leftAreaEditor{left:44px !important;}", a +=
+                                "body.wyp-fix-leftbar:not(.wyp-css-ed-drgable) #left-area-editor{left:44px !important;}", a +=
                                 ".breakpoint-bar .min-width.breakpoint-item.last-min-breakpoint {width: calc(100% - 44px) !important;}");
                 var n = o(window).width();
                 e > 40 * n / 100 ? a += "body.wyp-css-ed-act:not(.wyp-css-ed-drgable) #ed-elt-tr{display:none !important}" : (a +=
@@ -496,7 +496,7 @@
                         "body.wyp-css-ed-act.wyp-fix-leftbar:not(.wyp-css-ed-drgable) #ed-elt-tr ul li:not(.active):after{border-left-color:#d7d7d7 !important;}",
                         a +=
                         "body.wyp-css-ed-act.wyp-fix-leftbar:not(.wyp-css-ed-drgable) #ed-elt-tr ul li.active{background-color:#f8f8f8 !important;}"
-                        ), t && (a += ".wyp-css-ed-drgable #cssData{height: " + t + "px;}.wyp-css-ed-drgable #leftAreaEditor{height: calc(" +
+                        ), t && (a += ".wyp-css-ed-drgable #css-data{height: " + t + "px;}.wyp-css-ed-drgable #left-area-editor{height: calc(" +
                         t + "px + 36px);}"), a += "}</style>", tn.find("#csseditor-personalized-view").remove(), tn.append(a)
         }
 
@@ -509,8 +509,7 @@
                 window.ypOption.fixed_left_bar && (n = 44, a -= n);
                 var r = o("#iframe-general-style"),
                         l, d;
-                if (e || r.remove(), i || (window.ypData["vsl-css-vi-active"] && (t += o("#vsl-css-vi").width()), window.ypData["wyp-css-ed-act"] && !
-                                window.ypData["wyp-css-ed-drgable"] && (t += o("#leftAreaEditor").width())), d = a - t, window.ypData["wyp-fix-pan"] &&
+                if (e || r.remove(), i || (window.ypData["vsl-css-vi-active"] && (t += o("#vsl-css-vi").width()), window.ypData["wyp-css-ed-act"] && !window.ypData["wyp-css-ed-drgable"] && (t += o("#left-area-editor").width())), d = a - t, window.ypData["wyp-fix-pan"] &&
                         !1 == tn.hasClass("wyp-cln-lo-panel-only") && !1 == tn.hasClass("wyp-cln-lo-manual") && !1 == T() && (t += o(".ed-pnl")
                 .width()), l = a - t, e) return l;
                 var p = "<style id='iframe-general-style'>";
@@ -1268,19 +1267,19 @@
                 var S = [];
                 for (Ji.hasAttr("class") && (S = ma(Ji.attr("class"))), D = 0; D < n.length; D++) n[D] = n[D].replace(/(^\s+|\s+$)/g, "").replace(
                         /\s\s+/g, " "), -1 != n[D].indexOf(".") && -1 != S.indexOf(n[D].replace(/\./g, "")) && (n[D] = "body" + n[D]);
-                return 1 == n.length && "autocomplate" == a && n[0] == e && (n = []), n
+                return 1 == n.length && "autocomplete" == a && n[0] == e && (n = []), n
         }
 
         function me() {
-                o("#autocomplate-selector-list li").remove();
+                o("#autocomplete-selector-list li").remove();
                 var e;
                 if (e = o("#wyp-selector-editor").val(), J(e)) return !1;
                 if ("  " == e || " " == e || "" == e) return !1;
-                for (var t = ue(e.replace(/(\s?)+>(\s?)+/g, " "), 10, "autocomplate"), a = 0; a < t.length; a++)
-                        if (10 > o("#autocomplate-selector-list li").length) {
+                for (var t = ue(e.replace(/(\s?)+>(\s?)+/g, " "), 10, "autocomplete"), a = 0; a < t.length; a++)
+                        if (10 > o("#autocomplete-selector-list li").length) {
                                 if (0 === Gi.find(t[a]).length) return !1;
                                 if (0 < o("#" + gi(t[a])).length) return !1;
-                                o("#autocomplate-selector-list").append("<li id='" + gi(t[a]) + "'>" + t[a] + "</li>")
+                                o("#autocomplete-selector-list").append("<li id='" + gi(t[a]) + "'>" + t[a] + "</li>")
                         } window.selectorActive = -1
         }
 
@@ -6322,14 +6321,14 @@
                 "wyp-drw-bx|wyp-anim-scenes|anim-tester|wyp-animate-data|yellow-pencil-canvas|yellow-pencil-focus-canvas|yellow-pencil-other-canvas|yellow-pencil-extra-canvas",
                 window.simple_not_list =
                 "link|style|script|noscript|meta|title|br|param|option|head|circle|rect|polygon|defs|linearGradient|stop|ellipse|text|line|polyline|path|g|tspan",
-                o(".fixed_right_panel_checkbox input").prop("checked", window.ypOption.fixed_right_panel), o(".fixed_left_bar_checkbox input").prop(
-                        "checked", window.ypOption.fixed_left_bar), o(".hide_premium_options_checkbox input").prop("checked", window.ypOption
-                        .hide_premium_options), o(".show_css_selector_checkbox input").prop("checked", window.ypOption.show_css_selector), o(
-                        ".smart_responsive_technology_checkbox input").prop("checked", window.ypOption.smart_responsive_technology), o(
-                        ".smart_important_tag_checkbox input").prop("checked", window.ypOption.smart_important_tag), o(
-                        ".append_auto_comments_checkbox input").prop("checked", window.ypOption.append_auto_comments), window.define = window.define ||
+                o(".fixed-right-panel-checkbox input").prop("checked", window.ypOption.fixed_right_panel), o(".fixed-left-bar-checkbox input").prop(
+                        "checked", window.ypOption.fixed_left_bar), o(".hide-premium-options-checkbox input").prop("checked", window.ypOption
+                        .hide_premium_options), o(".show-css-selector-checkbox input").prop("checked", window.ypOption.show_css_selector), o(
+                        ".smart-responsive-technology-checkbox input").prop("checked", window.ypOption.smart_responsive_technology), o(
+                        ".smart-important-tag-checkbox input").prop("checked", window.ypOption.smart_important_tag), o(
+                        ".append-auto-comments-checkbox input").prop("checked", window.ypOption.append_auto_comments), window.define = window.define ||
                 ace.define, !0 !== window.bMode && ace.config.set("basePath", aceEditorBase);
-        var n = ace.edit("cssData");
+        var n = ace.edit("css-data");
         n.setTheme("ace/theme/twilight"), n.$blockScrolling = 1 / 0, n.setShowPrintMargin(!1), n.setOptions({
                 enableMultiselect: !0,
                 enableBasicAutocompletion: !0,
@@ -6401,25 +6400,25 @@
                                         "The styles applied to the <b>entire website</b>."
                         },
                         placement: "bottom",
-                        container: "#cssEditorBar",
+                        container: "#css-editor-bar",
                         html: !0
                 }), o("#include-webfont-label").tooltip({
                         container: ".ed-pnl",
                         title: "Include the font file."
-                }), o(".fixed_right_panel_checkbox input").change(function(t) {
+                }), o(".fixed-right-panel-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (tn.addClass("wyp-fix-pan"), window.ypData["wyp-fix-pan"] = !0, window.ypOption
                                 .fixed_right_panel = !0, N(), o.throttle(Be(), 32), Ze(), Ct(), t.originalEvent && v(
                                         "fixed_right_panel", "true")) : (tn.removeClass("wyp-fix-pan"), window.ypData["wyp-fix-pan"] = !
                                 1, window.ypOption.fixed_right_panel = !1, pe(!0), o.throttle(Be(), 32), Ct(), t.originalEvent && v(
                                         "fixed_right_panel", "false"))
-                }), o(".fixed_left_bar_checkbox input").change(function(t) {
+                }), o(".fixed-left-bar-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (tn.addClass("wyp-fix-leftbar"), window.ypOption.fixed_left_bar = !0, window.leftBarSize = o(
                                         ".editor-leftbar").get(0).getBoundingClientRect(), N(), o.throttle(Be(), 32), Ze(), t
                                 .originalEvent && v("fixed_left_bar", "true")) : (tn.removeClass("wyp-fix-leftbar"), window.ypOption
                                 .fixed_left_bar = !1, window.leftBarSize = o(".editor-leftbar").get(0).getBoundingClientRect(), N(), o
                                 .throttle(Be(), 32), Ze(), t.originalEvent && v("fixed_left_bar", "false")), Y(I("cssEditorWidth", 400),
                                 I("cssEditorHeight", 320) - 36)
-                }), o(".hide_premium_options_checkbox input").change(function(t) {
+                }), o(".hide-premium-options-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (o("li.animation-option").hasClass("active") && o("li.animation-option.active > h3").trigger(
                                 "click"), o(
                                 "#font-family-group,#color-group,#background-color-group,#background-image-group,#width-group,#height-group,li.animation-option,.animation-manager-btn"
@@ -6431,30 +6430,30 @@
                                         "disabled").show() : o("li.animation-option").removeClass("disabled").hide(), o(
                                         ".wyp-badge.wyp-lite").css("visibility", "visible"), window.ypOption.hide_premium_options = !1,
                                 t.originalEvent && v("hide_premium_options", "false"))
-                }), o(".smart_responsive_technology_checkbox input").change(function(t) {
+                }), o(".smart-responsive-technology-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (window.ypOption.smart_responsive_technology = !0, t.originalEvent && v(
                                 "smart_responsive_technology", "true")) : (window.ypOption.smart_responsive_technology = !1, t
                                 .originalEvent && v("smart_responsive_technology", "false"))
-                }), o(".smart_important_tag_checkbox input").change(function(t) {
+                }), o(".smart-important-tag-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (window.ypOption.smart_important_tag = !0, t.originalEvent && v("smart_important_tag",
                                 "true")) : (window.ypOption.smart_important_tag = !1, t.originalEvent && v("smart_important_tag", "false"))
-                }), o(".show_css_selector_checkbox input").change(function(t) {
+                }), o(".show-css-selector-checkbox input").change(function(t) {
                         o(this).is(":checked") ? (Ji.removeClass("wyp-css-slctr-off"), window.ypOption.show_css_selector = !0, t
                                 .originalEvent && (v("show_css_selector", "true"), C() && Q(_a(), _(), !0), 0 == o(
                                         ".left-menu-btn.yhover").length && o(".left-menu-btn").trigger("click"))) : (Ji.addClass(
                                 "wyp-css-slctr-off"), window.ypOption.show_css_selector = !1, t.originalEvent && (v(
                                         "show_css_selector", "false"), C() && Q(_a(), _(), !0), 0 == o(".left-menu-btn.yhover")
                                 .length && o(".left-menu-btn").trigger("click")))
-                }), window.ypOption.show_css_selector || Ji.addClass("wyp-css-slctr-off"), o(".append_auto_comments_checkbox input").change(function(
+                }), window.ypOption.show_css_selector || Ji.addClass("wyp-css-slctr-off"), o(".append-auto-comments-checkbox input").change(function(
                 t) {
                         o(this).is(":checked") ? (window.ypOption.append_auto_comments = !0, t.originalEvent && v("append_auto_comments",
                                 "true")) : (window.ypOption.append_auto_comments = !1, t.originalEvent && v("append_auto_comments",
                                 "false"))
                 }), tn.hasClass("yp-yellow-pencil-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
-                        ".fixed_right_panel_checkbox input").prop("checked", !0), o(".fixed_right_panel_checkbox input").trigger("change")), !0 ==
-                window.ypOption.fixed_left_bar && (o(".fixed_left_bar_checkbox input").prop("checked", !0), o(".fixed_left_bar_checkbox input").trigger(
-                        "change")), !0 == window.ypOption.hide_premium_options && (o(".hide_premium_options_checkbox input").prop("checked", !0), o(
-                        ".hide_premium_options_checkbox input").trigger("change")), null != o.urlParam("wyp_load_popup") && (function() {
+                        ".fixed-right-panel-checkbox input").prop("checked", !0), o(".fixed-right-panel-checkbox input").trigger("change")), !0 ==
+                window.ypOption.fixed_left_bar && (o(".fixed-left-bar-checkbox input").prop("checked", !0), o(".fixed-left-bar-checkbox input").trigger(
+                        "change")), !0 == window.ypOption.hide_premium_options && (o(".hide-premium-options-checkbox input").prop("checked", !0), o(
+                        ".hide-premium-options-checkbox input").trigger("change")), null != o.urlParam("wyp_load_popup") && (function() {
                         var e = o("#wyp-customizing-type-frame"),
                                 t = o.urlParam("wyp_mode"),
                                 a = e.attr("data-page-id"),
@@ -6863,7 +6862,7 @@
                                 if ("block" == o(".interface-settings").css("display")) return o(".interface-settings").css("display",
                                         "none"), o(".left-menu-btn.yhover").removeClass("yhover"), !1;
                                 if (0 < o(".info-btn.active").length) return o(".info-btn.active").trigger("click"), !1;
-                                if ("block" == o("#cssEditorBar").css("display")) return o(".css-editor-btn").trigger("click"), !1;
+                                if ("block" == o("#css-editor-bar").css("display")) return o(".css-editor-btn").trigger("click"), !1;
                                 if (tn.hasClass("wyp-nvgtn-act")) return o(".wyp-navigation-btn.active").trigger("click"), !1;
                                 if (window.ypData["vsl-css-vi-active"]) return It(), !1;
                                 if (0 < o(".animation-manager-btn.active").length) return o(".animation-manager-btn").trigger("click"),
@@ -7072,7 +7071,7 @@
                 cancel: ".ed-pnl-top *",
                 start: function() {
                         tn.append("<div class='fake-layer' style='background-color:rgba(0,0,0,0.05);'></div>"), window.ypData[
-                                "wyp-fix-pan"] && (o(".fixed_right_panel_checkbox input").prop("checked", !1).trigger(
+                                "wyp-fix-pan"] && (o(".fixed-right-panel-checkbox input").prop("checked", !1).trigger(
                                 "change"), v("fixed_right_panel", "false"), pe(!0), Ct())
                 },
                 drag: function(e, t) {
@@ -7085,7 +7084,7 @@
                         o(".fake-layer").remove(), setTimeout(function() {
                                 Ct()
                         }, 5), o(".wyp-right-panel-placeholder").hide(), t.position.left > o(window).width() - o(
-                                ".ed-pnl").width() && (o(".fixed_right_panel_checkbox input").prop("checked", !0)
+                                ".ed-pnl").width() && (o(".fixed-right-panel-checkbox input").prop("checked", !0)
                                 .trigger("change"), v("fixed_right_panel", "true"), N(), o.throttle(Be(), 32), Ze(),
                                 Ct())
                 }
@@ -7104,14 +7103,14 @@
                                 Ct()
                         }, 5)
                 }
-        }), o("#leftAreaEditor").draggable({
-                handle: "#cssEditorBar",
-                cancel: "#cssEditorBar *",
+        }), o("#left-area-editor").draggable({
+                handle: "#css-editor-bar",
+                cancel: "#css-editor-bar *",
                 start: function() {
                         return !!window.ypData["wyp-css-ed-drgable"] && void(tn.append("<div class='fake-layer'></div>"), window
-                                .leftAreaEditors = o("#leftAreaEditor").attr("style"), o("#css-editor-drag-style")
+                                .leftAreaEditors = o("#left-area-editor").attr("style"), o("#css-editor-drag-style")
                                 .remove(), window.cssHeightLimit = parseInt(o(window).height() - 25 * o(
-                                        "#leftAreaEditor").height() / 100))
+                                        "#left-area-editor").height() / 100))
                 },
                 drag: function(e, t) {
                         return !!window.ypData["wyp-css-ed-drgable"] && void(32 > t.position.left && (t.position.left = 32), -
@@ -7119,9 +7118,9 @@
                                 (t.position.top = window.cssHeightLimit))
                 },
                 stop: function(e, t) {
-                        return !!window.ypData["wyp-css-ed-drgable"] && void(J(window.leftAreaEditors) ? o("#leftAreaEditor")
-                                .removeAttr("style") : o("#leftAreaEditor").attr("style", window.leftAreaEditors), tn
-                                .append("<style id='css-editor-drag-style'>body.wyp-css-ed-drgable #leftAreaEditor{left:" +
+                        return !!window.ypData["wyp-css-ed-drgable"] && void(J(window.leftAreaEditors) ? o("#left-area-editor")
+                                .removeAttr("style") : o("#left-area-editor").attr("style", window.leftAreaEditors), tn
+                                .append("<style id='css-editor-drag-style'>body.wyp-css-ed-drgable #left-area-editor{left:" +
                                         t.position.left + "px !important;top:" + t.position.top +
                                         "px !important;}</style>"), o(".fake-layer").remove())
                 }
@@ -7563,39 +7562,39 @@
                         t = e.attr("data-color"),
                         a = e.parents(".op-g").find(".co-p");
                 0 == a.length && (a = o("#iris-gradient-color")), a.val(t).trigger("change"), a.iris("color", t)
-        }), o(document).on("click", "#autocomplate-selector-list li", function() {
+        }), o(document).on("click", "#autocomplete-selector-list li", function() {
                 var e = o(this).text().split(" |")[0];
                 o("#wyp-selector-editor").val(e).trigger("keyup").trigger("focus")
         }), window.selectorActive = -1, o("#wyp-selector-editor").keyup(function(t) {
                 var e = o(this).val(),
                         a = e.substr(e.length - 1);
                 if (32 == t.keyCode && !1 == /(\#|\.)/g.test(e) && !1 == Ca(e, !0, !1, !1)) {
-                        var i = o("#autocomplate-selector-list li.active");
+                        var i = o("#autocomplete-selector-list li.active");
                         if (0 < i.length && e != i.text()) return o(this).val(i.text() + " ").trigger("keyup"), !1
                 }
                 if (40 != t.keyCode && 38 != t.keyCode && me(), o("#wyp-selector-editor").removeClass("selector-is-invalid"), o(
-                                "#autocomplate-selector-list li").removeClass("active"), 0 < o("#autocomplate-selector-list li")
+                                "#autocomplete-selector-list li").removeClass("active"), 0 < o("#autocomplete-selector-list li")
                         .length && !0 == /[a-z-A-Z0-9_-]/g.test(a)) {
                         var n = 1e4;
-                        o("#autocomplate-selector-list li").each(function() {
+                        o("#autocomplete-selector-list li").each(function() {
                                 o(this).text().length < n && (n = o(this).text().length, o(
-                                                "#autocomplate-selector-list li").removeClass("active"), o(this)
+                                                "#autocomplete-selector-list li").removeClass("active"), o(this)
                                         .addClass("active"))
                         })
                 }
-                if (13 == t.keyCode) return 0 < o("#autocomplate-selector-list li.active").length && o(this).val() != o(
-                        "#autocomplate-selector-list li.active").text() ? (o(this).val(o(
-                                "#autocomplate-selector-list li.active").text()), o("#autocomplate-selector-list li")
+                if (13 == t.keyCode) return 0 < o("#autocomplete-selector-list li.active").length && o(this).val() != o(
+                        "#autocomplete-selector-list li.active").text() ? (o(this).val(o(
+                                "#autocomplete-selector-list li.active").text()), o("#autocomplete-selector-list li")
                         .remove(), !1) : (ge("#wyp-selector-editor"), !1);
-                var s = o("#autocomplate-selector-list li.active");
-                0 < s.length && -1 == window.selectorActive && (window.selectorActive = o("#autocomplate-selector-list li.active")
-                                .prevAll().length), 40 == t.keyCode && o("#autocomplate-selector-list li").length >= window
+                var s = o("#autocomplete-selector-list li.active");
+                0 < s.length && -1 == window.selectorActive && (window.selectorActive = o("#autocomplete-selector-list li.active")
+                                .prevAll().length), 40 == t.keyCode && o("#autocomplete-selector-list li").length >= window
                         .selectorActive + 2 ? window.selectorActive++ : 38 == t.keyCode && 0 <= window.selectorActive - 1 ? window
                         .selectorActive-- : 38 == t.keyCode && 0 > window.selectorActive && (window.selectorActive = o(
-                                "#autocomplate-selector-list li").length - 1), (40 == t.keyCode || 38 == t.keyCode) && (o(
-                                "#autocomplate-selector-list li").removeClass("active"), o("#autocomplate-selector-list li").eq(
-                                window.selectorActive).addClass("active"), 0 < o("#autocomplate-selector-list li").eq(window
-                                .selectorActive).length && o(this).val(o("#autocomplate-selector-list li").eq(window
+                                "#autocomplete-selector-list li").length - 1), (40 == t.keyCode || 38 == t.keyCode) && (o(
+                                "#autocomplete-selector-list li").removeClass("active"), o("#autocomplete-selector-list li").eq(
+                                window.selectorActive).addClass("active"), 0 < o("#autocomplete-selector-list li").eq(window
+                                .selectorActive).length && o(this).val(o("#autocomplete-selector-list li").eq(window
                                 .selectorActive).text()))
         }), o("#wyp-selector-editor").on("keyup keydown", function(t) {
                 if (40 == t.keyCode || 38 == t.keyCode) return !1
@@ -7658,8 +7657,8 @@
                 if (!1 == o(t.target).is("input,textarea,select,img")) return !1
         }), window.disable_auto_insert = !1, o(".css-editor-btn,.wyp-css-close-btn").click(function() {
                 if (T() && o(".animation-manager-btn.active").trigger("click"), o(".css-editor-btn").toggleClass("active"), "none" == o(
-                                "#leftAreaEditor").css("display")) {
-                        o("#cssData,#cssEditorBar,#leftAreaEditor").show(), tn.addClass("wyp-css-ed-act"), window.ypData[
+                                "#left-area-editor").css("display")) {
+                        o("#css-data,#css-editor-bar,#left-area-editor").show(), tn.addClass("wyp-css-ed-act"), window.ypData[
                                 "wyp-css-ed-act"] = !0, N();
                         var e = o(".css-editor-btn"),
                                 t = e.attr("data-original-title");
@@ -7672,7 +7671,7 @@
                                 title: qi.css_parse_error,
                                 text: qi.css_parse_error_text
                         }), !1;
-                        o("#cssData,#cssEditorBar,#leftAreaEditor").hide(), tn.removeClass("wyp-css-ed-act"), window.ypData[
+                        o("#css-data,#css-editor-bar,#left-area-editor").hide(), tn.removeClass("wyp-css-ed-act"), window.ypData[
                                 "wyp-css-ed-act"] = !1, N(), o(".css-editor-btn").attr("data-original-title", o(
                                 ".css-editor-btn").attr("data-title")), $(), Ze(), sn.extra.find(".wyp-el-viewer").remove()
                 }
@@ -7838,29 +7837,29 @@
                 stop: function(e, t) {
                         o(".fake-layer-x").remove(), R("navigationWidth", t.size.width), We(0)
                 }
-        }), o("#leftAreaEditor").resizable({
+        }), o("#left-area-editor").resizable({
                 handles: "e, s",
                 maxWidth: o(window).width(),
                 minWidth: 370,
                 delay: 150,
                 start: function(e, t) {
                         var a = o(this).data("ui-resizable").axis;
-                        "e" == a && (o("#cssData").width(t.size.width - 41), o("#cssEditorBar").width(t.size.width)), He(0),
+                        "e" == a && (o("#css-data").width(t.size.width - 41), o("#css-editor-bar").width(t.size.width)), He(0),
                                 "e" == a ? o(".fake-layer-x").css("cursor", "e-resize") : o(".fake-layer-x").css("cursor",
                                         "s-resize")
                 },
                 resize: function(e, t) {
                         var a = o(this).data("ui-resizable").axis;
                         "e" == a && (t.size.width > parseInt(o(window).width() - 10) && (t.size.width = o(window).width()), o(
-                                        "#cssData").width(t.size.width - 41), o("#cssEditorBar").width(t.size.width)), 200 > t
-                                .size.height && (t.size.height = 200), "s" == a && o("#cssData").height(t.size.height - 76), o(
+                                        "#css-data").width(t.size.width - 41), o("#css-editor-bar").width(t.size.width)), 200 > t
+                                .size.height && (t.size.height = 200), "s" == a && o("#css-data").height(t.size.height - 76), o(
                                         "#csseditor-personalized-view").remove(), window.ypData["wyp-css-ed-drgable"] ? Y(t.size
                                         .width, t.size.height - 36) : Y(t.size.width, null), n.resize(), j(), N()
                 },
                 stop: function(e, t) {
                         var a = o(this).data("ui-resizable").axis;
-                        o(".fake-layer-x").remove(), o("#cssData").width(t.size.width - 41), o("#cssEditorBar").width(t.size
-                                .width), "s" == a && o("#cssData").height(t.size.height - 76), R("cssEditorWidth", t
+                        o(".fake-layer-x").remove(), o("#css-data").width(t.size.width - 41), o("#css-editor-bar").width(t.size
+                                .width), "s" == a && o("#css-data").height(t.size.height - 76), R("cssEditorWidth", t
                                 .size.width), window.ypData["wyp-css-ed-drgable"] && R("cssEditorHeight", t.size.height)
                 }
         }), o.contextMenu({
@@ -8360,7 +8359,7 @@
                         clearTimeout(_n), _n = setTimeout(function() {
                                 Ye(n.getValue())
                         }, 100)
-                }), o("#cssData").on("keyup keydown", function(t) {
+                }), o("#css-data").on("keyup keydown", function(t) {
                         if (window.saveFromEditor) return !1;
                         n.getSession().removeMarker(window.typeHereMarker);
                         var e = 0;

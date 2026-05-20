@@ -232,7 +232,8 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                     // Loading The Styles
                     var styles = [
                         "//fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap",
-                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/editor-bar.css?wypver=7.6.0"
                     ];
 
                     // Load styles in iframe
