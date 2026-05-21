@@ -26,7 +26,7 @@ var Pe = _YP.Pe, Re = _YP.Re, Fe = _YP.Fe, be = _YP.be, Xe = _YP.Xe;
 function He(e)  { var fn = YP._compat && YP._compat.He;  return fn ? fn(e)  : undefined; }
 function We(e)  { var fn = YP._compat && YP._compat.We;  return fn ? fn(e)  : undefined; }
 
-// je, ne, Be, Mi, Ni, Yi, fi are populated by yellow-pencil.js AFTER this module loads.
+// je, ne, Be, Mi, Ni, Yi, fi, Ci are populated by yellow-pencil.js AFTER this module loads.
 // Use lazy wrappers so we always read the current value from _compat at call time.
 function Be(e)  { var fn = YP._compat && YP._compat.Be;  return fn ? fn(e)  : undefined; }
 function Mi()   { var fn = YP._compat && YP._compat.Mi;  return fn ? fn()   : undefined; }
@@ -37,6 +37,7 @@ function je(e, t, a) { var fn = YP._compat && YP._compat.je; return fn ? fn(e, t
 function ne(e)  { var fn = YP._compat && YP._compat.ne;  return fn ? fn(e)  : undefined; }
 function Pi(e)  { var fn = YP._compat && YP._compat.Pi;  return fn ? fn(e)  : undefined; }
 function Ri(e)  { var fn = YP._compat && YP._compat.Ri;  return fn ? fn(e)  : undefined; }
+function Ci(e, t) { var fn = YP._compat && YP._compat.Ci; return fn ? fn(e, t) : undefined; }
 
 function Ke() {
                 o(".type-has-change").removeClass("type-has-change")
