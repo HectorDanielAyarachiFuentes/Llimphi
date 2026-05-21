@@ -18,7 +18,8 @@
  *   6. yp-selector.js
  *   7. yp-responsive.js
  *   8. yp-save.js
- *   9. yellow-pencil.js    ← original IIFE (remaining code)
+ *   9. yp-panel-ui.js
+ *  10. yellow-pencil.js    ← original IIFE (remaining code)
  */
 (function () {
     "use strict";
@@ -32,8 +33,12 @@
         cssParser   : {},
         selector    : {},
         responsive  : {},
-        save        : {}
+        save        : {},
+        panel       : {}
     };
+
+    window.YP.getEditor = function() { return window.YP.editorInstance; };
+    window.YP.setEditor = function(instance) { window.YP.editorInstance = instance; };
 
     /**
      * applyCompat()

@@ -53,6 +53,11 @@
         // yp-events.js
         var He = _YP.He, We = _YP.We;
 
+        // yp-panel-ui.js
+        var ne = _YP.ne, be = _YP.be, Be = _YP.Be, je = _YP.je, Xe = _YP.Xe,
+            fi = _YP.fi, Mi = _YP.Mi, Pi = _YP.Pi, Ri = _YP.Ri, Yi = _YP.Yi,
+            Ni = _YP.Ni;
+
         // yp-css-property-ui.js
         var Ke = _YP.Ke, Je = _YP.Je, Qe = _YP.Qe, et = _YP.et, tt = _YP.tt,
             at = _YP.at, it = _YP.it, nt = _YP.nt, st = _YP.st, ot = _YP.ot,
@@ -64,7 +69,7 @@
             $t = _YP.$t, Gt = _YP.Gt, Kt = _YP.Kt, Jt = _YP.Jt, Qt = _YP.Qt,
             ea = _YP.ea, ta = _YP.ta, aa = _YP.aa, ia = _YP.ia, na = _YP.na,
             sa = _YP.sa, oa = _YP.oa, ra = _YP.ra, la = _YP.la, pa = _YP.pa,
-            ca = _YP.ca;
+            ca = _YP.ca, Yt = _YP.Yt, Zt = _YP.Zt;
 
         // ─────────────────────────────────────────────────────────────────────────
 
@@ -380,13 +385,6 @@
                 }, 1600), o.throttle(Be(), 32)
         }
 
-        function ne(e) {
-                null == e && (e = o("#wyp-background-image").val()), 0 < o(".wyp-background-image-show").length && o(".wyp-background-image-show").attr(
-                                "src") == e && o(".wyp-background-image-show").show(), o(".wyp-background-image-show").remove(), e = e.replace(/"/g, "")
-                        .replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), -1 == e.indexOf("yellow-pencil") && (-1 != e.indexOf("//") || -1 !=
-                                e.indexOf("data:")) && o("#background-image-group .op-c").append("<img src='" + e +
-                                "' class='wyp-background-image-show' />")
-        }
 
         function se() {
                 setTimeout(function() {
@@ -890,9 +888,6 @@
                 })
         }
 
-        function be(e) {
-                return e.hasAttr("data-default") ? e.attr("data-default") : "no-defined"
-        }
 
         function xe(e, t, a) {
                 var i = e.parent().parent().parent(),
@@ -1088,33 +1083,6 @@
                                 .find(g).hasClass("wyp-selected") && o(".wyp-contextmenu-" + x).append("<i class='wyp-contextmenu-small'>Edited</i>")
         }
 
-        function Be(e) {
-                var t = 0,
-                        a = o(".ed-pnl"),
-                        i = o(".ed-pnl-list"),
-                        n = o(".ed-pnl-footer"),
-                        s = window.ypData["wyp-fix-pan"];
-                if ("none" === a.css("display") && !0 !== e) return n.show(), !1;
-                window.lastScrollTop = i.scrollTop();
-                var r = i.offset().top,
-                        l = n.height();
-                i.hasClass("list-active") || (l = 0);
-                var d = Gi.height(),
-                        p = o("#iframe").height(),
-                        c = o(window).height(),
-                        u = c - (r + l);
-                if (i.removeAttr("style"), i.find(".wyp-t-cont").css("height", ""), t = i.height(), i.hasClass("list-active")) t > u && !1 == s && i
-                        .height(u - 10), s && i.height(u);
-                else {
-                        var m = i.find("li.active .wyp-t-cont"),
-                                f = 41;
-                        s || (f += 10), t > u && m.height(u - f)
-                }
-                n.css("width", parseInt(a.width()) + "px"), i.scrollTop(window.lastScrollTop), 0 < o(".ed-pnl-list > li.active").length ? n.hide() : n
-                        .show(), !1 == A() && (clearTimeout(vn), vn = setTimeout(function() {
-                                d > p ? a.css("marginRight", 4 + ei() + "px") : a.css("marginRight", "4px")
-                        }, window.Yellow2Delay))
-        }
 
         function Me(e) {
                 if (!1 === window.leftBarSize && (window.leftBarSize = document.querySelector(".editor-leftbar").getBoundingClientRect()), "cursor" !==
@@ -1413,47 +1381,7 @@
                 return e
         }
 
-        function je(e, t, a) {
-                if ("--google-webfont" == t) return "desktop";
-                if (K(e)) return e;
-                if (A()) {
-                        var i, n;
-                        return i = 0 < o(".breakpoint-bar .breakpoint-item.focus").length ? o(".breakpoint-bar .breakpoint-item.focus").attr(
-                                        "data-breakpoint") : o("#iframe").width(), n = o(".media-control").attr("data-code"), e = "(" + n + ":" + i +
-                                "px)", e
-                }
-                if (!0 == window.ypOption.smart_responsive_technology && "disable" != a && ("font-size" == t || "line-height" == t ||
-                                "letter-spacing" == t || "word-spacing" == t || "margin-left" == t || "margin-right" == t || "margin-top" == t ||
-                                "margin-bottom" == t || "padding-left" == t || "padding-right" == t || "padding-top" == t || "padding-bottom" == t ||
-                                "z-index" == t || "column-count" == t || "position" == t || "top" == t || "left" == t || "right" == t || "bottom" ==
-                                t || "width" == t || "height" == t || "min-width" == t || "min-height" == t || "max-width" == t || "max-height" == t ||
-                                "animation-name" == t || "animation-duration" == t || "animation-delay" == t || "animation-fill-mode" == t ||
-                                "transform" == t || "filter" == t || "backdrop-filter" == t || "opacity" == t || "display" == t || "cursor" == t ||
-                                "float" == t || "clear" == t || "visibility" == t || "pointer-events" == t || "overflow" == t)) {
-                        var s = Va(t);
-                        if (K(s)) return null != a && !1 != a && "disable" != a && Li("Preserving Responsive Design",
-                                "The style was applied to a specific screen size to preserve the responsive design.", "responsiveLayout"
-                                ), s
-                }
-                return "desktop"
-        }
 
-        function Xe(e) {
-                e = e.replace(/\:yp-onscreen/g, ".yp_onscreen").replace(/\:yp-focus/g, ".yp_focus").replace(/\:yp-hover/g, ".yp_hover").replace(
-                        /\:yp-click/g, ".yp_click");
-                var t = e.match(/:(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)/g);
-                if (null != t) t = t[0].replace(/:/g, "");
-                else return e;
-                var a = "",
-                        i = "";
-                return ("hover" == t || "focus" == t || "active" == t || "visited" == t || "link" == t || "checked" == t || "disabled" == t ||
-                        "enabled" == t || "invalid" == t || "valid" == t) && ("}" == e.charAt(0) && (a = "}"), "{" == e.slice(-1) && (i = "{"),
-                        e = e.replace(/(\{|\})/g, ""), e = e.replace(
-                                /(body)?\.yp-selector-(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)\./g, "body."),
-                        e = e.replace(/(body)?\.yp-selector-(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)/g, ""), e =
-                        e.replace(/:(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)(\s+)?$/g, ""), e = Hi(e,
-                                "yp-selector-" + t), e = e.replace(/(\r|\n)/g, ""), e = a + e + i), e
-        }
 
         function Ve(e, t) {
                 return !0 === t ? (e = e.replace(/:nth-child\((.*?)\)/g, ".nth-child.$1."), e = e.replace(/:not\((.*?)\)/g, ".notYP$1YP"), e = e
@@ -2574,9 +2502,6 @@
 
         
 
-        function fi(e) {
-                return "undefined" != typeof e && "" != e ? e.replace(/\d/g, "").replace(".px", "px") : ""
-        }
 
         
 
@@ -2765,29 +2690,6 @@
 
         
 
-        function Mi() {
-                if (clearTimeout(window.wyp_insert_data_delay), tn.hasClass("css-code-unvalid")) return !1;
-                tn.addClass("wyp-history-delay"), o(".wyp-save-btn").text(qi.save).removeClass("wyp-disabled").addClass("waiting-for-save");
-                var e = window.editedByReview,
-                        t = 370;
-                window.wyp_insert_data_delay = setTimeout(function() {
-                        var t = E();
-                        Gi.find(".wyp-data-only-updated").each(function() {
-                                var e = o(this),
-                                        t;
-                                t = e.attr("data-source-mode"), y(t);
-                                var a = Et(!0, t, !0);
-                                n.setValue(a), e.removeClass("wyp-data-only-updated")
-                        }), y(t), window.ypData["vsl-css-vi-active"] && !1 == e && (Yt(), Zt()), sa(), tn.removeClass(
-                                "wyp-history-delay"), window.ypData["wyp-css-ed-act"] && _e(), n.getSession().removeMarker(
-                                window.typeHereMarker), yt("all")
-                }, t), setTimeout(function() {
-                        $()
-                }, t + 20), A() && he(!0), 0 == o(".wyp-type-menu-link.done").length && (o(".wyp-type-menu-link").addClass("focus").addClass(
-                        "done"), setTimeout(function() {
-                        o(".wyp-type-menu-link").removeClass("focus")
-                }, 600))
-        }
 
         function Zi() {
                 if (!1 === window.ypData["wyp-need-to-process"] || window.ypData["wyp-processing-now"]) return !1;
@@ -2809,33 +2711,13 @@
                 Di()
         }
 
-        function Pi(e) {
-                return "undefined" == typeof e ? "" : -1 == e.indexOf("rgba") ? (e = e.match(
-                        /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i), e && 4 === e.length ? "#" + ("0" +
-                        parseInt(e[1], 10).toString(16)).slice(-2) + ("0" + parseInt(e[2], 10).toString(16)).slice(-2) + ("0" +
-                        parseInt(e[3], 10).toString(16)).slice(-2) : "") : e.replace(/\s+/g, "")
-        }
 
-        function Ri(e) {
-                e = e.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(e, t, a, i) {
-                        return t + t + a + a + i + i
-                });
-                var t = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e);
-                return t ? "rgb(" + parseInt(t[1], 16) + "," + parseInt(t[2], 16) + "," + parseInt(t[3], 16) + ")" : null
-        }
 
         function Ii(e) {
                 return J(e) ? "" : e.replace(new RegExp(window.plugin_classes_list_sorted, "gi"), "")
         }
 
-        function Yi() {
-                clearTimeout(window.animationTimer1), clearTimeout(window.animationTimer2), clearTimeout(window.animationTimer3), clearTimeout(window
-                        .animationTimer4), clearTimeout(window.animationTimer5)
-        }
 
-        function Ni() {
-                Gi.find(_a()).trigger("animationend")
-        }
 
         
 
@@ -3015,6 +2897,7 @@
                         ".append-auto-comments-checkbox input").prop("checked", window.ypOption.append_auto_comments), window.define = window.define ||
                 ace.define, !0 !== window.bMode && ace.config.set("basePath", aceEditorBase);
         var n = ace.edit("css-data");
+        window.YP.setEditor(n);
         n.setTheme("ace/theme/twilight"), n.$blockScrolling = 1 / 0, n.setShowPrintMargin(!1), n.setOptions({
                 enableMultiselect: !0,
                 enableBasicAutocompletion: !0,
@@ -6749,5 +6632,9 @@ if (window.YP && window.YP._compat) {
     window.YP._compat.ne = typeof ne !== 'undefined' ? ne : undefined;
     window.YP._compat.Pi = typeof Pi !== 'undefined' ? Pi : undefined;
     window.YP._compat.Ri = typeof Ri !== 'undefined' ? Ri : undefined;
+    window.YP._compat._e = typeof _e !== 'undefined' ? _e : undefined;
+    window.YP._compat.$ = typeof $ !== 'undefined' ? $ : undefined;
+    window.YP._compat.he = typeof he !== 'undefined' ? he : undefined;
+    window.YP._compat.y = typeof y !== 'undefined' ? y : undefined;
 }
 })(jQuery);

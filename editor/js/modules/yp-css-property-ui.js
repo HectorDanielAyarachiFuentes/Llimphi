@@ -20,7 +20,7 @@ var Y = _YP.Y, N = _YP.N, X = _YP.X, ei = _YP.ei;
 var ba = _YP.ba, xa = _YP.xa, ka = _YP.ka, za = _YP.za, Oa = _YP.Oa, Sa = _YP.Sa, Ta = _YP.Ta, Ea = _YP.Ea, La = _YP.La, Ba = _YP.Ba;
 var H = _YP.H, F = _YP.F, j = _YP.j, Vt = _YP.Vt, Ut = _YP.Ut, yi = _YP.yi;
 var Q = _YP.Q, ee = _YP.ee, bi = _YP.bi, vi = _YP.vi, da = _YP.da, At = _YP.At, Di = _YP.Di;
-var Pe = _YP.Pe, Re = _YP.Re, Fe = _YP.Fe;
+var Pe = _YP.Pe, Re = _YP.Re, Fe = _YP.Fe, be = _YP.be, Xe = _YP.Xe;
 
 // He, We are defined in yp-events.js which loads AFTER this module
 function He(e)  { var fn = YP._compat && YP._compat.He;  return fn ? fn(e)  : undefined; }
@@ -1985,27 +1985,6 @@ function Et(e, t, n, s) {
                 })
         }
 
-        function Xe(e) {
-                e = e.replace(/\:yp-onscreen/g, ".yp_onscreen").replace(/\:yp-focus/g, ".yp_focus").replace(/\:yp-hover/g, ".yp_hover").replace(
-                        /\:yp-click/g, ".yp_click");
-                var t = e.match(/:(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)/g);
-                if (null != t) t = t[0].replace(/:/g, "");
-                else return e;
-                var a = "",
-                        i = "";
-                return ("hover" == t || "focus" == t || "active" == t || "visited" == t || "link" == t || "checked" == t || "disabled" == t ||
-                        "enabled" == t || "invalid" == t || "valid" == t) && ("}" == e.charAt(0) && (a = "}"), "{" == e.slice(-1) && (i = "{"),
-                        e = e.replace(/(\{|\})/g, ""), e = e.replace(
-                                /(body)?\.yp-selector-(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)\./g, "body."),
-                        e = e.replace(/(body)?\.yp-selector-(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)/g, ""), e =
-                        e.replace(/:(hover|focus|active|visited|link|checked|disabled|enabled|invalid|valid)(\s+)?$/g, ""), e = Hi(e,
-                                "yp-selector-" + t), e = e.replace(/(\r|\n)/g, ""), e = a + e + i), e
-        }
-
-        function be(e) {
-                return e.hasAttr("data-default") ? e.attr("data-default") : "no-defined"
-        }
-
         function ca(e, t) {
                 t = o.trim(t);
                 var a = "px";
@@ -2103,6 +2082,8 @@ YP.cssPropertyUI = {
   la: la,
   pa: pa,
   ca: ca,
+  Yt: Yt,
+  Zt: Zt,
 };
 
 Object.assign(YP._compat, YP.cssPropertyUI);
