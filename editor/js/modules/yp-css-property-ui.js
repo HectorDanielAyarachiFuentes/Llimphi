@@ -38,6 +38,7 @@ function ne(e)  { var fn = YP._compat && YP._compat.ne;  return fn ? fn(e)  : un
 function Pi(e)  { var fn = YP._compat && YP._compat.Pi;  return fn ? fn(e)  : undefined; }
 function Ri(e)  { var fn = YP._compat && YP._compat.Ri;  return fn ? fn(e)  : undefined; }
 function Ci(e, t) { var fn = YP._compat && YP._compat.Ci; return fn ? fn(e, t) : undefined; }
+function Ma(e, t) { var fn = YP._compat && YP._compat.Ma; return fn ? fn(e, t) : undefined; }
 
 function Ke() {
                 o(".type-has-change").removeClass("type-has-change")

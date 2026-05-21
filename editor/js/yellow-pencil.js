@@ -2727,7 +2727,7 @@
                         location.reload()
                 })
         }
-        var qi = {};
+        var qi = window.qi = {};
         qi.back_to_menu = "Back to menu", qi.close_editor = "Close Editor", qi.saving = window.bMode ? "Exportar" : "Guardando", qi.save = window.bMode ?
                 "Exportar" : "Guardar", qi.saved = window.bMode ? "Exportar" : "Guardado", qi.unknown = "Unknown", qi.no_el_selected = "No element selected", qi
                 .live_preview_alert = "This tool is disabled in demo mode!", qi.live_preview_text =
