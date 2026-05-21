@@ -58,14 +58,16 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             // Proxy external fetches to bypass CSP
             window.addEventListener('message', function(event) {
                 if (event.data && event.data.type === 'WYP_FETCH_UNSPLASH') {
-                    fetch(event.data.url)
-                        .then(response => response.json())
-                        .then(data => {
-                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: true, data: data }, '*');
-                        })
-                        .catch(err => {
-                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: false, error: err.message }, '*');
-                        });
+                    console.log("[YP-Extension] starter.js received WYP_FETCH_UNSPLASH postMessage, URL:", event.data.url);
+                    chrome.runtime.sendMessage({ type: 'WYP_FETCH_UNSPLASH_BG', url: event.data.url }, function(response) {
+                        console.log("[YP-Extension] starter.js received response from background.js:", response);
+                        if (chrome.runtime.lastError) {
+                            console.error("[YP-Extension] chrome.runtime.sendMessage failed:", chrome.runtime.lastError.message);
+                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: false, error: chrome.runtime.lastError.message }, '*');
+                        } else {
+                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: response.success, data: response.data, error: response.error }, '*');
+                        }
+                    });
                 }
             });
             function wyp_load_note(text, p){

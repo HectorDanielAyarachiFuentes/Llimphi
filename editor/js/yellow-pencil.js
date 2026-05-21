@@ -2,6 +2,61 @@
         "use strict";
         window.bMode = true;
 
+        function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                if (rect.width === 0 && rect.height === 0) {
+                        return false;
+                }
+                var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+                var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+                var inWindow = (
+                        rect.bottom >= 0 &&
+                        rect.top <= windowHeight &&
+                        rect.right >= 0 &&
+                        rect.left <= windowWidth
+                );
+                if (!inWindow) {
+                        return false;
+                }
+                var parent = el.parentNode;
+                while (parent && parent.nodeType === 1 && parent !== document.body) {
+                        var style = window.getComputedStyle(parent);
+                        var overflowY = style.getPropertyValue('overflow-y') || style.getPropertyValue('overflow');
+                        var overflowX = style.getPropertyValue('overflow-x') || style.getPropertyValue('overflow');
+                        var hasScroll = overflowY === 'auto' || overflowY === 'scroll' || overflowX === 'auto' || overflowX === 'scroll';
+                        if (hasScroll) {
+                                var parentRect = parent.getBoundingClientRect();
+                                var inParent = (
+                                        rect.bottom >= parentRect.top &&
+                                        rect.top <= parentRect.bottom &&
+                                        rect.right >= parentRect.left &&
+                                        rect.left <= parentRect.right
+                                );
+                                if (!inParent) {
+                                        return false;
+                                }
+                        }
+                        parent = parent.parentNode;
+                }
+                return true;
+        }
+
+        if (o.expr) {
+                var inViewportPseudo = o.expr.createPseudo ? o.expr.createPseudo(function() {
+                        return function(elem) {
+                                return isElementInViewport(elem);
+                        };
+                }) : function(elem) {
+                        return isElementInViewport(elem);
+                };
+                if (o.expr.pseudos) {
+                        o.expr.pseudos['in-viewport'] = inViewportPseudo;
+                }
+                if (o.expr[':']) {
+                        o.expr[':']['in-viewport'] = inViewportPseudo;
+                }
+        }
+
         function e() {
                 var e = document.body.getAttribute("data-b-mode-data");
                 return void 0 === e || null === e ? {} : JSON.parse(e)
@@ -6164,8 +6219,11 @@
                         "?client_id=5746b12f75e91c251bddf6f83bd2ad0d658122676e9bd2444e110951f9a04af8", null != t && (a += "&query=" + t), null != e && (
                                 a += "&page=" + e);
 
+                console.log("[YP-Extension] Wi called, constructed API URL:", a);
+
                 var listener = function(event) {
                         if (event.data && event.data.type === 'WYP_FETCH_UNSPLASH_RESULT') {
+                                console.log("[YP-Extension] Wi received WYP_FETCH_UNSPLASH_RESULT:", event.data);
                                 window.removeEventListener('message', listener);
                                 if (event.data.success) {
                                         var e = event.data.data;
@@ -6179,6 +6237,7 @@
                                                         "' ><i>Upload</i></span>")
                                         }), window.getJsonNow = !1, Fi();
                                 } else {
+                                        console.error("[YP-Extension] Unsplash API fetch failed with error:", event.data.error);
                                         Li("Loading Error", "Could Not Load Json library. (Unsplash API)", "jsonError");
                                 }
                         }
@@ -7370,7 +7429,7 @@
                 var e = o(this);
                 hn || (Wi(1), hn = !0), e.toggleClass("active"), o(".wyp-unsplash-section").toggle(), e.hasClass("active") ? (o(
                         ".wyp-gradient-btn.active,.wyp-bg-img-btn.active").trigger("click"), o(
-                        ".wyp-background-image-show").hide()) : ne(null), o.throttle(Be(), 32)
+                        ".wyp-background-image-show").hide(), setTimeout(function() { Fi(); }, 150)) : ne(null), o.throttle(Be(), 32)
         }), o(document).on("click", ".wyp-gradient-demo", function() {
                 Ot(o(this).attr("data-gradient")), Dt("insert"), o(
                                 ".wyp-unsplash-list > span.active,.wyp-gradient-demo.active,.wyp-bg-ast.active").removeClass("active"),
@@ -10003,6 +10062,12 @@
                                                         ".wyp-unsplash-list > span.active,.wyp-gradient-demo.active,.wyp-bg-ast.active"
                                                         ).removeClass("active"), e.addClass("active")
                                         }, 500)
+                        }).on("error", function() {
+                                i = 100, e.attr("data-content", "Error"), clearTimeout(window.unsplashLoaderIn), setTimeout(
+                                        function() {
+                                                e.removeClass("unsplash-img-loading");
+                                                Li("Loading Error", "Could not load image preview.", "imgError");
+                                        }, 500)
                         }), clearInterval(window.unsplashLoaderIn), window.unsplashLoaderIn = setInterval(function() {
                                 var t = 8;
                                 97 < i ? t = 1.1 : 95 < i ? t = 1.2 : 90 < i ? t = 1.3 : 80 < i ? t = 1.4 : 70 < i ? t = 1.5 :
@@ -10011,7 +10076,7 @@
                                                 i + "%")
                         }, 100), o(".wyp-background-image-show").hide()
                 }), o(".wyp-unsplash-list").on("scroll", o.throttle(function() {
-                        ji()
+                        ji(), Fi()
                 }, 64)), Array.prototype.diff = function(e) {
                         return this.filter(function(t) {
                                 return 0 > e.indexOf(t)
