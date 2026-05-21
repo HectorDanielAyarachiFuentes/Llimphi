@@ -15,61 +15,15 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             // Replace placeholders with actual URLs
             editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
 
-            var parser = new DOMParser();
-            var newDoc = parser.parseFromString(editorHtml, 'text/html');
-
-            var placeholders = Array.from(newDoc.querySelectorAll('[data-wyp-template]'));
-            var fetchPromises = placeholders.map(placeholder => {
-                var templateName = placeholder.getAttribute('data-wyp-template');
-                var templateUrl = chrome.runtime.getURL(`editor/templates/${templateName}.html`) + "?t=" + Date.now();
-                return fetch(templateUrl)
-                    .then(response => response.text())
-                    .then(templateHtml => {
-                        // Replace placeholders with actual URLs in template content
-                        templateHtml = templateHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
-                        placeholder.outerHTML = templateHtml;
-                    });
-            });
-
-            return Promise.all(fetchPromises).then(() => newDoc);
-        })
-        .then(newDoc => {
-            while (document.documentElement.firstChild) {
-                document.documentElement.removeChild(document.documentElement.firstChild);
-            }
-
-            for (let attr of newDoc.documentElement.attributes) {
-                document.documentElement.setAttribute(attr.name, attr.value);
-            }
-
-            if (newDoc.head) {
-                document.documentElement.appendChild(document.importNode(newDoc.head, true));
-            }
-            if (newDoc.body) {
-                document.documentElement.appendChild(document.importNode(newDoc.body, true));
-            }
+            document.open();
+            document.write(editorHtml);
+            document.close();
 
             // Vars
             window.bMode = true;
 
             // Update loading notes.
             var oldP = 0;
-
-            // Proxy external fetches to bypass CSP
-            window.addEventListener('message', function(event) {
-                if (event.data && event.data.type === 'WYP_FETCH_UNSPLASH') {
-                    console.log("[YP-Extension] starter.js received WYP_FETCH_UNSPLASH postMessage, URL:", event.data.url);
-                    chrome.runtime.sendMessage({ type: 'WYP_FETCH_UNSPLASH_BG', url: event.data.url }, function(response) {
-                        console.log("[YP-Extension] starter.js received response from background.js:", response);
-                        if (chrome.runtime.lastError) {
-                            console.error("[YP-Extension] chrome.runtime.sendMessage failed:", chrome.runtime.lastError.message);
-                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: false, error: chrome.runtime.lastError.message }, '*');
-                        } else {
-                            window.postMessage({ type: 'WYP_FETCH_UNSPLASH_RESULT', success: response.success, data: response.data, error: response.error }, '*');
-                        }
-                    });
-                }
-            });
             function wyp_load_note(text, p){
                 if(window.loadStatus == false && oldP < p){
                     if(text){
@@ -81,9 +35,8 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             }
 
             // Reload the page after browser undo & undo
-            const navEntries = window.performance && window.performance.getEntriesByType ? window.performance.getEntriesByType("navigation") : [];
-            if (navEntries.length > 0 && navEntries[0].type === "back_forward") {
-                wyp_load_note("Recargando Editor", "0");
+            if (!!window.performance && window.performance.navigation.type === 2) {
+                wyp_load_note("Reloading Editor", "0");
                 window.location.reload();
             }
 
@@ -91,7 +44,19 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             window.loadStatus = false;
 
             // Document Load Note:
-            wyp_load_note("Cargando Editor", "20");
+            wyp_load_note("Loading Editor", "20");
+
+            setTimeout(function(){
+                wyp_load_note(null, "23");
+            }, 300);
+
+            setTimeout(function(){
+                wyp_load_note(null, "26");
+            }, 600);
+
+            setTimeout(function(){
+                wyp_load_note(null, "29");
+            }, 900);
 
             // Document ready.
             (function() {
@@ -106,7 +71,15 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                 }
 
                 // 33%
-                wyp_load_note("Cargando Página", "33");
+                wyp_load_note("Loading Page", "33");
+
+                setTimeout(function(){
+                    wyp_load_note(null, "33");
+                }, 600);
+
+                setTimeout(function(){
+                    wyp_load_note(null, "36");
+                }, 900);
 
                 // Frame ready
                 var iframeReady = false;
@@ -133,7 +106,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                             // show loading
                             document.querySelector(".wyp-iframe-loader").style.display = "block";
-                            document.querySelector(".loading-files").innerHTML = "¡Página redirigida!";
+                            document.querySelector(".loading-files").innerHTML = "Page was redirected!";
                             window.wyp_redirect_on = true;
 
                             // Get parent url
@@ -221,42 +194,24 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                         var style = document.createElement('link');
                         style.rel = "stylesheet";
-                        if (link.indexOf('chrome-extension:') !== -1 || link.indexOf('moz-extension:') !== -1) {
-                            link = link + (link.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
-                        }
                         style.href = link;
                         style.async = false;
                         document.head.appendChild(style);
 
                         style.onload = function(){
-                            wyp_load_note("Cargando Estilos", 39 + parseInt(21*i/(length - 1)));
+                            wyp_load_note("Loading Styles", 39 + parseInt(21*i/(length - 1)));
                         };
 
                     }
 
+                    // Loading The Styles
                     var styles = [
                         "//fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap",
-                        chrome.runtime.getURL('editor/') + "css/modules/00-reset.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/01-fonts-icons.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/02-tokens.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/03-base.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/04-overlay-alerts.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/05-context-menu.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/06-sliders.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/07-color-picker.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/08-tooltips-popovers.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/09-panel.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/10-leftbar.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/11-css-editor.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/12-animation.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/13-inspector.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/14-responsive.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/modules/15-utilities.css?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "css/editor-bar.css?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0"
                     ];
 
                     // Load styles in iframe
-                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0&t="+Date.now()+"' type='text/css' media='all' />");
+                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
 
                     // Loading.
                     for(var i = 0; i < styles.length; i++){
@@ -269,29 +224,6 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         chrome.runtime.getURL('editor/') + "js/ace/ace.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/ace/ext-language_tools.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/addons.js?wypver=7.6.0",
-                        // ── Yellow Pencil modules (load before main IIFE) ──────────────────────
-                        // Layer 1: namespace + state (no deps)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-namespace.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-state.js?wypver=7.6.0",
-                        // Layer 2: utils + storage (dep: namespace)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-ui-utils.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-storage.js?wypver=7.6.0",
-                        // Layer 3: parser (dep: storage)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-parser.js?wypver=7.6.0",
-                        // Layer 4: selector (dep: parser)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-selector.js?wypver=7.6.0",
-                        // Layer 5: responsive + save (dep: selector, storage)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-responsive.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-save.js?wypver=7.6.0",
-                        // Layer 6: element-select + animation + info panel (dep: selector, storage, parser)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-element-select.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-animation.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-info-panel.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-panel-ui.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-property-ui.js?wypver=7.6.0",
-                        // Layer 7: events (dep: all above)
-                        chrome.runtime.getURL('editor/') + "js/modules/yp-events.js?wypver=7.6.0",
-                        // ─────────────────────────────────────────────────────────────────────
                         chrome.runtime.getURL('editor/') + "js/yellow-pencil.js?wypver=7.6.0"
                     ];
 
@@ -299,7 +231,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                     function wyp_start_editor(){
 
                         // Ready!:
-                        wyp_load_note("¡Listo!", "100");
+                        wyp_load_note("Ready!", "100");
 
                         // Set true.
                         window.loadStatus = true;
@@ -339,16 +271,13 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         }
 
                         var src = scripts[i];
-                        if (src.indexOf('chrome-extension:') !== -1 || src.indexOf('moz-extension:') !== -1) {
-                            src = src + (src.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
-                        }
                         var script = document.createElement('script');
                         script.src = src;
                         script.async = false;
                         document.head.appendChild(script);
 
                         script.onload = function(){
-                            wyp_load_note("Cargando Scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
+                            wyp_load_note("Loading Scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
                             // Load the next script
                             wyp_load_script(i + 1);
                         };
