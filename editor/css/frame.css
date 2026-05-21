@@ -139,7 +139,8 @@ body.wyp-wf-on .hv-in-bx {
     background-color: rgba(0, 0, 0, .1) !important;
     opacity: 0 !important;
     border-width: 0 !important;
-    z-index: 2147483645 !important
+    z-index: 2147483645 !important;
+    pointer-events: none !important;
 }
 
 .wyp-met-dis .hv-in-bx {

@@ -2328,7 +2328,8 @@
                                                         }
                                                         return !1
                                                 }
-                                                At(), window.mouseoverTrigger = !0, o(e.target).trigger("fakeOver"), window.mouseoverTrigger = !1
+                                                window.YP.elementSelect.deselectElement();
+                                                Q(Ma(r, "default"), r, !1);
                                         }
                                 } else if (!1 === C()) {
                                 if (window.visualResizingType = "width", window.ResizeSelectedBorder = "right", window.styleAttrBeforeChange = r.attr(
