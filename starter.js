@@ -269,6 +269,27 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         chrome.runtime.getURL('editor/') + "js/ace/ace.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/ace/ext-language_tools.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/addons.js?wypver=7.6.0",
+                        // ── Yellow Pencil modules (load before main IIFE) ──────────────────────
+                        // Layer 1: namespace + state (no deps)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-namespace.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-state.js?wypver=7.6.0",
+                        // Layer 2: utils + storage (dep: namespace)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-ui-utils.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-storage.js?wypver=7.6.0",
+                        // Layer 3: parser (dep: storage)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-parser.js?wypver=7.6.0",
+                        // Layer 4: selector (dep: parser)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-selector.js?wypver=7.6.0",
+                        // Layer 5: responsive + save (dep: selector, storage)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-responsive.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-save.js?wypver=7.6.0",
+                        // Layer 6: element-select + animation + info panel (dep: selector, storage, parser)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-element-select.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-animation.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-info-panel.js?wypver=7.6.0",
+                        // Layer 7: events (dep: all above)
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-events.js?wypver=7.6.0",
+                        // ─────────────────────────────────────────────────────────────────────
                         chrome.runtime.getURL('editor/') + "js/yellow-pencil.js?wypver=7.6.0"
                     ];
 
