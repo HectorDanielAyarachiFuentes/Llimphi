@@ -1,0 +1,225 @@
+﻿/* Llimphi Editor - Context Menu */
+
+.context-menu-list {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 10px 0 rgba(0, 0, 0, .23) !important;
+    transition: opacity 218ms ease 0s;
+    background: #fff;
+    cursor: default;
+    font-size: 13px;
+    outline: 0;
+    padding: 6px 0;
+    position: absolute;
+    line-height: 16px;
+    border-radius: 8px
+}
+
+.context-menu-list li>.context-menu-list {
+    display: none;
+    margin-top: -7px !important
+}
+
+.context-menu-submenu.active>.context-menu-list,
+.context-menu-submenu.hover>.context-menu-list {
+    display: block
+}
+
+.context-menu-item {
+    padding-left: 16px;
+    vertical-align: middle;
+    padding-right: 44px;
+    position: relative;
+    color: #474747;
+    list-style: none;
+    margin: 0;
+    padding: 5px 8em 5px 16px;
+    white-space: nowrap
+}
+
+.context-menu-separator {
+    border-top: 1px solid #ebebeb;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    padding: 0 !important
+}
+
+.context-menu-item.hover {
+    background-color: #e8e8e8
+}
+
+.context-menu-item.wyp-disable-contextmenu {
+    color: #6c6c6c !important;
+    pointer-events: none;
+    background: #fff !important;
+    cursor: default !important
+}
+
+.context-menu-item.wyp-disable-contextmenu,
+.context-menu-item.wyp-disable-contextmenu span {
+    cursor: default !important
+}
+
+.context-menu-list {
+    z-index: 2147483646 !important;
+    max-width: 170px !important;
+    width: 170px !important
+}
+
+.context-menu-item.wyp-active-contextmenu {
+    background: rgba(21, 146, 230, .15) !important
+}
+
+.wyp-contextmenu-pseudo-classes .context-menu-item.wyp-active-contextmenu {
+    background: rgba(98, 158, 76, .25) !important
+}
+
+body.wyp-fix-leftbar:not(.wyp-res-mod):not(.wyp-crnt-el-menu) .context-menu-root {
+    margin-left: 42px
+}
+
+.context-menu-root.no-top-radius {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important
+}
+
+
+body.wyp-res-mod:not(.wyp-crnt-el-menu) .context-menu-root {
+    margin-top: 24px
+}
+
+.dom_contextmenu {
+    margin-top: 0 !important;
+    background-color: #7e7e7e !important
+}
+
+.dom_contextmenu li {
+    color: #fff !important
+}
+
+.dom_contextmenu li.hover {
+    background-color: #6e6e6e !important
+}
+
+.dom_contextmenu li.disabled {
+    color: rgba(255, 255, 255, .4) !important;
+    cursor: default !important
+}
+
+.dom_contextmenu li.disabled span {
+    cursor: default !important
+}
+
+.breakpoint-contextmenu {
+    top: 19px !important
+}
+
+#context-menu-layer {
+    z-index: 100046 !important
+}
+
+.context-menu-list.wyp-contextmenu-parent {
+    max-height: 280px;
+    overflow-y: auto
+}
+
+.context-menu-list.wyp-contextmenu-children {
+    max-height: 280px;
+    overflow-y: auto
+}
+
+.wyp-limit-children-view .show-more-children-link,
+.wyp-limit-parent-view .show-more-parent-link {
+    display: block !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='4' viewBox='0 0 14 4'%3E%3Cpath d='M10,2a2,2,0,1,1,2,2A2,2,0,0,1,10,2ZM5,2A2,2,0,1,1,7,4,2,2,0,0,1,5,2ZM0,2A2,2,0,1,1,2,4,2,2,0,0,1,0,2Z' fill='%237f7f7f'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #e7e7e7;
+    font-size: 0px;
+    top: 6px
+}
+
+.wyp-limit-children-view .show-more-children-link:hover,
+.wyp-limit-parent-view .show-more-parent-link:hover {
+    background-color: #d4e9fc
+}
+
+body .context-menu-root:not(.dom_contextmenu):not(.wyp-crnt-el-menu) .context-menu-list {
+    left: 0 !important;
+    margin-left: 168px !important
+}
+
+body.wyp-crnt-el-menu .context-menu-root:not(.dom_contextmenu) .context-menu-list {
+    left: 0 !important;
+    margin-left: -168px !important
+}
+
+body.wyp-crnt-el-menu .context-menu-root:not(.dom_contextmenu) .context-menu-item:not(.show-more-parent-link):not(.show-more-children-link) {
+    font-size: 13px !important;
+    padding: 6px 8em 6px 16px
+}
+
+body.wyp-crnt-el-menu>.context-menu-list:not(.dom_contextmenu):after,
+body.wyp-crnt-el-menu>.context-menu-list:not(.dom_contextmenu):before {
+    bottom: 100%;
+    left: 24px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none
+}
+
+body.wyp-crnt-el-menu>.context-menu-list:not(.dom_contextmenu):after {
+    border-color: transparent;
+    border-bottom-color: #fff;
+    border-width: 7px;
+    margin-left: -7px
+}
+
+body.wyp-crnt-el-menu>.context-menu-list:not(.dom_contextmenu):before {
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, .1);
+    border-width: 8px;
+    margin-left: -8px
+}
+
+.wyp-contextmenu-reset-global.wyp-disable-contextmenu,
+.wyp-contextmenu-reset-single.wyp-disable-contextmenu,
+.wyp-contextmenu-reset-template.wyp-disable-contextmenu {
+    display: none !important
+}
+
+.wyp-contextmenu-small {
+    position: absolute;
+    top: auto;
+    right: 10px;
+    background-color: #e8e8e8;
+    padding: 0 4px;
+    font-style: normal;
+    border-radius: 3px;
+    color: #666;
+    font-size: 11px
+}
+
+.wyp-active-contextmenu .wyp-contextmenu-small {
+    background-color: #649852 !important;
+    color: #fff !important
+}
+
+.context-menu-item.hover .wyp-contextmenu-small {
+    background-color: #ddd
+}
+
+.wyp-disable-contextmenu .wyp-contextmenu-small {
+    display: none !important
+}
+
+.wyp-contextmenu-reset-styles .wyp-contextmenu-small,
+.wyp-contextmenu-review-styles .wyp-contextmenu-small {
+    background-color: #4285f4 !important;
+    font-weight: 500 !important;
+    color: #fff !important
+}
+

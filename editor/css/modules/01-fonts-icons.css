@@ -1,0 +1,122 @@
+﻿/* Llimphi Editor - Fonts and Icon Font */
+
+b,
+strong {
+    font-weight: 500
+}
+
+@font-face {
+    font-family: wyp-ed;
+    src: url("icons/wyp-ed.ttf?jfoaz6") format("truetype"), url("icons/wyp-ed.woff?jfoaz6") format("woff"), url("icons/wyp-ed.svg?jfoaz6#wyp-ed") format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block
+}
+
+.yicon {
+    font-family: wyp-ed;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    vertical-align: top;
+    text-align: center
+}
+
+.icon-arrow-down:before {
+    content: "\e801"
+}
+
+.icon-flag:before {
+    content: "\e804"
+}
+
+.icon-controls-pause:before {
+    content: "\e805"
+}
+
+.icon-plus:before {
+    content: "\e806"
+}
+
+.icon-filter:before {
+    content: "\e808"
+}
+
+.icon-admin-collapse:before {
+    content: "\e809"
+}
+
+.icon-external:before {
+    content: "\e80b"
+}
+
+.icon-yes:before {
+    content: "\e80d"
+}
+
+.icon-no-alt:before {
+    content: "\e80e"
+}
+
+.icon-desktop:before {
+    content: "\e80f"
+}
+
+.icon-smartphone:before {
+    content: "\e810"
+}
+
+.icon-editor-alignright:before {
+    content: "\e811"
+}
+
+.icon-editor-aligncenter:before {
+    content: "\e812"
+}
+
+.icon-editor-alignleft:before {
+    content: "\e813"
+}
+
+.icon-editor-justify:before {
+    content: "\e814"
+}
+
+.icon-visibility:before {
+    content: "\e815"
+}
+
+.icon-hidden:before {
+    content: "\e816"
+}
+
+.icon-menu:before {
+    content: "\e818"
+}
+
+.icon-controls-play:before {
+    content: "\e819"
+}
+
+.icon-trash:before {
+    content: "\e81a"
+}
+
+.icon-warning:before {
+    content: "\e81b"
+}
+
+.icon-arrow-up:before {
+    content: "\e81c"
+}
+

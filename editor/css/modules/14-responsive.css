@@ -1,0 +1,358 @@
+﻿/* Llimphi Editor - Responsive Mode and Breakpoints */
+
+body.wyp-res-mod #iframe {
+    left: 50%;
+    top: 0;
+    width: 768px;
+    box-sizing: border-box;
+    overflow: hidden;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+body.wyp-res-mod #iframe {
+    height: calc(100% - 24px)
+}
+
+.responsive-left-handle,
+.responsive-right-handle {
+    width: 14px;
+    position: fixed;
+    z-index: 100;
+    cursor: e-resize;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 8 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(-187.5 -240.5)' fill='none' stroke='%23626262' stroke-width='2'%3E%3Cpath transform='translate(188.5 240.5)' d='m0 0v44'/%3E%3Cpath transform='translate(194.5 240.5)' d='m0 0v44'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 4px 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.responsive-left-handle:after,
+.responsive-right-handle:after {
+    background: #484848;
+    width: 2px;
+    height: 21px;
+    content: " ";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    opacity: .4;
+    pointer-events: none
+}
+
+body.wyp-res-mod .responsive-left-handle,
+body.wyp-res-mod .responsive-right-handle {
+    display: block
+}
+
+body.wyp-res-mod #iframe {
+    z-index: 30 !important
+}
+
+body.wyp-res-resizing .metric-top-border {
+    display: none !important
+}
+
+.breakpoint-bar {
+    display: none;
+    width: 100%;
+    height: 24px;
+    background-color: #767676;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-bottom: 1px solid #242424;
+    box-shadow: 0 0 10px 0 rgba(60, 60, 60, .34)
+}
+
+.breakpoint-bar .empty-placeholder {
+    height: 23px;
+    position: absolute;
+    top: 0;
+    padding: 0 6px;
+    border-right: 1px solid #313131;
+    border-left: 1px solid #313131;
+    z-index: 60;
+    background: #767676
+}
+
+.breakpoint-bar .min-width.breakpoint-item.last-min-breakpoint {
+    border-left: none !important;
+    border-right: none !important
+}
+
+.breakpoint-bar .breakpoint-item {
+    height: 23px;
+    position: fixed;
+    top: 0;
+    padding: 0 6px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color: #767676;
+    border-right: 1px solid #313131;
+    border-left: 1px solid #313131;
+    cursor: pointer
+}
+
+.breakpoint-bar .breakpoint-item.breakpoint-has-node-edit:after,
+.breakpoint-bar .breakpoint-item.edited:after {
+    content: " ";
+    display: block;
+    width: 7px;
+    height: 7px;
+    top: 8px;
+    background-color: #6bd063;
+    position: absolute;
+    border-radius: 10px;
+    pointer-events: none;
+    left: 7px;
+    right: auto;
+    z-index: 2147483646
+}
+
+.breakpoint-bar .breakpoint-item.edited.small-breakpoint:after {
+    left: 2px
+}
+
+.breakpoint-bar .breakpoint-item.edited.xsmall-breakpoint:after {
+    left: 1px
+}
+
+.breakpoint-bar .breakpoint-item.active,
+.breakpoint-bar .breakpoint-item.focus {
+    background-color: #595959
+}
+
+.breakpoint-bar .breakpoint-item.context-menu-active,
+.breakpoint-bar .breakpoint-item.hover-breakpoint,
+body.wyp-contextmenu-breakpoint .breakpoint-bar .breakpoint-item.active,
+body.wyp-contextmenu-breakpoint .breakpoint-bar .breakpoint-item.focus {
+    background-color: #595959
+}
+
+body.wyp-res-mod .breakpoint-bar {
+    display: flex;
+    justify-content: center
+}
+
+.metric-top-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 99;
+    width: 2px;
+    background-color: rgba(230, 40, 40, .85);
+    margin-left: 0;
+    height: 100%;
+    pointer-events: none;
+    display: block !important
+}
+
+.metric-left-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 99;
+    width: 100%;
+    background-color: rgba(230, 40, 40, .85);
+    margin-top: 0;
+    height: 2px;
+    pointer-events: none;
+    display: block !important
+}
+
+body.wyp-res-mod .metric-left-border {
+    margin-top: 0
+}
+
+body.wyp-res-resizing-left .metric-left-border,
+body.wyp-res-resizing-left .metric-top-tooltip,
+body.wyp-res-resizing-right .metric-left-border,
+body.wyp-res-resizing-right .metric-top-tooltip {
+    display: none !important
+}
+
+body.wyp-res-resizing #iframe {
+    pointer-events: none !important
+}
+
+.metric-top-tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 99;
+    padding: 4px 8px;
+    pointer-events: none;
+    background-color: rgba(230, 40, 40, .85);
+    color: #fff;
+    font-size: 11px;
+    margin-top: -1px;
+    margin-left: 0;
+    border-bottom-right-radius: 3px;
+    font-weight: 500;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 2px 2px 10px 0 rgba(0, 0, 0, .23)
+}
+
+.metric-left-tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 99;
+    padding: 4px 8px;
+    pointer-events: none;
+    background-color: rgba(230, 40, 40, .85);
+    color: #fff;
+    font-size: 11px;
+    margin-left: -1px;
+    margin-top: 0;
+    border-bottom-right-radius: 3px;
+    font-weight: 500;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 2px 2px 10px 0 rgba(0, 0, 0, .23)
+}
+
+body.wyp-res-mod .metric-left-tooltip {
+    margin-top: 24px
+}
+
+body.wyp-res-mod .metric-left-border {
+    margin-top: 0
+}
+
+.metric-left-tooltip span,
+.metric-top-tooltip span {
+    padding-left: 4px
+}
+
+body.wyp-met-dis .metric-left-border,
+body.wyp-met-dis .metric-top-border {
+    display: none !important
+}
+
+body.wyp-met-dis .metric-left-tooltip,
+body.wyp-met-dis .metric-top-tooltip {
+    display: none !important
+}
+
+body.wyp-if-movleav .metric-left-border,
+body.wyp-if-movleav .metric-left-tooltip,
+body.wyp-if-movleav .metric-top-border,
+body.wyp-if-movleav .metric-top-tooltip {
+    display: none !important
+}
+
+body.wyp-res-resizing .metric-left-tooltip,
+body.wyp-res-resizing .metric-top-border {
+    display: block !important
+}
+
+body.wyp-res-mod #iframe {
+    margin-top: 24px
+}
+
+.breakpoints-tooltip {
+    text-align: center
+}
+
+.responsive-size-text {
+    position: fixed;
+    color: #eaeaea;
+    text-shadow: 0 0 1px #202020;
+    font-size: 13px;
+    line-height: 23px;
+    display: none;
+    z-index: 9999;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    padding-bottom: 1px;
+    width: 240px;
+    text-align: center
+}
+
+.wyp-res-resizing .responsive-add-breakpoint {
+    display: none
+}
+
+.responsive-add-breakpoint {
+    position: fixed;
+    z-index: 101;
+    margin-left: -13px;
+    cursor: pointer;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 5px;
+    display: none;
+    opacity: .9;
+    z-index: 2147483646
+}
+
+body:not(.wyp-res-mod) .responsive-add-breakpoint {
+    display: none !important
+}
+
+body.wyp-res-resizing .responsive-add-breakpoint {
+    display: none !important
+}
+
+.responsive-add-breakpoint span {
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    font-size: 13px;
+    background-color: #fff;
+    color: #555;
+    border-radius: 100%;
+    line-height: 18px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), -2px 2px 10px 0 rgba(0, 0, 0, .23) !important
+}
+
+.tooltip-breakpoint-add .tooltip-inner {
+    text-align: center !important
+}
+
+body.wyp-res-resizing-left .metric-left-tooltip,
+body.wyp-res-resizing-right .metric-left-tooltip {
+    box-shadow: none !important;
+    opacity: 1 !important;
+    z-index: 120 !important;
+    font-size: 12px !important;
+    margin-left: 0 !important;
+    border-radius: 0 0 4px 0 !important
+}
+
+body.wyp-res-resizing-left .metric-top-border,
+body.wyp-res-resizing-right .metric-top-border {
+    opacity: 1 !important
+}
+
+.wyp-res-mod .responsive-size-text {
+    display: block
+}
+
+body.node-has-other-screen-edits .wyp-responsive-btn.active .responsive-icon:after {
+    opacity: 1;
+    position: absolute;
+    right: 9px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(21, 146, 230, .8);
+    border-radius: 30px;
+    content: " "
+}
+
+.leftbar-button .responsive-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42.8 41.82'%3E%3Cg fill='none' stroke='%23434343' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='M33.65,9.2V2.53A1.13,1.13,0,0,0,32.52,1.4h-30A1.14,1.14,0,0,0,1.4,2.53h0V39.28a1.14,1.14,0,0,0,1.14,1.14H18' stroke-linecap='round'/%3E%3Cpath d='M22.86 16.2v23A1.14 1.14 0 0 0 24 40.35h16.3a1.14 1.14 0 0 0 1.11-1.15h0V16.13A1.14 1.14 0 0 0 40.29 15h0l-16.3.06a1.13 1.13 0 0 0-1.14 1.13z'/%3E%3C/g%3E%3Ccircle cx='32.52' cy='34.55' fill='%23434343' r='1.95'/%3E%3C/svg%3E");
+    background-size: 20px 20px
+}
+

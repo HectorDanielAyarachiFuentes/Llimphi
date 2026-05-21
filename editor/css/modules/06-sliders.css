@@ -1,0 +1,117 @@
+﻿/* Llimphi Editor - Slider Components */
+
+.sl-d {
+    height: 15px;
+    position: relative
+}
+
+.sl-d:after {
+    width: 100%;
+    display: block;
+    background: #e4e4e4;
+    height: 2px;
+    content: "";
+    position: relative;
+    top: -10px;
+    border-radius: 10px
+}
+
+.sl-cu {
+    background-color: #828282;
+    position: absolute;
+    top: 4px;
+    height: 2px;
+    width: 0;
+    z-index: 10;
+    left: 0;
+    border-radius: 10px;
+    transition: background-color .2s ease
+}
+
+.sl-d .ui-slider-handle {
+    width: 14px;
+    height: 14px;
+    margin-left: -6px;
+    top: -2px;
+    border-radius: 9999px;
+    z-index: 10;
+    position: relative;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #828282;
+    display: block;
+    transition: border-color .2s ease, border-width .1s linear, background-color .2s linear;
+    box-shadow: 0 0 0 3px #f5f5f5
+}
+
+.sl-o:hover .ui-slider-handle {
+    box-shadow: 0 0 0 3px #f0f0f0
+}
+
+.sl-o .ui-slider-handle.ui-state-active {
+    border-width: 7px;
+    background-color: #666
+}
+
+.sl-d:hover .sl-cu {
+    background-color: #666
+}
+
+.sl-d:hover .ui-slider-handle {
+    border-color: #666
+}
+
+.sl-d {
+    width: ms-calc(100% - 98px);
+    width: calc(100% - 98px);
+    float: left;
+    margin-top: 4px !important;
+    margin-left: 2px !important
+}
+
+.sl-o .wyp-after {
+    display: inline-block !important;
+    float: right
+}
+
+.sl-o .wyp-after input {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important
+}
+
+#blur-backdrop-filter-group .sl-d,
+#blur-filter-group .sl-d,
+#box-shadow-blur-radius-group .sl-d,
+#box-shadow-horizontal-group .sl-d,
+#box-shadow-spread-group .sl-d,
+#box-shadow-vertical-group .sl-d,
+#brightness-backdrop-filter-group .sl-d,
+#brightness-filter-group .sl-d,
+#column-count-group .sl-d,
+#contrast-backdrop-filter-group .sl-d,
+#contrast-filter-group .sl-d,
+#grayscale-backdrop-filter-group .sl-d,
+#grayscale-filter-group .sl-d,
+#hue-rotate-backdrop-filter-group .sl-d,
+#hue-rotate-filter-group .sl-d,
+#invert-backdrop-filter-group .sl-d,
+#invert-filter-group .sl-d,
+#opacity-group .sl-d,
+#perspective-group .sl-d,
+#rotatex-transform-group .sl-d,
+#rotatey-transform-group .sl-d,
+#rotatez-transform-group .sl-d,
+#saturate-backdrop-filter-group .sl-d,
+#saturate-filter-group .sl-d,
+#scale-transform-group .sl-d,
+#sepia-backdrop-filter-group .sl-d,
+#sepia-filter-group .sl-d,
+#skew-x-transform-group .sl-d,
+#skew-y-transform-group .sl-d,
+#translate-x-transform-group .sl-d,
+#translate-y-transform-group .sl-d,
+#z-index-group .sl-d {
+    width: ms-calc(100% - 66px);
+    width: calc(100% - 66px)
+}
+

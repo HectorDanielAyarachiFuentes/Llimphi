@@ -1,0 +1,548 @@
+﻿/* Llimphi Editor - Color Picker (Iris) */
+
+.iris-picker {
+    width: 224px;
+    z-index: 1000;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 10px 0 rgba(0, 0, 0, .23)
+}
+
+input+.iris-picker {
+    margin-left: 16px;
+    margin-top: 34px;
+    position: fixed
+}
+
+.iris-picker {
+    position: relative;
+    background: #fff
+}
+
+.iris-picker:after,
+.iris-picker:before {
+    bottom: 100%;
+    left: 25px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none
+}
+
+.iris-picker:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #fff;
+    border-width: 6px;
+    margin-left: -6px
+}
+
+.iris-picker:before {
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, .2);
+    border-width: 7px;
+    margin-left: -7px
+}
+
+.iris-square {
+    position: relative;
+    width: 100% !important;
+    height: 120px !important;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden
+}
+
+.iris-square-inner {
+    height: 100%
+}
+
+.iris-square-vert {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+}
+
+.iris-slider-offset {
+    height: 10px;
+    width: 100%;
+    border-radius: 3px;
+    position: relative
+}
+
+.cs-alpha-slider {
+    height: 10px;
+    width: 100%;
+    position: relative
+}
+
+.iris-picker .cs-alpha-slider-offset {
+    height: 10px;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: -10px
+}
+
+.iris-color-preview {
+    width: 24px;
+    height: 24px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid #bbb
+}
+
+.iris-picker .iris-controls {
+    padding: 15px 12px 12px 12px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none
+}
+
+.iris-sliders {
+    width: 80%
+}
+
+.iris-picker .iris-strip {
+    margin-bottom: 8px;
+    border-radius: 3px;
+    pointer-events: auto
+}
+
+.cs-alpha-wrap {
+    pointer-events: auto;
+    border-radius: 3px
+}
+
+.cs-alpha-slider .ui-slider-handle,
+.iris-picker .iris-strip .ui-slider-handle {
+    position: absolute;
+    z-index: 5;
+    background-color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .4);
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    -webkit-transform: none;
+    transform: none;
+    overflow: hidden;
+    left: 50%;
+    border-radius: 30px;
+    margin-left: -5px
+}
+
+.iris-picker .iris-square-handle {
+    border: 2px solid rgba(255, 255, 255, .9);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .2), 0 0 0 1px rgba(0, 0, 0, .2) inset;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: -6px;
+    top: -6px;
+    z-index: 10
+}
+
+.iris-picker .information {
+    position: relative;
+    padding: 3px 12px 0 9px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e3e3e3
+}
+
+.iris-picker .iris-color-list {
+    padding: 4px 12px 3px 12px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.iris-picker .colors-changer span {
+    display: none
+}
+
+.iris-picker .iris-color-control.flat .flat,
+.iris-picker .iris-color-control.meterial .meterial,
+.iris-picker .iris-color-control.page .page,
+.iris-picker .iris-color-control.soft .soft {
+    display: inline-block
+}
+
+.iris-picker .iris-color-list .iris-color {
+    display: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    position: relative;
+    background-size: contain;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle
+}
+
+.iris-picker .colors-changer {
+    font-size: 10px;
+    padding: 12px 12px 2px 10px;
+    color: #626262;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between
+}
+
+.iris-picker .iris-color-list .iris-color:hover {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4)
+}
+
+.iris-picker .information-change {
+    display: block;
+    width: 10px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 14px
+}
+
+.iris-picker .colors-changer button,
+.iris-picker .information-change button {
+    text-align: center;
+    position: relative;
+    width: 10px;
+    height: 12px;
+    padding: 0;
+    box-sizing: border-box;
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    outline: 0
+}
+
+.iris-picker .colors-changer button {
+    margin-left: 10px
+}
+
+.iris-picker .arrow-button:hover {
+    background-color: #f1f1f1;
+    border-radius: 3px
+}
+
+.iris-picker .arrow-button:after,
+.iris-picker .arrow-button:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    pointer-events: none;
+    margin: 2px;
+    box-sizing: border-box
+}
+
+.iris-picker .arrow-button:before {
+    top: 0;
+    height: 50%;
+    height: 0;
+    border-bottom: 3px solid #000
+}
+
+.iris-picker .arrow-button:after {
+    bottom: 0;
+    top: 50%;
+    height: 0;
+    border-top: 3px solid #000
+}
+
+.iris-picker .information-item {
+    display: none;
+    position: relative;
+    box-sizing: border-box;
+    width: calc(100% - 24px)
+}
+
+.iris-picker .information.rgb .information-item.rgb {
+    display: flex
+}
+
+.iris-picker .information.hex .information-item.hex {
+    display: block
+}
+
+.iris-picker .information>.information-item>.input-field {
+    display: block;
+    flex: 1;
+    padding: 3px;
+    box-sizing: border-box;
+    position: relative
+}
+
+.iris-picker .information .information-item .input-field input {
+    text-align: center;
+    width: 100%;
+    padding: 3px;
+    height: 21px;
+    font-size: 11px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    border: 1px solid #cbcbcb;
+    border-radius: 2px
+}
+
+.iris-picker .information .information-item .input-field .title {
+    text-align: center;
+    font-size: 12px;
+    color: #a9a9a9;
+    padding-top: 2px
+}
+
+.iris-picker .information .information-item .input-field.hex .title {
+    color: #999
+}
+
+.iris-picker .iris-slider.iris-strip {
+    background-image: linear-gradient(to right, red, #f0f, #00f, #0ff, #0f0, #ff0, red)
+}
+
+.co-in-bo {
+    position: relative
+}
+
+.iris-color-preview {
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto
+}
+
+.iris-color-preview.active {
+    border: 1px solid #f12f2f
+}
+
+.iris-color-preview div {
+    position: absolute;
+    top: 5px;
+    left: -9px;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    width: 48px;
+    height: 3px;
+    background-color: #f12f2f;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.co-sw-co {
+    pointer-events: none;
+    z-index: 2147483645;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    vertical-align: middle;
+    background-position: -80px 0;
+    cursor: text;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.wyp-color-background {
+    z-index: 2147483645;
+    width: 50px;
+    height: 20px;
+    display: block;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative !important
+}
+
+body.wyp-bg-layer-active .mo-i.active,
+body.wyp-bg-layer-active .wyp-color-background.active {
+    z-index: 2147483647
+}
+
+body.wyp-bg-layer-active .ui-autocomplete-input.active {
+    z-index: 2147483647;
+    position: relative
+}
+
+#property-responsive-menu .pr-res-ite[data-responsive-size=all][data-info="-"] {
+    display: none
+}
+
+.wyp-background-image-show {
+    width: auto;
+    height: auto;
+    max-height: 100px;
+    margin-top: 6px;
+    border-radius: 8px;
+    background-color: #eaeaea
+
+.wyp-gradient-section {
+    margin-top: 6px;
+    display: none;
+    width: 100%
+}
+
+#iris-gradient-color {
+    display: none
+}
+
+.wyp-gradient-section .iris-picker {
+    margin-top: 3px;
+    margin-left: -3px;
+    position: absolute;
+    z-index: 2147483647;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 4px 20px 0 rgba(0, 0, 0, .3)
+}
+
+.wyp-gradient-section .iris-picker:after,
+.wyp-gradient-section .iris-picker:before {
+    display: none !important
+}
+
+.wyp-gradient-orientation {
+    width: 100%;
+    height: 60px;
+    margin-top: 0;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .4);
+    border-radius: 2px;
+    position: relative
+}
+
+.wyp-gradient-pointer.ui-draggable-dragging,
+.wyp-gradient-pointer:hover {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .2)
+}
+
+.wyp-gradient-pointer.focus {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .2)
+}
+
+.wyp-gradient-space {
+    height: 8px
+}
+
+.wyp-gradient-orientation i {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), -2px 2px 10px 0 rgba(0, 0, 0, .23);
+    display: inline-block;
+    margin-left: -6px;
+    margin-top: -6px;
+    top: 50%;
+    left: 50%;
+    cursor: move
+}
+
+.wyp-gradient-orientation b {
+    position: absolute;
+    font-size: 10px !important;
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    bottom: 8px;
+    right: 8px;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: .8
+}
+
+.gradient-editor {
+    background: #fff;
+    padding: 10px 10px;
+    border-radius: 3px;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, .14)
+}
+
+.wyp-gradient-bar {
+    width: 100%;
+    height: 24px;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .2);
+    border-radius: 3px
+}
+
+.wyp-gradient-bar-background {
+    width: 100%;
+    height: 24px;
+    position: relative;
+    margin-bottom: 8px;
+    border-radius: 2px
+}
+
+.cs-alpha-wrap,
+.info-image-list img,
+.wyp-color-background,
+.wyp-gradient-bar-background,
+.wyp-gradient-pointer,
+.wyp-theme-c {
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0H8V8H0Z' fill='%23ccc'/%3E%3Cpath transform='translate(8 8)' d='M0,0H8V8H0Z' fill='%23ccc'/%3E%3Cpath transform='translate(8)' d='M0,0H8V8H0Z'/%3E%3Cpath transform='translate(0 8)' d='M0,0H8V8H0Z'/%3E%3C/svg%3E") !important;
+    background-size: 8px 8px
+}
+
+.wyp-gradient-pointer-area {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.wyp-gradient-pointer-area:not(.gradient-pointer-no-cursor) {
+    cursor: copy !important
+}
+
+.gradient-pointer-no-cursor {
+    pointer-events: none !important
+}
+
+.gradient-pointer-no-cursor * {
+    pointer-events: auto !important
+}
+
+.wyp-gradient-pointer {
+    width: 11px;
+    height: 28px;
+    margin-left: -5.5px;
+    position: absolute;
+    top: -2px;
+    cursor: default;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, .9)
+}
+
+.wyp-gradient-pointer.disable {
+    display: none !important
+}
+
+.wyp-gradient-pointer i {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #992323;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 3px
+

@@ -1,0 +1,63 @@
+/* ============================================================
+   Llimphi Editor — Design Tokens (CSS Custom Properties)
+   Centralized values for colors, spacing, shadows, z-indices
+   ============================================================ */
+
+:root {
+    /* === Accent Colors === */
+    --wyp-accent: #0080ff;
+    --wyp-accent-hover: #0070e0;
+    --wyp-accent-light: rgba(21, 146, 230, .15);
+    --wyp-accent-green: rgba(129, 164, 87, .95);
+    --wyp-accent-green-hover: #7c9d53;
+    --wyp-accent-blue: #4285f4;
+    --wyp-accent-red: #da4747;
+
+    /* === Panel === */
+    --wyp-panel-bg: #f5f5f5;
+    --wyp-panel-bg-alt: #fafafa;
+    --wyp-panel-top-bg: #515151;
+    --wyp-panel-border: #e8e8e8;
+    --wyp-panel-width: 276px;
+    --wyp-panel-radius: 8px;
+
+    /* === Text === */
+    --wyp-text-primary: #595959;
+    --wyp-text-secondary: #767676;
+    --wyp-text-dark: #333;
+    --wyp-text-light: #fff;
+    --wyp-text-input: #4e4e4e;
+
+    /* === Input === */
+    --wyp-input-border: #bbb;
+    --wyp-input-bg: #fff;
+    --wyp-input-radius: 3px;
+
+    /* === Shadows === */
+    --wyp-shadow-panel: 0 0 0 1px rgba(0,0,0,.08), -2px 2px 10px 0 rgba(0,0,0,.23);
+    --wyp-shadow-dropdown: 0 0 0 1px rgba(0,0,0,.08), 0 2px 10px 0 rgba(0,0,0,.23);
+    --wyp-shadow-tooltip: 0 0 0 1px rgba(0,0,0,.08), 2px 2px 10px 0 rgba(0,0,0,.23);
+
+    /* === Z-Index Scale === */
+    --wyp-z-iframe: 99;
+    --wyp-z-panel: 100046;
+    --wyp-z-leftbar: 9999998;
+    --wyp-z-overlay: 2147483646;
+    --wyp-z-top: 2147483647;
+    --wyp-z-above-top: 2147483648;
+
+    /* === Font Stacks === */
+    --wyp-font-ui: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --wyp-font-mono: "Roboto Mono", monospace;
+    --wyp-font-icons: wyp-ed;
+
+    /* === Leftbar === */
+    --wyp-leftbar-width: 46px;
+    --wyp-leftbar-bg: linear-gradient(180deg, #f6f6f6 0, #e6e6e6 100%);
+
+    /* === Dark Theme (CSS Editor, Animation Manager) === */
+    --wyp-dark-bg: #404040;
+    --wyp-dark-bg-alt: #4b4b4b;
+    --wyp-dark-text: #aeaeae;
+    --wyp-dark-border: rgba(0,0,0,.31);
+}
