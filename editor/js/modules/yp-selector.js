@@ -12,6 +12,16 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     /* =========================================================================
@@ -197,7 +207,7 @@
                 var count = document.querySelectorAll(sel).length;
                 return returnBool ? count > 0 : (count > 0 ? sel : false);
             }
-            var matches = Gi.find(sel);
+            var matches = getGi().find(sel);
             return returnBool ? matches.length > 0 : (matches.length > 0 ? sel : false);
         } catch (err) {
             if (!quiet) console.warn("[yp-selector] invalid selector:", sel, err);

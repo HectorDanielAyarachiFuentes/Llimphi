@@ -18,12 +18,22 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Lazy refs ────────────────────────────────────────────────────────────
-    function Gi()  { return o("#iframe").contents(); }
-    function Ji()  { return o("#iframe").contents().find("body"); }
-    function tn()  { return o(document.body); }
+    function getGi()  { return o("#iframe").contents(); }
+    function getJi()  { return o("#iframe").contents().find("body"); }
+    function getTn()  { return o(document.body); }
     function _()   { return window.ypData.get_selected_element; }
     function C()   { return window.ypData.is_content_selected; }
     function T()   { return window.ypData.is_animation_manager; }
@@ -66,7 +76,7 @@
     function getElementBreadcrumb(selector, includeCount, el) {
         if (!selector) return "";
         try {
-            var target = el || Gi().find(selector).first();
+            var target = el || getGi()().find(selector).first();
             if (!target || target.length === 0) return getVirtualBreadcrumb(selector);
 
             var tag    = target.prop("tagName").toLowerCase();
@@ -81,7 +91,7 @@
             var label = tag + id + cls;
 
             if (includeCount) {
-                var count = Gi().find(selector).length;
+                var count = getGi()().find(selector).length;
                 if (count > 1) label += " (" + count + ")";
             }
 
@@ -142,7 +152,7 @@
         if (target !== null && !target.hasClass("wyp-selected")) {
             if (target === null) {
                 if (typeof window.ypData["wyp-will-selected"] === "undefined") {
-                    Gi().find(resolvedSel).filter(":visible").first().trigger("fakeOver").trigger("fakeClick");
+                    getGi()().find(resolvedSel).filter(":visible").first().trigger("fakeOver").trigger("fakeClick");
                 } else {
                     window.ypData["wyp-will-selected"].trigger("fakeOver").trigger("fakeClick");
                     window.ypData["wyp-will-selected"] = undefined;
@@ -153,7 +163,7 @@
         }
 
         // Mark multiple matches
-        var allMatched = Gi().find(resolveSelector(selector, true, true, true, true));
+        var allMatched = getGi()().find(resolveSelector(selector, true, true, true, true));
         allMatched.not(".wyp-selected,.wyp-multiple-selected").addClass("wyp-selected-others");
 
         // Apply selected state
@@ -169,12 +179,12 @@
 
         // Update panel state
         var Qi = o("#customizing-mode");
-        Qi.addClass("wyp-con-slcd");
+        getQi().addClass("wyp-con-slcd");
         window.ypData.is_content_selected = true;
 
-        if (tn().hasClass("wyp-nvgtn-act")) closeNavigation();
+        if (getTn()().hasClass("wyp-nvgtn-act")) closeNavigation();
 
-        Ji().addClass("wyp-imp-chk");
+        getJi()().addClass("wyp-imp-chk");
 
         // Store dimensions for resize tracking
         window.orginalHeight = parseFloat((getComputedCSSValue("height", allMatched) || "").replace(/px/g, ""));
@@ -185,7 +195,7 @@
         var leftBefore = allMatched.offset().left;
         allMatched.css("margin-left", "2px");
         var floated = getComputedCSSValue("float", allMatched) === "right" || leftBefore === allMatched.offset().left;
-        floated ? Ji().addClass("wyp-element-float") : Ji().removeClass("wyp-element-float");
+        floated ? getJi()().addClass("wyp-element-float") : getJi()().removeClass("wyp-element-float");
 
         // Restore margin
         var origStyle = allMatched.attr("style");
@@ -200,8 +210,8 @@
         // Tag-based class additions
         var tag = allMatched.prop("tagName").toLowerCase();
         (tag === "ul" || tag === "ol" || tag === "li")
-            ? tn().addClass("wyp-element-list")
-            : tn().removeClass("wyp-element-list");
+            ? getTn()().addClass("wyp-element-list")
+            : getTn()().removeClass("wyp-element-list");
 
         // Update selector tooltip
         var sn = { general: o(".sn-general") };
@@ -215,7 +225,7 @@
         var qi = window.qi || {};
         C() ? o("#wyp-crnt-el").text(getElementBreadcrumb(selector, true, allMatched)) : o("#wyp-crnt-el").text(qi.no_el_selected || "");
 
-        Ji().removeClass("wyp-imp-chk");
+        getJi()().removeClass("wyp-imp-chk");
 
         // Apply pseudo-class state
         var pseudoMap = {
@@ -234,8 +244,8 @@
         if (/:/g.test(selector)) {
             Object.keys(pseudoMap).forEach(function (pseudo) {
                 if (new RegExp(pseudo.replace(":", "\\:"), "g").test(selector)) {
-                    Ji().addClass(pseudoMap[pseudo]);
-                    tn().attr("data-wyp-selector", pseudo);
+                    getJi()().addClass(pseudoMap[pseudo]);
+                    getTn()().attr("data-wyp-selector", pseudo);
                     selector = selector.replace(new RegExp(pseudo.replace(":", "\\:"), "g"), "");
                 }
             });
@@ -297,7 +307,7 @@
      * Closes the navigation DOM panel.
      * ========================================================================= */
     function closeNavigation() {
-        tn().removeClass("wyp-nvgtn-act");
+        getTn()().removeClass("wyp-nvgtn-act");
         o(".wyp-navigate-panel").hide();
     }
 
@@ -316,9 +326,9 @@
      * Clears all selection state.
      * ========================================================================= */
     function deselectElement() {
-        Gi().find(".wyp-selected,.wyp-selected-others,.wyp-multiple-selected")
+        getGi()().find(".wyp-selected,.wyp-selected-others,.wyp-multiple-selected")
             .removeClass("wyp-selected wyp-selected-others wyp-multiple-selected");
-        Ji().removeClass(
+        getJi()().removeClass(
             "yp-selector-hover yp-selector-focus yp-selector-visited yp-selector-link " +
             "yp-selector-active yp-selector-checked yp-selector-disabled " +
             "yp-selector-enabled yp-selector-invalid yp-selector-valid"
@@ -326,8 +336,8 @@
         window.ypData.is_content_selected = false;
         window.ypData.get_selected_element = undefined;
         o("#customizing-mode").removeClass("wyp-con-slcd");
-        tn().removeAttr("data-wyp-selector");
-        tn().removeClass("wyp-element-list wyp-element-float");
+        getTn()().removeAttr("data-wyp-selector");
+        getTn()().removeClass("wyp-element-list wyp-element-float");
     }
 
     /* =========================================================================

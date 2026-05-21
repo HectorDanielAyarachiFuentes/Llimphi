@@ -16,11 +16,21 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Lazy refs ────────────────────────────────────────────────────────────
-    function Gi()  { return o("#iframe").contents(); }
-    function tn()  { return o(document.body); }
+    function getGi()  { return o("#iframe").contents(); }
+    function getTn()  { return o(document.body); }
     function C()   { return window.ypData.is_content_selected; }
     function A()   { return window.ypData.is_responsive_mod; }
     function E()   { return o(".active-customizing-list").attr("data-value"); }
@@ -139,7 +149,7 @@
                     var deviceBadge = deviceLabel ? " <span class='wyp-device-responsive'>" + deviceLabel + "</span><span class='wyp-type-anim-text'>" + getAnimTypeLabel(mode) + "</span>" : "";
 
                     var elLabel = "";
-                    if (Gi().find(cleanSel).length > 0) {
+                    if (getGi()().find(cleanSel).length > 0) {
                         // Use the built-in bi() / vi() helpers if available
                         elLabel = typeof window.YP_getElementLabel === "function"
                             ? window.YP_getElementLabel(cleanSel)
@@ -404,9 +414,9 @@
             ? ".responsive-add-breakpoint{left:" + rect.right + "px !important;display:block !important;}"
             : ".responsive-add-breakpoint{display:none !important;}";
 
-        var styleEl = tn().find("#responsive-live-style");
+        var styleEl = getTn()().find("#responsive-live-style");
         if (styleEl.length === 0) {
-            tn().append("<style id='responsive-live-style'>" + css + "</style>");
+            getTn()().append("<style id='responsive-live-style'>" + css + "</style>");
         } else {
             styleEl.text(css);
         }

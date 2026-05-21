@@ -13,11 +13,21 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Lazy refs ────────────────────────────────────────────────────────────
-    function Gi()  { return o("#iframe").contents(); }
-    function Ji()  { return o("#iframe").contents().find("body"); }
+    function getGi()  { return o("#iframe").contents(); }
+    function getJi()  { return o("#iframe").contents().find("body"); }
     function _()   { return YP.state ? YP.state.getSelectedElement() : window.ypData.get_selected_element; }
     function C()   { return window.ypData.is_content_selected; }
     function K(e)  { return typeof e !== "undefined" && e !== false && e !== "" && e !== " " && e !== "undefined" && e !== null; }
@@ -125,11 +135,11 @@
      * ========================================================================= */
     function updateInfoPanel(tab) {
         var qi    = window.qi || {};
-        var JiEl  = Ji();
+        var JiEl  = getJi()();
         var wfWasOn = false;
 
         if (JiEl.hasClass("wyp-wf-on")) {
-            wfWasOn = true;
+            wfWassetOn(true);
             JiEl.removeClass("wyp-wf-on");
         }
 
@@ -279,7 +289,7 @@
                 }
                 genList.append(
                     "<li><span class=\"typo-list-left\">" + (qi.tag || "Tag") + "</span><span class=\"typo-list-right\"><span>" + el.prop("tagName") + "</span></span></li>" +
-                    "<li><span class=\"typo-list-left\">" + (qi.affected_els || "Affected") + "</span><span class=\"typo-list-right\"><span>" + (parseInt(Gi().find(".wyp-selected-others").length) + 1) + "</span></span></li>"
+                    "<li><span class=\"typo-list-left\">" + (qi.affected_els || "Affected") + "</span><span class=\"typo-list-right\"><span>" + (parseInt(getGi()().find(".wyp-selected-others").length) + 1) + "</span></span></li>"
                 );
 
                 // Classes

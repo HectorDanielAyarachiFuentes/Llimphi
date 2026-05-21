@@ -2003,27 +2003,12 @@ function Et(e, t, n, s) {
         
 
         function va(e) {
-                if (!1 === e || "" == e) return !1;
-                var t = e.sort(function(e, t) {
-                        return getJi().find("." + e).length - getJi().find("." + t).length
-                });
-                return 1 == getJi().find("." + t[0]).length && "." + t[0]
+            if (!1 === e || "" == e) return !1;
+            var t = e.sort(function(e, t) {
+                return getJi().find("." + e).length - getJi().find("." + t).length
+            });
+            return 1 == getJi().find("." + t[0]).length && "." + t[0]
         }
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        \}/g, "")), e
-        }
-
-
 
 YP.cssPropertyUI = {
   Ke: Ke,
@@ -2079,7 +2064,6 @@ YP.cssPropertyUI = {
   ca: ca,
 };
 
-// Export to compat
 Object.assign(YP._compat, YP.cssPropertyUI);
 
 })(jQuery);

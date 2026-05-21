@@ -10,6 +10,16 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     /* =========================================================================
@@ -75,7 +85,7 @@
         if (window.bMode) return false;
 
         var qi         = window.qi || {};
-        var Gi         = o("#iframe").contents();
+        var Gi = o("#iframe").contents();
         var allCSS     = "";
         var totalSaves = 0;
         var doneSaves  = 0;
@@ -94,7 +104,7 @@
             return "";
         }
 
-        Gi.find(".wyp-data-updated").each(function () {
+        getGi().find(".wyp-data-updated").each(function () {
             totalSaves++;
 
             var mode        = o(this).attr("data-source-mode");
@@ -149,7 +159,7 @@
                 clearInterval(window.savingChecker);
                 window.saveFromEditor = false;
 
-                Gi.find(".wyp-data-updated").removeClass("wyp-data-updated");
+                getGi().find(".wyp-data-updated").removeClass("wyp-data-updated");
                 o(".customizing-type-updated").removeClass("customizing-type-updated");
 
                 // Trigger CSS rebuild on server

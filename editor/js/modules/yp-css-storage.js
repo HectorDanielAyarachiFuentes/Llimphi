@@ -12,6 +12,16 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Lazy DOM references ──────────────────────────────────────────────────
@@ -104,7 +114,7 @@
         if (isNamedMode(mode)) {
             if (flag !== "a") {
                 var Gi = o("#iframe").contents();
-                Gi.find('[data-source-mode="' + mode + '"]')
+                getGi().find('[data-source-mode="' + mode + '"]')
                     .addClass("wyp-data-updated wyp-data-only-updated");
                 o("#c-t-list li[data-value='" + mode + "']")
                     .addClass("customizing-type-updated");
@@ -148,12 +158,12 @@
      * marks the data as needing a save, and updates UI state.
      * ========================================================================= */
     function applyLiveCSS(css) {
-        var Ji    = o("#iframe").contents().find("body");
-        var Gi    = o("#iframe").contents();
+        var Ji = o("#iframe").contents().find("body");
+        var Gi = o("#iframe").contents();
         var qi    = window.qi || {};
 
         // Ensure the live style tag exists
-        if (Gi.find("#wyp-live-css-data").length === 0) {
+        if (getGi().find("#wyp-live-css-data").length === 0) {
             getSourceElement().after("<style id='wyp-live-css-data'></style>");
         }
 
@@ -164,9 +174,9 @@
 
         // Apply to live style and clear the source store
         window.ypData["wyp-need-to-process"] = true;
-        Gi.find("#wyp-live-css-data").text(css);
+        getGi().find("#wyp-live-css-data").text(css);
         getSourceElement().empty();
-        Gi.find(".wyp-live-css").remove();
+        getGi().find(".wyp-live-css").remove();
 
         // Update UI
         o(".wyp-save-btn")

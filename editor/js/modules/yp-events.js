@@ -17,10 +17,20 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Lazy helpers ─────────────────────────────────────────────────────────
-    function tn()  { return o(document.body); }
+    function getTn()  { return o(document.body); }
     function setCookie(k, v) { if (YP.utils) YP.utils.setCookie(k, v); }
     function updateEditorLayout(w, h) { if (YP.responsive) YP.responsive.updateEditorLayout(w, h); }
     function updateIframeLayout()    { if (YP.responsive) YP.responsive.updateIframeLayout(); }
@@ -32,7 +42,7 @@
      * preventing the iframe from stealing mouse events.
      * ========================================================================= */
     function addFakeLayer(zIndex) {
-        tn().append(
+        getTn()().append(
             "<div class='fake-layer-x' style='position:fixed;left:0;top:0;width:100%;height:100%;z-index:" +
             (zIndex || 99999) + ";cursor:default;'></div>"
         );
@@ -69,7 +79,7 @@
             },
             resize   : function (e, t) {
                 o("#rightpanel-personalized-view").remove();
-                tn().append("<style id='rightpanel-personalized-view'>.ed-pnl{width:" + t.size.width + "px !important;}</style>");
+                getTn()().append("<style id='rightpanel-personalized-view'>.ed-pnl{width:" + t.size.width + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {
@@ -91,7 +101,7 @@
             resize   : function (e, t) {
                 if (t.size.width > parseInt(o(window).width() - 10)) t.size.width = o(window).width();
                 o("#visual-manager-personalized-view").remove();
-                tn().append("<style id='visual-manager-personalized-view'>#vsl-css-vi{width:" + t.size.width + "px !important;}</style>");
+                getTn()().append("<style id='visual-manager-personalized-view'>#vsl-css-vi{width:" + t.size.width + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {
@@ -111,7 +121,7 @@
             },
             resize   : function (e, t) {
                 o("#advancedinfobox-personalized-view").remove();
-                tn().append("<style id='advancedinfobox-personalized-view'>.advanced-info-box {width:" + t.size.width + "px !important;}</style>");
+                getTn()().append("<style id='advancedinfobox-personalized-view'>.advanced-info-box {width:" + t.size.width + "px !important;}</style>");
             },
             stop     : function (e, t) {
                 o(".fake-layer-x").remove();
@@ -131,7 +141,7 @@
             resize    : function (e, t) {
                 var h = parseInt(t.size.height);
                 o("#animmanager-personalized-view").remove();
-                tn().append(
+                getTn()().append(
                     "<style id='animmanager-personalized-view'>" +
                     "body.wyp-animate-manager-active #iframe{height:-webkit-calc(100% - " + h + "px) !important;height:calc(100% - " + h + "px) !important;}" +
                     "body.wyp-animate-manager-active.wyp-res-mod #iframe," +
@@ -157,7 +167,7 @@
             },
             resize   : function (e, t) {
                 o("#navigation-personalized-view").remove();
-                tn().append("<style id='navigation-personalized-view'>#layer-tree{width:" + parseFloat(t.size.width) + "px !important;}</style>");
+                getTn()().append("<style id='navigation-personalized-view'>#layer-tree{width:" + parseFloat(t.size.width) + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {

@@ -10,12 +10,22 @@
 (function (o) {
     "use strict";
 
+
+function getGi() { return window.YP && window.YP.elements ? window.YP.elements.Gi : null; }
+function getKi() { return window.YP && window.YP.elements ? window.YP.elements.Ki : null; }
+function getJi() { return window.YP && window.YP.elements ? window.YP.elements.Ji : null; }
+function getQi() { return window.YP && window.YP.elements ? window.YP.elements.Qi : null; }
+function getTn() { return window.YP && window.YP.elements ? window.YP.elements.tn : null; }
+function getOn() { return window.YP && window.YP.elements ? window.YP.elements.On : null; }
+function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setOn(v); }
+
+
     var YP = window.YP = window.YP || {};
 
     // ─── Internal references ────────────────────────────────────────────────────
-    // tn = document.body (jQuery), set by yellow-pencil.js before modules load.
+    // getTn() = document.body (jQuery), set by yellow-pencil.js before modules load.
     // We defer resolution to first call to allow correct load order.
-    function tn() { return o(document.body); }
+    function getTn() { return o(document.body); }
 
     /* =========================================================================
      * Alert Dialog  (original: k)
@@ -41,7 +51,7 @@
                 cancelBtn = o("<span class='cancel'>Cancel</span>");
                 overlay.find(".button-container").append(cancelBtn);
                 cancelBtn.on("click", function () {
-                    tn().find(".yellow-overlay").remove();
+                    getTn()().find(".yellow-overlay").remove();
                 });
             }
 
@@ -52,15 +62,15 @@
             if (opts.confirmButtonColor) okBtn.css("background-color", opts.confirmButtonColor);
         }
 
-        tn().find(".yellow-overlay").remove();
-        tn().append(overlay);
+        getTn()().find(".yellow-overlay").remove();
+        getTn()().append(overlay);
 
         setTimeout(function () { overlay.css("opacity", "1"); }, 5);
 
         if (okBtn) {
             okBtn.on("click", function () {
                 if (callback) callback();
-                tn().find(".yellow-overlay").remove();
+                getTn()().find(".yellow-overlay").remove();
             });
         }
     }
@@ -155,7 +165,7 @@
                    (text  ? text : "") +
                    "</div>";
 
-        tn().append(html);
+        getTn()().append(html);
 
         // Auto-hide after 4 s
         setTimeout(function () {
