@@ -368,7 +368,8 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         vi : getVirtualBreadcrumb,
         da : getComputedCSSValue,
         At : clearMouseoverTrigger,
-        Ba : closeNavigation,
+        // NOTE: Ba is the layer-tree scroll function exported by yp-save.js.
+        // closeNavigation is NOT mapped to Ba to avoid overwriting it.
         Di : rebuildDomContextMenu
     });
 
