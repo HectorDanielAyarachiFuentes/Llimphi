@@ -149,7 +149,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
                     var deviceBadge = deviceLabel ? " <span class='wyp-device-responsive'>" + deviceLabel + "</span><span class='wyp-type-anim-text'>" + getAnimTypeLabel(mode) + "</span>" : "";
 
                     var elLabel = "";
-                    if (getGi()().find(cleanSel).length > 0) {
+                    if (getGi().find(cleanSel).length > 0) {
                         // Use the built-in bi() / vi() helpers if available
                         elLabel = typeof window.YP_getElementLabel === "function"
                             ? window.YP_getElementLabel(cleanSel)
@@ -414,9 +414,9 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             ? ".responsive-add-breakpoint{left:" + rect.right + "px !important;display:block !important;}"
             : ".responsive-add-breakpoint{display:none !important;}";
 
-        var styleEl = getTn()().find("#responsive-live-style");
+        var styleEl = getTn().find("#responsive-live-style");
         if (styleEl.length === 0) {
-            getTn()().append("<style id='responsive-live-style'>" + css + "</style>");
+            getTn().append("<style id='responsive-live-style'>" + css + "</style>");
         } else {
             styleEl.text(css);
         }

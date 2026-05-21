@@ -42,7 +42,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
      * preventing the iframe from stealing mouse events.
      * ========================================================================= */
     function addFakeLayer(zIndex) {
-        getTn()().append(
+        getTn().append(
             "<div class='fake-layer-x' style='position:fixed;left:0;top:0;width:100%;height:100%;z-index:" +
             (zIndex || 99999) + ";cursor:default;'></div>"
         );
@@ -79,7 +79,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             },
             resize   : function (e, t) {
                 o("#rightpanel-personalized-view").remove();
-                getTn()().append("<style id='rightpanel-personalized-view'>.ed-pnl{width:" + t.size.width + "px !important;}</style>");
+                getTn().append("<style id='rightpanel-personalized-view'>.ed-pnl{width:" + t.size.width + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {
@@ -101,7 +101,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             resize   : function (e, t) {
                 if (t.size.width > parseInt(o(window).width() - 10)) t.size.width = o(window).width();
                 o("#visual-manager-personalized-view").remove();
-                getTn()().append("<style id='visual-manager-personalized-view'>#vsl-css-vi{width:" + t.size.width + "px !important;}</style>");
+                getTn().append("<style id='visual-manager-personalized-view'>#vsl-css-vi{width:" + t.size.width + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {
@@ -121,7 +121,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             },
             resize   : function (e, t) {
                 o("#advancedinfobox-personalized-view").remove();
-                getTn()().append("<style id='advancedinfobox-personalized-view'>.advanced-info-box {width:" + t.size.width + "px !important;}</style>");
+                getTn().append("<style id='advancedinfobox-personalized-view'>.advanced-info-box {width:" + t.size.width + "px !important;}</style>");
             },
             stop     : function (e, t) {
                 o(".fake-layer-x").remove();
@@ -141,7 +141,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             resize    : function (e, t) {
                 var h = parseInt(t.size.height);
                 o("#animmanager-personalized-view").remove();
-                getTn()().append(
+                getTn().append(
                     "<style id='animmanager-personalized-view'>" +
                     "body.wyp-animate-manager-active #iframe{height:-webkit-calc(100% - " + h + "px) !important;height:calc(100% - " + h + "px) !important;}" +
                     "body.wyp-animate-manager-active.wyp-res-mod #iframe," +
@@ -167,7 +167,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             },
             resize   : function (e, t) {
                 o("#navigation-personalized-view").remove();
-                getTn()().append("<style id='navigation-personalized-view'>#layer-tree{width:" + parseFloat(t.size.width) + "px !important;}</style>");
+                getTn().append("<style id='navigation-personalized-view'>#layer-tree{width:" + parseFloat(t.size.width) + "px !important;}</style>");
                 updateIframeLayout();
             },
             stop     : function (e, t) {

@@ -51,7 +51,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
                 cancelBtn = o("<span class='cancel'>Cancel</span>");
                 overlay.find(".button-container").append(cancelBtn);
                 cancelBtn.on("click", function () {
-                    getTn()().find(".yellow-overlay").remove();
+                    getTn().find(".yellow-overlay").remove();
                 });
             }
 
@@ -62,15 +62,15 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             if (opts.confirmButtonColor) okBtn.css("background-color", opts.confirmButtonColor);
         }
 
-        getTn()().find(".yellow-overlay").remove();
-        getTn()().append(overlay);
+        getTn().find(".yellow-overlay").remove();
+        getTn().append(overlay);
 
         setTimeout(function () { overlay.css("opacity", "1"); }, 5);
 
         if (okBtn) {
             okBtn.on("click", function () {
                 if (callback) callback();
-                getTn()().find(".yellow-overlay").remove();
+                getTn().find(".yellow-overlay").remove();
             });
         }
     }
@@ -165,7 +165,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
                    (text  ? text : "") +
                    "</div>";
 
-        getTn()().append(html);
+        getTn().append(html);
 
         // Auto-hide after 4 s
         setTimeout(function () {

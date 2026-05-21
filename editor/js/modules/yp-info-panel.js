@@ -135,11 +135,11 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
      * ========================================================================= */
     function updateInfoPanel(tab) {
         var qi    = window.qi || {};
-        var JiEl  = getJi()();
+        var JiEl  = getJi();
         var wfWasOn = false;
 
         if (JiEl.hasClass("wyp-wf-on")) {
-            wfWassetOn(true);
+            wfWasOn = true;
             JiEl.removeClass("wyp-wf-on");
         }
 
@@ -289,7 +289,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
                 }
                 genList.append(
                     "<li><span class=\"typo-list-left\">" + (qi.tag || "Tag") + "</span><span class=\"typo-list-right\"><span>" + el.prop("tagName") + "</span></span></li>" +
-                    "<li><span class=\"typo-list-left\">" + (qi.affected_els || "Affected") + "</span><span class=\"typo-list-right\"><span>" + (parseInt(getGi()().find(".wyp-selected-others").length) + 1) + "</span></span></li>"
+                    "<li><span class=\"typo-list-left\">" + (qi.affected_els || "Affected") + "</span><span class=\"typo-list-right\"><span>" + (parseInt(getGi().find(".wyp-selected-others").length) + 1) + "</span></span></li>"
                 );
 
                 // Classes

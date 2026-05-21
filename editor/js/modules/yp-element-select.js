@@ -76,7 +76,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
     function getElementBreadcrumb(selector, includeCount, el) {
         if (!selector) return "";
         try {
-            var target = el || getGi()().find(selector).first();
+            var target = el || getGi().find(selector).first();
             if (!target || target.length === 0) return getVirtualBreadcrumb(selector);
 
             var tag    = target.prop("tagName").toLowerCase();
@@ -91,7 +91,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
             var label = tag + id + cls;
 
             if (includeCount) {
-                var count = getGi()().find(selector).length;
+                var count = getGi().find(selector).length;
                 if (count > 1) label += " (" + count + ")";
             }
 
@@ -152,7 +152,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         if (target !== null && !target.hasClass("wyp-selected")) {
             if (target === null) {
                 if (typeof window.ypData["wyp-will-selected"] === "undefined") {
-                    getGi()().find(resolvedSel).filter(":visible").first().trigger("fakeOver").trigger("fakeClick");
+                    getGi().find(resolvedSel).filter(":visible").first().trigger("fakeOver").trigger("fakeClick");
                 } else {
                     window.ypData["wyp-will-selected"].trigger("fakeOver").trigger("fakeClick");
                     window.ypData["wyp-will-selected"] = undefined;
@@ -163,7 +163,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         }
 
         // Mark multiple matches
-        var allMatched = getGi()().find(resolveSelector(selector, true, true, true, true));
+        var allMatched = getGi().find(resolveSelector(selector, true, true, true, true));
         allMatched.not(".wyp-selected,.wyp-multiple-selected").addClass("wyp-selected-others");
 
         // Apply selected state
@@ -182,9 +182,9 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         getQi().addClass("wyp-con-slcd");
         window.ypData.is_content_selected = true;
 
-        if (getTn()().hasClass("wyp-nvgtn-act")) closeNavigation();
+        if (getTn().hasClass("wyp-nvgtn-act")) closeNavigation();
 
-        getJi()().addClass("wyp-imp-chk");
+        getJi().addClass("wyp-imp-chk");
 
         // Store dimensions for resize tracking
         window.orginalHeight = parseFloat((getComputedCSSValue("height", allMatched) || "").replace(/px/g, ""));
@@ -195,7 +195,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         var leftBefore = allMatched.offset().left;
         allMatched.css("margin-left", "2px");
         var floated = getComputedCSSValue("float", allMatched) === "right" || leftBefore === allMatched.offset().left;
-        floated ? getJi()().addClass("wyp-element-float") : getJi()().removeClass("wyp-element-float");
+        floated ? getJi().addClass("wyp-element-float") : getJi().removeClass("wyp-element-float");
 
         // Restore margin
         var origStyle = allMatched.attr("style");
@@ -210,8 +210,8 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         // Tag-based class additions
         var tag = allMatched.prop("tagName").toLowerCase();
         (tag === "ul" || tag === "ol" || tag === "li")
-            ? getTn()().addClass("wyp-element-list")
-            : getTn()().removeClass("wyp-element-list");
+            ? getTn().addClass("wyp-element-list")
+            : getTn().removeClass("wyp-element-list");
 
         // Update selector tooltip
         var sn = { general: o(".sn-general") };
@@ -225,7 +225,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         var qi = window.qi || {};
         C() ? o("#wyp-crnt-el").text(getElementBreadcrumb(selector, true, allMatched)) : o("#wyp-crnt-el").text(qi.no_el_selected || "");
 
-        getJi()().removeClass("wyp-imp-chk");
+        getJi().removeClass("wyp-imp-chk");
 
         // Apply pseudo-class state
         var pseudoMap = {
@@ -244,8 +244,8 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         if (/:/g.test(selector)) {
             Object.keys(pseudoMap).forEach(function (pseudo) {
                 if (new RegExp(pseudo.replace(":", "\\:"), "g").test(selector)) {
-                    getJi()().addClass(pseudoMap[pseudo]);
-                    getTn()().attr("data-wyp-selector", pseudo);
+                    getJi().addClass(pseudoMap[pseudo]);
+                    getTn().attr("data-wyp-selector", pseudo);
                     selector = selector.replace(new RegExp(pseudo.replace(":", "\\:"), "g"), "");
                 }
             });
@@ -307,7 +307,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
      * Closes the navigation DOM panel.
      * ========================================================================= */
     function closeNavigation() {
-        getTn()().removeClass("wyp-nvgtn-act");
+        getTn().removeClass("wyp-nvgtn-act");
         o(".wyp-navigate-panel").hide();
     }
 
@@ -326,9 +326,9 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
      * Clears all selection state.
      * ========================================================================= */
     function deselectElement() {
-        getGi()().find(".wyp-selected,.wyp-selected-others,.wyp-multiple-selected")
+        getGi().find(".wyp-selected,.wyp-selected-others,.wyp-multiple-selected")
             .removeClass("wyp-selected wyp-selected-others wyp-multiple-selected");
-        getJi()().removeClass(
+        getJi().removeClass(
             "yp-selector-hover yp-selector-focus yp-selector-visited yp-selector-link " +
             "yp-selector-active yp-selector-checked yp-selector-disabled " +
             "yp-selector-enabled yp-selector-invalid yp-selector-valid"
@@ -336,8 +336,8 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         window.ypData.is_content_selected = false;
         window.ypData.get_selected_element = undefined;
         o("#customizing-mode").removeClass("wyp-con-slcd");
-        getTn()().removeAttr("data-wyp-selector");
-        getTn()().removeClass("wyp-element-list wyp-element-float");
+        getTn().removeAttr("data-wyp-selector");
+        getTn().removeClass("wyp-element-list wyp-element-float");
     }
 
     /* =========================================================================
