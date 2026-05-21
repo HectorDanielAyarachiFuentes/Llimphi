@@ -30,7 +30,7 @@
         // yp-selector.js
         var ya = _YP.ya, wa = _YP.wa, ua = _YP.ua, ma = _YP.ma, fa = _YP.fa,
             hi = _YP.hi, xi = _YP.xi, Ca = _YP.Ca, Da = _YP.Da, Hi = _YP.Hi,
-            _i = _YP._i, _a = _YP._a;
+            _i = _YP._i, _a = _YP._a, Ma = _YP.Ma;
 
         // yp-responsive.js
         var Y  = _YP.Y,  N  = _YP.N,  X  = _YP.X,  ei = _YP.ei;
@@ -1590,94 +1590,6 @@
 
         
 
-        function Ma(e, t) {
-                var a = window.ypData["data-clickable-select"];
-                if ("single" === window.ypData.inspector && (t = "sharp"), "default" == t && !1 == window.minCrpdSlctr && K(a) && !1 != Ca(a, !0, !1, !
-                                1)) return a;
-                if ("defaultNoCache" == t && (t = "default"), null === e && (e = _()), void 0 === e || void 0 === e[0] || !1 === e[0] || null === e[0])
-                        return !1;
-                var s = e[0].tagName;
-                if (J(s)) return !1;
-                if ("HTML" === s) return "body";
-                if ("BODY" == s) return "body";
-                var l = e.parentsUntil("body"),
-                        d = "",
-                        p = "",
-                        c = ya(e),
-                        u, m, f;
-                if (!0 == /#/g.test(c)) return c;
-                var g = [],
-                        h = !1,
-                        y = !1;
-                !1 != window.minCrpdSlctr && window.minCrpdSlctr >= l.length && (h = !0);
-                var w = l.length;
-                w > window.maxDeep && (w = window.maxDeep);
-                for (var v = w - 1; 0 <= v; v--) {
-                        if (u = !1, f = ya(l[v]), y = !1, !1 != window.minCrpdSlctr && v - 1 <= window.minCrpdSlctr && (y = !0), !0 == /\.|#/g.test(
-                                f) && !1 == h && !1 == y && 1 == Gi.find(f).length && ".active" != f) {
-                                var b = !0; - 1 == f.indexOf("#") && 0 >= v && (b = !1), b && ("sharp" == t ? -1 == Ce(d, !0).indexOf("nth-child") && (
-                                        d = f + window.separator, g.push(f), u = !0) : (d = f + window.separator, g.push(f), u = !0))
-                        }!1 == u && (m = Gi.find(d + window.separator + f + window.separator + f + "," + d + window.separator + p + window.separator +
-                                        f).length, "default" == t && 0 < m && "" != _i(d).trim() ? d = _i(d).trim() + " > " + f + window
-                                .separator : d += f + window.separator), p = f
-                }
-                if (m = Gi.find(d + window.separator + c + window.separator + c + "," + d + window.separator + f + window.separator + c).length, d = 0 <
-                        m && 0 < d.length ? _i(d + " > " + c) : _i(d + window.separator + c), 1 < g.length && "#" != d.charAt(0)) {
-                        var x = [],
-                                k, C;
-                        for (v = 0; v < g.length; v++) {
-                                k = !0;
-                                for (var z = 0; z < Tn.length; z++)
-                                        if (C = new RegExp("(\\s|^)." + Tn[z] + "(\\s|$)", "gi"), C.test(g[v])) {
-                                                k = !1;
-                                                break
-                                        } k && x.push(g[v])
-                        }
-                        var O;
-                        if (1 < x.length) {
-                                var D, A, S;
-                                for (O = [], v = 0; v < x.length; v++) {
-                                        D = [], A = [], Gi.find(x[v]).each(function() {
-                                                S = o(this), D.push(S.parents().length), A.push(S.prop("tagName"))
-                                        });
-                                        var T = D.every(function(e, t, i) {
-                                                        return e === i[0]
-                                                }),
-                                                E = A.every(function(e, t, i) {
-                                                        return e === i[0]
-                                                });
-                                        T && E && O.push(x[v])
-                                }
-                        }
-                        J(O) && (O = []);
-                        var L = null;
-                        if (0 < O.length ? L = O[O.length - 1] : 0 < x.length && (L = x[x.length - 1]), null != L) {
-                                var B = d.match(/(\s)(.*?)$/g).join("").toString();
-                                B = L + B, Ca(B, !0, !1, !1) && Ge(d, B) && (d = B)
-                        }
-                }
-                if (!1 == window.setSelector && (window.lastParentQueryStatus = t), "sharp" == t || "div" == d) return "div" == d && (d = "body div"),
-                        Ce(d, !1);
-                if (-1 != Pn.indexOf(s.toLowerCase())) {
-                        var M = [],
-                                Z;
-                        Gi.find(d).each(function() {
-                                Z = o(this).prop("tagName"), -1 == M.indexOf(Z) && M.push(Z)
-                        }), 1 < M.length && !0 == /(\.|#)/g.test(c) ? d = o.trim(d.match(new RegExp("^(.*?)(?=" + Na(c) + "$)", "g")).join("")
-                                .toString()) + window.separator + s.toLowerCase() + c : Za(d, c, s) && (d = o.trim(d.match(new RegExp(
-                                "^(.*?)(?=" + Na(c) + "$)", "g")).join("").toString()) + window.separator + s.toLowerCase())
-                }
-                if (d = _i(d), -1 != d.indexOf(">")) {
-                        var P = d.split(">").length,
-                                R = Gi.find(d).length;
-                        for (v = 1; v < P; v++) Gi.find(d.replace(/ > /i, " ")).length == R && (d = d.replace(/ > /i, " "))
-                }
-                return (d = _i(d), "sharp" != t && /\.wp-block-gallery/i.test(d) && /\.wp-image-[0-9]+$/i.test(d) && (d = d.replace(
-                                /\s\.wp-image-[0-9]+/i, " img")), d = d.replace(/(^|\s)\.wpforms-field([a-zA-Z0-9_-]+)?\s/i, " "), d = d
-                        .replace(/(^|\s)\.wpuf-el\s/i, " "), "sharp" != t && (d = d.replace(/(^|\s)\.wpuf-name-field-([a-zA-Z0-9_-]+)?\s/i,
-                                " ")), /( |>)div$/g.test(d) && 20 <= Gi.find(d).length) ? Ce(d) : (window.ypOption.show_css_selector && (d = Da(
-                        d)), d)
-        }
 
         function Za(e, t, a) {
                 var i = Gi.find(e),
@@ -5847,6 +5759,9 @@
                 Pn = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "img", "strong", "a", "li", "i", "ul", "header", "footer", "article", "b", "em",
                         "code", "form", "label", "ol", "small", "blockquote", "nav"
                 ];
+        window.YP = window.YP || {};
+        window.YP.Tn = Tn;
+        window.YP.Pn = Pn;
         window.reGetBestClass = !1, o(".wyp-navigation-btn").on("click", function() {
                 var e = o(this);
                 if (e.hasClass("active")) {
@@ -6636,5 +6551,9 @@ if (window.YP && window.YP._compat) {
     window.YP._compat.$ = typeof $ !== 'undefined' ? $ : undefined;
     window.YP._compat.he = typeof he !== 'undefined' ? he : undefined;
     window.YP._compat.y = typeof y !== 'undefined' ? y : undefined;
+    window.YP._compat.Ce = typeof Ce !== 'undefined' ? Ce : undefined;
+    window.YP._compat.Ge = typeof Ge !== 'undefined' ? Ge : undefined;
+    window.YP._compat.Za = typeof Za !== 'undefined' ? Za : undefined;
+    window.YP._compat.Na = typeof Na !== 'undefined' ? Na : undefined;
 }
 })(jQuery);

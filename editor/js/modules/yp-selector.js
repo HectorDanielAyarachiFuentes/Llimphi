@@ -267,9 +267,261 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
     }
 
     /* =========================================================================
+     * Ma / generateSelector  (original: Ma)
+     *
+     * Core selector generation engine. Takes a jQuery node element and walks up
+     * the DOM tree to construct a unique, highly minimal CSS selector.
+     * ========================================================================= */
+    function generateSelector(elementNode, mode) {
+        const clickableSelect = window.ypData ? window.ypData["data-clickable-select"] : "";
+        
+        if (window.ypData && window.ypData.inspector === "single") {
+            mode = "sharp";
+        }
+        
+        const K = YP._compat && YP._compat.K ? YP._compat.K : (val) => !val;
+        const _ = YP._compat && YP._compat._ ? YP._compat._ : () => null;
+        
+        if (mode === "default" && !window.minCrpdSlctr && K(clickableSelect) && validateSelector(clickableSelect, true, false, false) !== false) {
+            return clickableSelect;
+        }
+        
+        if (mode === "defaultNoCache") {
+            mode = "default";
+        }
+        
+        let el = elementNode;
+        if (el === null) {
+            el = _();
+        }
+        
+        if (!el || !el[0]) {
+            return false;
+        }
+        
+        const tagName = el[0].tagName;
+        const J = YP._compat && YP._compat.J ? YP._compat.J : (val) => !val;
+        
+        if (J(tagName)) {
+            return false;
+        }
+        
+        if (tagName === "HTML" || tagName === "BODY") {
+            return "body";
+        }
+        
+        const parents = el.parentsUntil("body");
+        let queryPath = "";
+        let prevTag = "";
+        const currentSelector = getSelector(el);
+        
+        if (/#/g.test(currentSelector)) {
+            return currentSelector;
+        }
+        
+        const matchesArray = [];
+        let isMinSelectorLevel = false;
+        let isMinLimitReached = false;
+        
+        if (window.minCrpdSlctr !== false && window.minCrpdSlctr >= parents.length) {
+            isMinSelectorLevel = true;
+        }
+        
+        let deepLevel = parents.length;
+        if (deepLevel > window.maxDeep) {
+            deepLevel = window.maxDeep;
+        }
+        
+        const separator = window.separator || " ";
+        const Ce = YP._compat && YP._compat.Ce ? YP._compat.Ce : (s) => s;
+        const Gi = getGi();
+        
+        for (let i = deepLevel - 1; i >= 0; i--) {
+            let isMatched = false;
+            const parentSelector = getSelector(parents[i]);
+            
+            isMinLimitReached = false;
+            if (window.minCrpdSlctr !== false && i - 1 <= window.minCrpdSlctr) {
+                isMinLimitReached = true;
+            }
+            
+            if (/\.|#/g.test(parentSelector) && !isMinSelectorLevel && !isMinLimitReached && Gi.find(parentSelector).length === 1 && parentSelector !== ".active") {
+                let canInclude = true;
+                if (parentSelector.indexOf("#") === -1 && i <= 0) {
+                    canInclude = false;
+                }
+                
+                if (canInclude) {
+                    if (mode === "sharp") {
+                        if (Ce(queryPath, true).indexOf("nth-child") === -1) {
+                            queryPath = `${parentSelector}${separator}`;
+                            matchesArray.push(parentSelector);
+                            isMatched = true;
+                        }
+                    } else {
+                        queryPath = `${parentSelector}${separator}`;
+                        matchesArray.push(parentSelector);
+                        isMatched = true;
+                    }
+                }
+            }
+            
+            if (!isMatched) {
+                const combinedLength = Gi.find(`${queryPath}${separator}${parentSelector}${separator}${parentSelector},${queryPath}${separator}${prevTag}${separator}${parentSelector}`).length;
+                if (mode === "default" && combinedLength > 0 && cleanSelector(queryPath).trim() !== "") {
+                    queryPath = `${cleanSelector(queryPath).trim()} > ${parentSelector}${separator}`;
+                } else {
+                    queryPath += `${parentSelector}${separator}`;
+                }
+            }
+            prevTag = parentSelector;
+        }
+        
+        const ultimateLength = Gi.find(`${queryPath}${separator}${currentSelector}${separator}${currentSelector},${queryPath}${separator}${prevTag}${separator}${currentSelector}`).length;
+        if (ultimateLength > 0 && queryPath.length > 0) {
+            queryPath = cleanSelector(`${queryPath} > ${currentSelector}`);
+        } else {
+            queryPath = cleanSelector(`${queryPath}${separator}${currentSelector}`);
+        }
+        
+        const Tn = window.YP.Tn || [];
+        if (matchesArray.length > 1 && queryPath.charAt(0) !== "#") {
+            const filteredMatches = [];
+            for (let i = 0; i < matchesArray.length; i++) {
+                let isValidMatch = true;
+                for (let j = 0; j < Tn.length; j++) {
+                    const blacklistRegex = new RegExp(`(\\s|^).${Tn[j]}(\\s|$)`, "gi");
+                    if (blacklistRegex.test(matchesArray[i])) {
+                        isValidMatch = false;
+                        break;
+                    }
+                }
+                if (isValidMatch) {
+                    filteredMatches.push(matchesArray[i]);
+                }
+            }
+            
+            let parentCandidates = [];
+            if (filteredMatches.length > 1) {
+                for (let i = 0; i < filteredMatches.length; i++) {
+                    const distances = [];
+                    const tagNames = [];
+                    Gi.find(filteredMatches[i]).each(function() {
+                        const jqNode = o(this);
+                        distances.push(jqNode.parents().length);
+                        tagNames.push(jqNode.prop("tagName"));
+                    });
+                    
+                    const isSameDistance = distances.every((val, idx, arr) => val === arr[0]);
+                    const isSameTag = tagNames.every((val, idx, arr) => val === arr[0]);
+                    
+                    if (isSameDistance && isSameTag) {
+                        parentCandidates.push(filteredMatches[i]);
+                    }
+                }
+            }
+            
+            if (J(parentCandidates)) {
+                parentCandidates = [];
+            }
+            
+            let bestParent = null;
+            if (parentCandidates.length > 0) {
+                bestParent = parentCandidates[parentCandidates.length - 1];
+            } else if (filteredMatches.length > 0) {
+                bestParent = filteredMatches[filteredMatches.length - 1];
+            }
+            
+            if (bestParent !== null) {
+                let tailMatch = queryPath.match(/(\s)(.*?)$/g);
+                if (tailMatch) {
+                    let tailSelector = tailMatch.join("").toString();
+                    let candidateQuery = bestParent + tailSelector;
+                    const Ge = YP._compat && YP._compat.Ge ? YP._compat.Ge : () => false;
+                    if (validateSelector(candidateQuery, true, false, false) && Ge(queryPath, candidateQuery)) {
+                        queryPath = candidateQuery;
+                    }
+                }
+            }
+        }
+        
+        if (window.setSelector === false) {
+            window.lastParentQueryStatus = mode;
+        }
+        
+        if (mode === "sharp" || queryPath === "div") {
+            if (queryPath === "div") {
+                queryPath = "body div";
+            }
+            return Ce(queryPath, false);
+        }
+        
+        const Pn = window.YP.Pn || [];
+        if (Pn.indexOf(tagName.toLowerCase()) !== -1) {
+            const resolvedTags = [];
+            Gi.find(queryPath).each(function() {
+                const tag = o(this).prop("tagName");
+                if (resolvedTags.indexOf(tag) === -1) {
+                    resolvedTags.push(tag);
+                }
+            });
+            
+            const Na = YP._compat && YP._compat.Na ? YP._compat.Na : (s) => s;
+            const Za = YP._compat && YP._compat.Za ? YP._compat.Za : () => false;
+            
+            if (resolvedTags.length > 1 && /(\.|#)/g.test(currentSelector)) {
+                const regexStr = `^(.*?)(?=${Na(currentSelector)}$)`;
+                const matchedPrefix = queryPath.match(new RegExp(regexStr, "g"));
+                const cleanedPrefix = matchedPrefix ? o.trim(matchedPrefix.join("").toString()) : "";
+                queryPath = `${cleanedPrefix}${separator}${tagName.toLowerCase()}${currentSelector}`;
+            } else if (Za(queryPath, currentSelector, tagName)) {
+                const regexStr = `^(.*?)(?=${Na(currentSelector)}$)`;
+                const matchedPrefix = queryPath.match(new RegExp(regexStr, "g"));
+                const cleanedPrefix = matchedPrefix ? o.trim(matchedPrefix.join("").toString()) : "";
+                queryPath = `${cleanedPrefix}${separator}${tagName.toLowerCase()}`;
+            }
+        }
+        
+        queryPath = cleanSelector(queryPath);
+        if (queryPath.indexOf(">") !== -1) {
+            const depthCombinators = queryPath.split(">").length;
+            const originalLength = Gi.find(queryPath).length;
+            for (let i = 1; i < depthCombinators; i++) {
+                const simplifiedQuery = queryPath.replace(/ > /i, " ");
+                if (Gi.find(simplifiedQuery).length === originalLength) {
+                    queryPath = simplifiedQuery;
+                }
+            }
+        }
+        
+        queryPath = cleanSelector(queryPath);
+        if (mode !== "sharp" && /\.wp-block-gallery/i.test(queryPath) && /\.wp-image-[0-9]+$/i.test(queryPath)) {
+            queryPath = queryPath.replace(/\s\.wp-image-[0-9]+/i, " img");
+        }
+        
+        queryPath = queryPath.replace(/(^|\s)\.wpforms-field([a-zA-Z0-9_-]+)?\s/i, " ");
+        queryPath = queryPath.replace(/(^|\s)\.wpuf-el\s/i, " ");
+        
+        if (mode !== "sharp") {
+            queryPath = queryPath.replace(/(^|\s)\.wpuf-name-field-([a-zA-Z0-9_-]+)?\s/i, " ");
+        }
+        
+        if (/( |>)div$/g.test(queryPath) && Gi.find(queryPath).length >= 20) {
+            return Ce(queryPath);
+        }
+        
+        if (window.ypOption && window.ypOption.show_css_selector) {
+            queryPath = getCleanSelector(queryPath);
+        }
+        
+        return queryPath;
+    }
+
+    /* =========================================================================
      * Export
      * ========================================================================= */
     YP.selector = {
+        generateSelector      : generateSelector,
         getSelector           : getSelector,
         buildSelector         : buildSelector,
         splitSelector         : splitSelector,
@@ -287,6 +539,7 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
     // Backward-compat aliases
     YP._compat = YP._compat || {};
     Object.assign(YP._compat, {
+        Ma : generateSelector,
         ya : getSelector,
         wa : buildSelector,
         ua : splitSelector,
