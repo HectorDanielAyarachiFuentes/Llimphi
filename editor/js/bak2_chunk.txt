@@ -1,0 +1,1200 @@
+                        o(this).is(":checked") ? (tn.addClass("wyp-fix-leftbar"), window.ypOption.fixed_left_bar = !0, window.leftBarSize = o(
+                                        ".editor-leftbar").get(0).getBoundingClientRect(), N(), o.throttle(Be(), 32), Ze(), t
+                                .originalEvent && v("fixed_left_bar", "true")) : (tn.removeClass("wyp-fix-leftbar"), window.ypOption
+                                .fixed_left_bar = !1, window.leftBarSize = o(".editor-leftbar").get(0).getBoundingClientRect(), N(), o
+                                .throttle(Be(), 32), Ze(), t.originalEvent && v("fixed_left_bar", "false")), Y(I("cssEditorWidth", 400),
+                                I("cssEditorHeight", 320) - 36)
+                }), o(".hide-premium-options-checkbox input").change(function(t) {
+                        o(this).is(":checked") ? (o("li.animation-option").hasClass("active") && o("li.animation-option.active > h3").trigger(
+                                "click"), o(
+                                "#font-family-group,#color-group,#background-color-group,#background-image-group,#width-group,#height-group,li.animation-option,.animation-manager-btn"
+                                ).hide(), o("li.animation-option").addClass("disabled"), o(".wyp-badge.wyp-lite").css(
+                                "visibility", "hidden"), window.ypOption.hide_premium_options = !0, t.originalEvent && v(
+                                "hide_premium_options", "true")) : (o(
+                                        "#font-family-group,#color-group,#background-color-group,#background-image-group,#width-group,#height-group,.animation-manager-btn"
+                                        ).show(), 0 == o(".ed-pnl-list > li.active").length ? o("li.animation-option").removeClass(
+                                        "disabled").show() : o("li.animation-option").removeClass("disabled").hide(), o(
+                                        ".wyp-badge.wyp-lite").css("visibility", "visible"), window.ypOption.hide_premium_options = !1,
+                                t.originalEvent && v("hide_premium_options", "false"))
+                }), o(".smart-responsive-technology-checkbox input").change(function(t) {
+                        o(this).is(":checked") ? (window.ypOption.smart_responsive_technology = !0, t.originalEvent && v(
+                                "smart_responsive_technology", "true")) : (window.ypOption.smart_responsive_technology = !1, t
+                                .originalEvent && v("smart_responsive_technology", "false"))
+                }), o(".smart-important-tag-checkbox input").change(function(t) {
+                        o(this).is(":checked") ? (window.ypOption.smart_important_tag = !0, t.originalEvent && v("smart_important_tag",
+                                "true")) : (window.ypOption.smart_important_tag = !1, t.originalEvent && v("smart_important_tag", "false"))
+                }), o(".show-css-selector-checkbox input").change(function(t) {
+                        o(this).is(":checked") ? (Ji.removeClass("wyp-css-slctr-off"), window.ypOption.show_css_selector = !0, t
+                                .originalEvent && (v("show_css_selector", "true"), C() && Q(_a(), _(), !0), 0 == o(
+                                        ".left-menu-btn.yhover").length && o(".left-menu-btn").trigger("click"))) : (Ji.addClass(
+                                "wyp-css-slctr-off"), window.ypOption.show_css_selector = !1, t.originalEvent && (v(
+                                        "show_css_selector", "false"), C() && Q(_a(), _(), !0), 0 == o(".left-menu-btn.yhover")
+                                .length && o(".left-menu-btn").trigger("click")))
+                }), window.ypOption.show_css_selector || Ji.addClass("wyp-css-slctr-off"), o(".append-auto-comments-checkbox input").change(function(
+                t) {
+                        o(this).is(":checked") ? (window.ypOption.append_auto_comments = !0, t.originalEvent && v("append_auto_comments",
+                                "true")) : (window.ypOption.append_auto_comments = !1, t.originalEvent && v("append_auto_comments",
+                                "false"))
+                }), tn.hasClass("yp-yellow-pencil-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
+                        ".fixed-right-panel-checkbox input").prop("checked", !0), o(".fixed-right-panel-checkbox input").trigger("change")), !0 ==
+                window.ypOption.fixed_left_bar && (o(".fixed-left-bar-checkbox input").prop("checked", !0), o(".fixed-left-bar-checkbox input").trigger(
+                        "change")), !0 == window.ypOption.hide_premium_options && (o(".hide-premium-options-checkbox input").prop("checked", !0), o(
+                        ".hide-premium-options-checkbox input").trigger("change")), null != o.urlParam("wyp_load_popup") && (function() {
+                        var e = o("#wyp-customizing-type-frame"),
+                                t = o.urlParam("wyp_mode"),
+                                a = e.attr("data-page-id"),
+                                i = e.attr("data-page-type"),
+                                n = e.attr("data-page-href"),
+                                s = e.attr("data-page-visitor");
+                        s = "true" == s || !0 == s ? "&wyp_out=true" : "";
+                        var r = e.attr("data-src") + "&wyp_page_href=" + n + "&wyp_page_id=" + a + "&wyp_page_type=" + i + "&wyp_mode=" + t + s;
+                        if (r == e.attr("src")) return !1;
+                        var l = o("<div />").append(o("#wyp-customizing-type-frame").clone().attr("src", r)).html();
+                        e.remove(), o("#iframe").after(l)
+                }(), setTimeout(function() {
+                        o("#wyp-current-page").trigger("click")
+                }, 10)), Gi.on("webkitAnimationEnd animationend", w("*", ":not(", ")", window.simple_not_list), function() {
+                        if (S() || T()) return !1;
+                        var e = o(this);
+                        return e.hasClass("wyp-animating") && e.removeClass("wyp-animating"), e.hasClass("wyp-selected") && C() && (Ji
+                                .removeClass("wyp-h-trfm"), Ze()), !1
+                }), o("#min-width-group .wyp-after,#min-height-group .wyp-after,#max-width-group .wyp-after,#max-height-group .wyp-after").css(
+                        "display", "none"), o(".wyp-wireframe-btn").click(function() {
+                        Ji.toggleClass("wyp-wf-on")
+                }), $(), o(".wyp-anim-control-play").on("click", function() {
+                        if (o(this).hasClass("active")) return !1;
+                        Qi.addClass("wyp-animate-manager-playing"), tn.addClass("wyp-clean-look"), Ji.addClass("wyp-hid-bor-n");
+                        var e = Math.max.apply(null, o(".wyp-anim-process-inner").map(function() {
+                                        return o(this).outerWidth(!0)
+                                }).get()),
+                                n = parseFloat(e) / 100;
+                        o("#wyp-animate-helper").text("@-webkit-keyframes playingBorder{from{left: 0px;}to{left:" + e +
+                                        "px;}}@keyframes playingBorder{from{left: 0px;}to{left:" + e + "px;}}"), o(".wyp-anim-playing-border")
+                                .css("animation-duration", n + "s").addClass("active"), o(this).addClass("active");
+                        Yi(), window.animationTimer3 = setTimeout(function() {
+                                o(".wyp-anim-control-pause").trigger("click")
+                        }, 1e3 * n), o(".wyp-anim-playing-over").css("width", e + o(window).width());
+                        for (var s = ["single", "template", "global"], r = 0; r < s.length; r++)
+                                for (var l = p(a(s[r], !1), "[rule=animation-name]"), d = 0, c, u; d < l.length; d++) c = l[d].replace(
+                                        /(\/\*(.*?)\*\/|\n)/g, ""), u = Ut(c), u = u.replace(
+                                        /(\.|:)(yp(-|_)onscreen|yp(-|_)hover|yp(-|_)click|yp(-|_)focus)/g, ""), Gi.find(u).each(
+                                        function() {
+                                                o(this).addClass("yp_hover yp_focus yp_click yp_onscreen")
+                                        });
+                        var m = 0;
+                        window.animMinC = setInterval(function() {
+                                ++m, 59 == g && (g = 0);
+                                var e = m;
+                                10 > m && (e = "0" + m), o(".wyp-counter-min").text(e)
+                        }, 6e4);
+                        var f = 0;
+                        window.animSecC = setInterval(function() {
+                                ++f;
+                                var e = f;
+                                10 > f && (e = "0" + f), o(".wyp-counter-second").text(e)
+                        }, 1e3);
+                        var g = 0;
+                        window.animMsC = setInterval(function() {
+                                ++g, 99 == g && (g = 0);
+                                var e = g;
+                                10 > g && (e = "0" + g), o(".wyp-counter-ms").text(e)
+                        }, 1)
+                }), o(".wyp-anim-control-pause").on("click", function() {
+                        clearTimeout(window.wyp_anim_player), o(".wyp-anim-playing-border").removeClass("active"), o(".wyp-anim-control-play")
+                                .removeClass("active");
+                        for (var e = ["single", "template", "global"], n = 0; n < e.length; n++)
+                                for (var s = p(a(null, !1), "[rule=animation-name]"), r = 0, l, d; r < s.length; r++) l = s[r].replace(
+                                        /(\/\*(.*?)\*\/|\n)/g, ""), d = Ut(l), d = d.replace(
+                                        /(\.|\:)(yp(-|_)onscreen|yp(-|_)hover|yp(-|_)click|yp(-|_)focus)/g, ""), Gi.find(d).each(
+                                        function() {
+                                                o(this).removeClass("yp_hover yp_focus yp_click yp_onscreen")
+                                        });
+                        tn.removeClass("wyp-clean-look"), Ji.removeClass("wyp-hid-bor-n"), Qi.removeClass("wyp-animate-manager-playing"), o(
+                                        ".wyp-counter-min").text("00"), o(".wyp-counter-second").text("00"), o(".wyp-counter-ms").text("00"),
+                                clearInterval(window.animMinC), clearInterval(window.animSecC), clearInterval(window.animMsC)
+                }), o(".wyp-anim-control-close,.wyp-visual-editor-link").on("click", function() {
+                        o(".animation-manager-btn").trigger("click")
+                }), o(".wyp-animate-manager-inner").on("scroll", o.throttle(function() {
+                        0 < o(this).scrollLeft() ? o(".wyp-animate-manager").addClass("view-scrolled") : o(".wyp-animate-manager")
+                                .removeClass("view-scrolled")
+                }, 48)), o(".animation-manager-btn").on("click", function() {
+                        if (Qi.toggleClass("wyp-animate-manager-active"), window.ypData.is_animation_manager = !window.ypData
+                                .is_animation_manager, o(".wyp-animate-manager").toggle(), o(".wyp-anim-control-pause").trigger("click"), !o(
+                                        this).hasClass("active")) {
+                                o(".wyp-css-ed-act .wyp-css-close-btn").trigger("click"), It(), H();
+                                var e = Math.max.apply(null, o(".wyp-anim-process-inner").map(function() {
+                                        return o(this).outerWidth(!0)
+                                }).get());
+                                o(".wyp-anim-process-bar-area").width(e + o(window).width())
+                        } else j(), N();
+                        0 < o(".animation-option.active").length && (o(".animation-option.active h3").trigger("click"), o(
+                                ".animation-option.active").removeAttr("data-loaded")), we(), Ze()
+                }), o(document).on("mouseenter", ".wyp-control-trash", function() {
+                        o(this).parent().tooltip("hide"), o(this).tooltip("show")
+                }), o(document).on("click", ".wyp-control-trash", function() {
+                        var e = o(this);
+                        k({
+                                title: qi.you_are_sure,
+                                showCancelButton: !0,
+                                confirmButtonText: qi.delete_anim
+                        }, function() {
+                                e.parent(".wyp-anim-process-bar").prev(".wyp-anim-process-bar-delay").remove(), e.parent(
+                                        ".wyp-anim-process-bar").remove(), window.ypData["wyp-anim-removing"] = !0, o(
+                                        ".wyp-delay-zero").each(function() {
+                                        var e = o(".wyp-anim-process-inner").offset().left - 5,
+                                                t = o(this).next(".wyp-anim-process-bar").offset().left - e;
+                                        o(this).css("left", t), o(this).next(".wyp-anim-process-bar").addClass(
+                                                "wyp-anim-has-zero-delay")
+                                }), F(), window.ypData["wyp-anim-removing"] = void 0, H()
+                        })
+                }), !1 === window.ypData.demo_mode && !0 !== window.bMode && o(window).add(o(nn)).focus(function() {
+                        tn.hasClass("wtfv") && tn.hasClass("wyp-mouseleave") && window.ypData["wyp-if-movleav"] && !1 == window
+                                .licenseCheckDelay && (o.post(ajaxurl, {
+                                        action: "wyp_check_license",
+                                        _wpnonce: window.wyp_editor_nonce
+                                }).done(function(e) {
+                                        "1" == e && (tn.removeClass("wtfv"), o(".wyp-popup-background,.wyp-info-modal").hide(),
+                                                k({
+                                                        title: qi.welcome_pro,
+                                                        text: qi.license_activated
+                                                }))
+                                }), window.licenseCheckDelay = !0, setTimeout(function() {
+                                        window.licenseCheckDelay = !1
+                                }, 1e4))
+                }), o(".info-btn").on("click", function() {
+                        if (!o(this).hasClass("active")) {
+                                var e = "element";
+                                0 == o(".advance-info-btns.active").length ? o(".element-btn").trigger("click") : o(".advance-info-btns.active")
+                                        .hasClass("design-btn") && (e = "typography"), o(".information-updated").removeClass(
+                                                "information-updated"), M(e), window.ypData["wyp-css-ed-drgable"] && o(".css-editor-btn.active")
+                                        .trigger("click"), o(".wyp-navigation-btn.active").trigger("click")
+                        }
+                        o(".advanced-info-box").toggle()
+                }), o(".design-btn").on("click", function() {
+                        o(this).parent().find(".active").removeClass("active"), o(this).addClass("active"), o(".element-content").hide(), o(
+                                ".typography-content").show(), !1 == o(this).hasClass("information-updated") && (M("typography"), o(
+                                this).addClass("information-updated"))
+                }), o(".element-btn").on("click", function() {
+                        o(this).parent().find(".active").removeClass("active"), o(this).addClass("active"), o(".typography-content").hide(), o(
+                                ".element-content").show()
+                }), o(".advance-info-btns").on("click", function() {
+                        o(".advanced-info-box-inner").scrollTop(0)
+                }), o(document).on("mousedown", ".ui-resizable-handle", function() {
+                        0 == o(this).parents(".wyp-anim-process-inner").length && (tn.addClass("fake-layer-x-bg"), tn.append(
+                                "<div class='fake-layer-x'></div>"), o(this).addClass("active"))
+                }), o(document).on("mouseup", ".ui-resizable-handle,.fake-layer-x", function() {
+                        0 == o(this).parents(".wyp-anim-process-inner").length && (tn.removeClass("fake-layer-x-bg"), o(".fake-layer-x")
+                        .remove(), o(".ui-resizable-handle").removeClass("active"))
+                });
+        var ln = I("CSSEditorDraggable", "0");
+        "1" == ln && (tn.addClass("wyp-css-ed-drgable"), window.ypData["wyp-css-ed-drgable"] = !0);
+        var dn = 276;
+        ln = I("rightPanelWidth", dn), tn.append("<style id='rightpanel-personalized-view'>.ed-pnl{width:" + ln + "px !important;}</style>"), dn = 276,
+                ln = I("visualManagerWidth", dn), tn.append("<style id='visual-manager-personalized-view'>#vsl-css-vi{width:" + ln +
+                        "px !important;}</style>"), ln = I("advancedInfoBoxWidth", 280), tn.append(
+                        "<style id='advancedinfobox-personalized-view'>.advanced-info-box {width:" + ln + "px !important;}</style>"), Y(I(
+                        "cssEditorWidth", 400), I("cssEditorHeight", 320) - 36), ln = I("animManagerHeight", 234), tn.append(
+                        "<style id='animmanager-personalized-view'>body.wyp-animate-manager-active #iframe{height:-webkit-calc(100% - " + parseInt(ln) +
+                        "px) !important;height:calc(100% - " + parseInt(ln) +
+                        "px) !important;}body.wyp-animate-manager-active.wyp-res-mod #iframe, body.wyp-animate-manager-active.wyp-res-mod .responsive-right-handle,body.wyp-animate-manager-active.wyp-res-mod .responsive-left-handle{height:-webkit-calc(100% - " +
+                        parseInt(ln + 24) + "px) !important;height:calc(100% - " + parseInt(ln + 24) + "px) !important;}.wyp-animate-manager{height:" +
+                        ln + "px !important;}</style>"), ln = I("navigationWidth", 230), tn.append(
+                        "<style id='navigation-personalized-view'>#layer-tree{width:" + parseFloat(ln) + "px !important;}</style>"), o(
+                        ".wyp-css-editor-detach").on("click", function() {
+                        window.ypData["wyp-css-ed-drgable"] || (o(".wyp-navigation-btn.active").trigger("click"), o(".info-btn.active").trigger(
+                                "click")), tn.toggleClass("wyp-css-ed-drgable"), window.ypData["wyp-css-ed-drgable"] = !window.ypData[
+                                "wyp-css-ed-drgable"], n.resize(), N(), ye(), Ze(), Y(I("cssEditorWidth", 400), I("cssEditorHeight",
+                                320) - 36), window.ypData["wyp-css-ed-drgable"] ? R("CSSEditorDraggable", "1") : R("CSSEditorDraggable",
+                                "0")
+                }), o(".wyp-animate-manager-inner").on("scroll", o.throttle(function() {
+                        o(".wyp-anim-left-part-column").css("left", o(this).scrollLeft())
+                }, 64)), o(document).on("click", ".wyp-anim-list-menu ul li", function() {
+                        Gi.find(".yp_onscreen,.yp_hover,.yp_click,.yp_focus").removeClass("yp_onscreen yp_hover yp_click yp_focus");
+                        var e = o(".wyp-anim-add.active");
+                        window.ypData["wyp-animate-manager-mode"] = !0;
+                        var t = e.parent().attr("data-selector-full"),
+                                a = [],
+                                i = [],
+                                n = [],
+                                s = e.parents(".wyp-anim-process-bar-area").attr("data-responsive"),
+                                r = e.parents(".wyp-anim-process-bar-area").attr("data-anim-type");
+                        if (e.parent().find(".wyp-anim-process-inner").is(":empty")) tt(t, "animation-name", o(this).data("value"), "", s, r);
+                        else {
+                                e.parent().find(".wyp-anim-process-inner .wyp-anim-process-bar").each(function() {
+                                        a.push(o(this).text()), i.push(o(this).width() / 100 + "s")
+                                }), e.parent().find(".wyp-anim-process-inner .wyp-anim-process-bar-delay").each(function() {
+                                        var t = (o(this).offset().left - e.parent().find(".wyp-anim-process-inner").offset()
+                                                .left) / 100;
+                                        o(this).hasClass("wyp-delay-zero") ? n.push(t + "s") : n.push(t + o(this).width() /
+                                                100 + "s")
+                                }), a.push(o(this).data("value")), i.push("1s");
+                                var l = e.parent().find(".wyp-anim-process-inner .wyp-anim-process-bar").last(),
+                                        d = (l.offset().left + l.width() - e.parent().find(".wyp-anim-process-inner").offset().left) / 100;
+                                n.push(d + "s"), tt(t, "animation-name", a.toString(), "", s, r), tt(t, "animation-duration", i.toString(), "",
+                                        s, r), tt(t, "animation-delay", n.toString(), "", s, r)
+                        }
+                        o("#fake-layer").trigger("click"), window.ypData["wyp-animate-manager-mode"] = void 0, setTimeout(function() {
+                                H(), F()
+                        }, 100)
+                }), o(document).on("click", ".wyp-anim-add", function(a) {
+                        a.stopPropagation();
+                        var e = o(this).offset().top,
+                                t = o(this).offset().left,
+                                i = o(".wyp-anim-list-menu ul");
+                        o(".wyp-anim-list-menu").removeAttr("style").removeClass("wyp-anim-list-top");
+                        var n = "",
+                                s = [];
+                        o.each(JSON.parse(o("#animation-name-group textarea").val()), function(e, t) {
+                                -1 === s.indexOf(t.category) && (n += "<li class='anim-cat-list'>" + t.category + "</li>", s
+                                        .push(t.category)), "none" != t.value && (n += "<li data-value='" + t.value +
+                                        "' data-text='" + t.label + "' data-content='" + t.label + "'>" + t.label +
+                                        "</li>")
+                        }), i.html(n);
+                        var r = o(window).height() - e;
+                        310 > r ? o(".wyp-anim-list-menu").addClass("wyp-anim-list-top") : i.height() > r && i.height(r), o(
+                                ".wyp-anim-list-menu").css({
+                                left: t,
+                                top: e
+                        }).show(), o(".wyp-anim-list-menu").css("margin-left", "-" + parseInt(o(".wyp-anim-list-menu").width() / 2 -
+                                10) + "px"), o(".wyp-anim-add").removeClass("active"), o(this).addClass("active"), W({
+                                index: 2147483646,
+                                container: ".wyp-animate-manager",
+                                callback: function() {
+                                        o(".wyp-anim-list-menu").hide()
+                                }
+                        })
+                }), o(".wyp-info-modal-close").click(function() {
+                        o(".wyp-info-modal,.wyp-popup-background").fadeOut("fast")
+                }), o(".wyp-popup-background").click(function() {
+                        o(this).fadeOut(), o(".wyp-info-modal").fadeOut("fast")
+                }), o(".cursor-main-btn").mousedown(function() {
+                        !1 == o(this).hasClass("active") ? (!window.ypData["wyp-met-dis"] && o(".wyp-ruler-btn").trigger("click"), o(this)
+                                .addClass("active")) : o(".inspector-sublist").toggle(), o(this).tooltip("hide")
+                }), o(".inspector-sublist li").click(function() {
+                        var e = o(this).attr("data-cursor-action");
+                        o(".wyp-ruler-btn").hasClass("active") && o(".wyp-ruler-btn").trigger("click"), window.ypData.inspector = e,
+                                "default" == e ? (tn.removeClass("wyp-single-inspector-active"), tn.addClass("wyp-flexible-inspector-active")) :
+                                "single" == e ? tn.addClass("wyp-single-inspector-active") : (tn.removeClass(
+                                        "wyp-flexible-inspector-active wyp-single-inspector-active"), At()), o(".inspector-sublist").toggle(),
+                                o(".inspector-sublist li").removeClass("active"), o(this).addClass("active")
+                }), tn.on("click", function(t) {
+                        "block" == o(".inspector-sublist").css("display") && !1 == o(t.target).is(
+                                        ".cursor-main-btn,.cursor-main-btn *,.inspector-sublist,.inspector-sublist *") && o(
+                                        ".inspector-sublist").hide(), "block" == o(".interface-settings").css("display") && !1 == o(t.target)
+                                .is(".left-menu-btn,.left-menu-btn *,.interface-settings,.interface-settings *") && (o(".left-menu-btn")
+                                        .toggleClass("yhover"), o(".interface-settings").hide())
+                }), window.responsiveModeRMDown = !1, window.SelectorDisableResizeRight = !1, window.selectorWasActive = !1, window.rulerWasActive = !1,
+                o(".responsive-right-handle,.responsive-left-handle").on("mousedown", function() {
+                        if (window.responsiveModeRMDown) return !1;
+                        window.ypData["wyp-met-dis"] || o(".wyp-ruler-btn").trigger("click");
+                        var e = o(this);
+                        window.responsiveModeRMDown = !0, e.hasClass("responsive-right-handle") ? Qi.addClass(
+                                        "wyp-res-resizing wyp-res-resizing-right") : Qi.addClass("wyp-res-resizing wyp-res-resizing-left"), tn
+                                .addClass("wyp-clean-look"), Ji.addClass("wyp-hid-bor-n"), window.selectorWasActive = !!o(".wyp-selector-mode")
+                                .hasClass("active"), o(".wyp-ruler-btn").hasClass("active") ? window.rulerWasActive = !0 : (window
+                                        .rulerWasActive = !1, o(".wyp-ruler-btn").trigger("click").removeClass("active")), o(
+                                        ".wyp-selector-mode").hasClass("active") && !1 === C() && (o(".wyp-selector-mode").trigger("click"),
+                                        window.SelectorDisableResizeRight = !0), e.hasClass("responsive-right-handle") ? j("right") : j("left"),
+                                setTimeout(function() {
+                                        o(".metric-left-tooltip").html("W: <span>" + parseInt(o("#iframe").width()) + "</span>px")
+                                }, 1)
+                });
+        var pn, cn;
+        en.on("mousemove", o.throttle(function(t) {
+                if (!0 === window.responsiveModeRMDown) {
+                        var e = N(!0);
+                        t.pageX -= 10, tn.hasClass("wyp-res-resizing-right") ? t.pageX -= parseInt(o("#iframe").offset().left) :
+                                t.pageX = parseInt(o("#iframe").offset().left + o("#iframe").width()) - t.pageX - 16, 270 > t
+                                .pageX && (t.pageX = 270), t.pageX > e - 220 && (t.pageX = e - 220), o("#iframe").width(t
+                                .pageX), tn.hasClass("wyp-res-resizing-left") ? j("left") : j(), clearTimeout(pn), clearTimeout(
+                                        cn), pn = setTimeout(function() {
+                                        X()
+                                }, window.YellowDelay), cn = setTimeout(function() {
+                                        o(".metric-left-tooltip").html("W: <span>" + parseInt(o("#iframe").width()) +
+                                                "</span>px")
+                                }, 1)
+                }
+        }, 32)), en.on("mouseup", function() {
+                !0 === window.responsiveModeRMDown && (window.responsiveModeRMDown = !1, Qi.removeClass(
+                                "wyp-res-resizing wyp-res-resizing-right wyp-res-resizing-left"), tn.removeClass(
+                                "wyp-clean-look"), setTimeout(function() {
+                                Ji.removeClass("wyp-hid-bor-n"), Ze()
+                        }, 25), !0 === window.SelectorDisableResizeRight && (window.SelectorDisableResizeRight = !1), !1 ===
+                        window.rulerWasActive && o(".wyp-ruler-btn").addClass("active").trigger("click"), !0 === window
+                        .selectorWasActive ? !1 === o(".wyp-selector-mode").hasClass("active") && o(".wyp-selector-mode")
+                        .trigger("click") : o(".wyp-selector-mode").hasClass("active") && o(".wyp-selector-mode").trigger(
+                                "click"), we(), C() && _e())
+        }), o(".responsive-add-breakpoint").on("click", function() {
+                var e = "(" + o(".media-control").attr("data-code") + ":" + o("#iframe").width() + "px)",
+                        t = Pe(e),
+                        i = Re(e);
+                r(m(a(null, !1), t + "YPtoAddBreakpoint{b:b;}" + i, null), null, "b"), Mi(), o(".breakpoint-bar .focus").addClass(
+                        "defined-with-yellowpencil").removeClass("edited"), we(), j()
+        });
+        var un = 0;
+        en.on("keyup", function(t) {
+                un = new Date;
+                var e = t.target.tagName.toLowerCase(),
+                        a = !1,
+                        i = !1;
+                (!0 === t.ctrlKey || !0 === t.metaKey) && (a = !0), ("input" == e || "textarea" == e) && (i = !0), !1 === a && !1 ===
+                        i && (Ji.removeClass("wyp-control-key-down"), window.ypData["wyp-control-key-down"] = !1, Gi.find(
+                                ".wyp-multiple-selected").removeClass("wyp-multiple-selected"), sn.other.find(
+                                ".wyp-selected-others-multiple-box").remove())
+        });
+        var mn;
+        en.on("keydown", function(t) {
+                var e = new Date,
+                        a = t.target.tagName.toLowerCase(),
+                        i = o(t.target),
+                        n = t.keyCode || t.which,
+                        s = !1,
+                        d = !!t.shiftKey,
+                        p = !1,
+                        c;
+                if ((!0 === t.ctrlKey || !0 === t.metaKey) && (s = !0), ("input" == a || "textarea" == a) && (p = !0), 83 == n && !0 ===
+                        s && !1 === d && (t.preventDefault(), o(".wyp-button.wyp-save-btn").trigger("click")), 46 == n && !1 === s && !
+                        1 === p && !1 === d && (tt(null, "display", "none", ""), Mi(), setTimeout(function() {
+                                At(), sn.extra.find(".wyp-el-viewer").remove()
+                        }, window.Yellow2Delay)), 27 == n && !1 === s && !1 === d) {
+                        if (O() || D()) return !1;
+                        if ("none" == o(".yellow-alert").css("display") || 0 === o(".yellow-alert").length) {
+                                if (!0 !== window.bMode && "none" != o(".wyp-popup-background").css("display")) return o(
+                                        ".wyp-info-modal-close").trigger("click"), !1;
+                                if (Qi.hasClass("wyp-selector-editor-active")) return o("#wyp-selector-editor").val(""), ge(
+                                        "#wyp-selector-editor"), !1
+                        }
+                }
+                if (!1 === s && !1 === p && !0 === d && !1 == window.ypData["wyp-if-movleav"] && 37 != n && 38 != n && 39 != n && 40 !=
+                        n && (clearTimeout(mn), mn = setTimeout(function() {
+                                +e > +un && C() && (Ji.addClass("wyp-control-key-down"), window.ypData[
+                                                "wyp-control-key-down"] = !0, window.ypData[
+                                        "wyp-rcnt-hvr-el"] && 0 < window.ypData["wyp-rcnt-hvr-el"].length && (
+                                                window.mouseoverTrigger = !0, window.ypData["wyp-rcnt-hvr-el"]
+                                                .trigger("fakeOver"), window.mouseoverTrigger = !1), window
+                                        .ypData["wyp-rcnt-hvr-el"] = void 0)
+                        }, 200)), !1 === s && !1 === p && (38 == n || 40 == n || 37 == n || 39 == n) && C() && !1 === z() && !1 ==
+                        window.ypData["wyp-if-movleav"] && (t.preventDefault(), clearTimeout(window.KeymovingDelay), window
+                                .KeymovingDelay = setTimeout(function() {
+                                        var e = _(),
+                                                a = parseInt(e.css("top")),
+                                                i = parseInt(e.css("left"));
+                                        isNaN(a) && (a = 0), isNaN(i) && (i = 0);
+                                        var s = 1;
+                                        if (d && (s = 10), 38 == n ? a -= s : 40 == n && (a += s), 37 == n ? i -= s : 39 == n &&
+                                                (i += s), a += "px", i += "px", 38 == n || 40 == n) {
+                                                tt(null, "top", a, "");
+                                                var p = parseInt(e.css("bottom"));
+                                                isNaN(p) && (p = 0), 0 !== parseFloat(a) + parseFloat(p) && tt(null, "bottom",
+                                                        "auto", "")
+                                        }
+                                        if (37 == n || 39 == n) {
+                                                tt(null, "left", i, "");
+                                                var c = parseInt(e.css("right"));
+                                                isNaN(c) && (c = 0), 0 !== parseFloat(i) + parseFloat(c) && tt(null, "right",
+                                                        "auto", "")
+                                        }
+                                        var u = e.css("position");
+                                        if ("static" == u && tt(null, "position", "relative", ""), 0 < o(
+                                                        "li.position-option.active").length) {
+                                                var m = _a();
+                                                o("#top-group,#left-group").each(function() {
+                                                        pa(G(this), m)
+                                                })
+                                        } else o("li.position-option").removeAttr("data-loaded");
+                                        Mi()
+                                }, 40)), !0 === p && 27 == n && !1 === s && !1 === d) return i.blur(), !1;
+                if (8 == n && !1 === s && !1 === p && !1 === d) return t.preventDefault(), !1;
+                if (90 == n && !0 == s && !1 === p && !1 === d) return t.preventDefault(), clearTimeout(window.historyDelay), tn
+                        .hasClass("wyp-history-delay") ? window.historyDelay = setTimeout(function() {
+                                U()
+                        }, 220) : setTimeout(function() {
+                                U()
+                        }, 50), !1;
+                if (71 == n && !0 === s && !1 === p && !1 === d) return t.preventDefault(), Qi.toggleClass("wyp-smart-guide-disabled"),
+                        !1;
+                if (89 == n && !0 === s && !1 === p && !1 === d) return t.preventDefault(), clearTimeout(window.historyDelay), tn
+                        .hasClass("wyp-history-delay") ? window.historyDelay = setTimeout(function() {
+                                q()
+                        }, 220) : setTimeout(function() {
+                                q()
+                        }, 50), !1;
+                if (90 == n && !0 === s && !0 === d && !1 === p) return t.preventDefault(), clearTimeout(window.historyDelay), tn
+                        .hasClass("wyp-history-delay") ? window.historyDelay = setTimeout(function() {
+                                q()
+                        }, 220) : setTimeout(function() {
+                                q()
+                        }, 50), !1;
+                if (86 == n && !1 === s && !1 === p && !1 === d) return "cursor" === window.ypData.inspector ? (o(
+                        ".inspector-sublist-default").trigger("click"), window.ypData.inspector = "default") : (o(
+                        ".inspector-sublist-cursor").trigger("click"), window.ypData.inspector = "cursor"), o(
+                        ".inspector-sublist").css("display", "none"), !1;
+                if (27 == n && !1 === s && !1 === d) {
+                        if (t.preventDefault(), z()) return !1;
+                        if (tn.hasClass("wyp-bg-layer-active")) return o("#fake-layer").trigger("click"), !1;
+                        if (0 < o("#wyp-customizing-type-frame").length && !1 == p && "block" == o("#wyp-customizing-type-frame").css(
+                                        "display")) return o("#wyp-current-page").removeClass("active"), o(
+                                "#wyp-customizing-type-frame").css("display", "none"), !1;
+                        if ("block" == o("#image_uploader").css("display") && !1 == p) return o("#image_uploader").toggle(), o(
+                                "#image_uploader_background").toggle(), o(".wyp-upload-btn").toggleClass("active"), !1;
+                        if (!1 === tn.hasClass("autocomplete-active") && "none" == o(".yellow-alert").css("display") || 0 === o(
+                                        ".yellow-alert").length && !1 == p) {
+                                if (window.isIrisOpen) return o(".iris-picker").hide(), !1;
+                                if (0 < o("#context-menu-layer:visible").length) return o("#context-menu-layer,.context-menu-list")
+                                        .hide(), !1;
+                                if (tn.hasClass("customization-type-popup")) return o("#customizing-mode").trigger("click"), !1;
+                                if ("block" == o(".inspector-sublist").css("display")) return o(".inspector-sublist").css("display",
+                                        "none"), !1;
+                                if ("block" == o(".interface-settings").css("display")) return o(".interface-settings").css("display",
+                                        "none"), o(".left-menu-btn.yhover").removeClass("yhover"), !1;
+                                if (0 < o(".info-btn.active").length) return o(".info-btn.active").trigger("click"), !1;
+                                if ("block" == o("#css-editor-bar").css("display")) return o(".css-editor-btn").trigger("click"), !1;
+                                if (tn.hasClass("wyp-nvgtn-act")) return o(".wyp-navigation-btn.active").trigger("click"), !1;
+                                if (window.ypData["vsl-css-vi-active"]) return It(), !1;
+                                if (0 < o(".animation-manager-btn.active").length) return o(".animation-manager-btn").trigger("click"),
+                                        !1;
+                                if (0 < o(".wyp-ruler-btn.active").length) return o(".wyp-ruler-btn").trigger("click"), !1;
+                                if (S()) return o(".wyp-anim-cancel").trigger("click"), !1;
+                                if (C()) return At(), o.throttle(Be(), 32), !1;
+                                if (0 == o(".wyp-responsive-btn.active").length) return o(".wyp-responsive-btn").trigger("click"), !1
+                        }
+                }
+                if (32 == n && !1 === d && !1 === s && !1 === p && C()) return t.preventDefault(), ce(), !1;
+                if (32 == n && !1 === s && !1 === d && !1 === p && !1 === C() && o(".wyp-selector-mode").hasClass("active")) return t
+                        .preventDefault(), void 0 !== _() && 0 < _().length && (c = "single" === window.ypData.inspector ? o
+                                .trim(Ma(null, "sharp")) : o.trim(Ma(null, "default")), L(c), Q(c, _(), !0)), !1;
+                if (32 == n && !1 === s && !0 === d && !1 === p && !0 === C() && o(".wyp-selector-mode").hasClass("active")) {
+                        t.preventDefault();
+                        var u = Gi.find(".wyp-multiple-selected");
+                        if (0 == u.length) return !1;
+                        var r = _a(),
+                                l = Ma(u, "sharp");
+                        if (u.hasClass("wyp-selected-others") && 0 < r.split(",").length) {
+                                u.removeClass("wyp-selected-others"), r = r.replace(new RegExp("," + Na(l), "g"), "");
+                                var m = _();
+                                return L(r), Q(r, m, !0), u.removeClass("wyp-multiple-selected"), Ze(), !1
+                        }
+                        return sn.other.find(".wyp-selected-others-multiple-box").remove(), u.addClass("wyp-selected-others")
+                                .removeClass("wyp-multiple-selected"), L(r + "," + l), Q(r + "," + l, _(), !0), !1
+                }
+                return 82 == n && !1 === s && !1 === p && !1 === d ? (t.preventDefault(), o(".wyp-responsive-btn.active").trigger(
+                                "click"), !1) : 77 == n && !1 === s && !1 === p && !1 === d ? (t.preventDefault(), o(".wyp-ruler-btn")
+                                .trigger("click"), !1) : 87 == n && !1 === s && !1 === p && !1 === d ? (t.preventDefault(), o(
+                                ".wyp-wireframe-btn").trigger("click"), !1) : 68 == n && !1 === s && !1 === p && !1 === d ? (t
+                                .preventDefault(), o(".info-btn:not(.active)").trigger("click"), !1) : 65 == n && !1 === s && !1 ===
+                        p && !1 === d ? (t.preventDefault(), !window.bMode) && (o(".animation-manager-btn:not(.active)").trigger(
+                                "click"), !1) : 67 == n && !1 === s && !1 === p && !1 === d && (t.preventDefault(), !window.ypData[
+                                "vsl-css-vi-active"]) ? (o(".wyp-button-manage").trigger("click"), !1) : 72 == n && !1 === s && !1 ===
+                        p && !1 === d ? (t.preventDefault(), pe(), !1) : 0 < o(".css-editor-btn").length && !1 === s && !1 === p && !
+                        1 === tn.hasClass("process-by-code-editor") && !1 === d && (162 == n || 69 == n) ? (t.preventDefault(), S()) ? (
+                                k({
+                                        title: qi.sorry,
+                                        text: qi.cantEditor
+                                }), !1) : !window.bMode && (o(".css-editor-btn").trigger("click"), !1) : 192 == n && !1 === s && !1 ===
+                        p && !1 === tn.hasClass("process-by-code-editor") && !1 === d ? (t.preventDefault(), S()) ? (k({
+                                title: qi.sorry,
+                                text: qi.cantEditor
+                        }), !1) : !window.bMode && (o(".css-editor-btn").trigger("click"), !1) : 70 == n && !1 === s && !1 === p && !
+                        1 === d ? (t.preventDefault(), fe(), !1) : 78 == n && !1 === s && !1 === p && !1 === d ? (t.preventDefault(), o(
+                                ".wyp-navigation-btn:not(.active)").trigger("click"), !1) : void 0
+        }), n.commands.addCommand({
+                name: "close",
+                bindKey: {
+                        win: "ESC",
+                        mac: "ESC"
+                },
+                exec: function() {
+                        o(".css-editor-btn").trigger("click")
+                },
+                readOnly: !1
+        }), n.commands.addCommand({
+                name: "save",
+                bindKey: {
+                        win: "CTRL+S",
+                        mac: "CMD+S"
+                },
+                exec: function() {
+                        var e = o(".wyp-button.wyp-save-btn");
+                        (!1 === window.saveFromEditor || void 0 === window.saveFromEditor) && !1 === tn.hasClass(
+                                "css-code-unvalid") && e.hasClass("waiting-for-save") && (window.saveFromEditor = !0, e
+                                .trigger("click"))
+                },
+                readOnly: !1
+        }), n.on("copy", function(e) {
+                if (!window.ypData.demo_mode && tn.hasClass("wtfv")) {
+                        var t = e.text.match(
+                                /(\s|\{)(font-family|color|background-image|background-color|width|height|animation-name)\:/g);
+                        if (null !== t) return o(".wyp-info-modal .wyp-info-modal-top-inner h2").text("Copy Failed. Upgrade to Pro!"),
+                                o(".wyp-info-modal .wyp-info-modal-top-inner p").text(
+                                        "You are using some premium features. Upgrade to Pro or disable premium features to copy code."
+                                        ), o(".wyp-info-modal,.wyp-popup-background").fadeIn("fast"), navigator.clipboard
+                                .writeText(""), !1
+                }
+        }), Gi.find("form").submit(function(t) {
+                if (t.preventDefault(), "cursor" !== window.ypData.inspector) return !1
+        }), o(".wyp-ruler-btn").click(function() {
+                return !1 === C() && At(), Qi.toggleClass("wyp-met-dis"), window.ypData["wyp-met-dis"] = !1 === window.ypData[
+                        "wyp-met-dis"], o.throttle(Be(), 32), o(".cursor-main-btn").toggleClass("active"), window.ypData[
+                        "wyp-met-dis"] && (Gi.find(".hv-in-bx").css("transform", "translate3d(-1000px, -1000px, -1000px)"), Gi
+                        .find(".wyp-size-handle").css("top", "-1000px"), tn.find(
+                                ".metric-top-tooltip,.metric-left-tooltip,.metric-left-border,.metric-top-border").css(
+                                "transform", "translate3d(-1000px, -1000px, -1000px)")), !1
+        }), o(".css-va,.wyp-bgs-css-val").keydown(function(t) {
+                var e = t.keyCode || t.which,
+                        a = parseFloat(o(this).val());
+                isNaN(a) && (a = 0), 38 == e && (t.preventDefault(), o(this).val(a + parseFloat(1))), 40 == e && (t.preventDefault(), o(
+                        this).val(a - parseFloat(1)))
+        }), o(".css-va,.wyp-bgs-css-val,.ac-p-d > .in-ac,.wyp-input,.css-un,.wyp-bgs-prefix,.iris-picker input").on("focus", function() {
+                o(this).hasClass("select-able") || o(this)[0].setSelectionRange(0, o(this).val().length), o(this).addClass(
+                        "select-able")
+        }).on("blur", function() {
+                o(this).removeClass("select-able")
+        }), o(document).on("focus", ".iris-picker input", function() {
+                o(this).hasClass("select-able") || o(this)[0].setSelectionRange(0, o(this).val().length), o(this).addClass(
+                        "select-able")
+        }), o(document).on("blur", ".iris-picker input", function() {
+                o(this).removeClass("select-able")
+        }), o.fn.hasAttr = function(e) {
+                return void 0 !== this.attr(e)
+        }, o.fn.getCursorPosition = function() {
+                var e = this.get(0);
+                if (e) {
+                        if ("selectionStart" in e) return e.selectionStart;
+                        if (document.selection) {
+                                e.focus();
+                                var t = document.selection.createRange(),
+                                        a = document.selection.createRange().text.length;
+                                return t.moveStart("character", -e.value.length), t.text.length - a
+                        }
+                }
+        }, o.fn.cssImportant = function(e, t) {
+                this.css(e, t), o(this).attr("style", this.attr("style").replace(e + ": " + t, e + ": " + t + " !important"))
+        }, o(".wyp-button-live").click(function() {
+                var e = o(this);
+                e.addClass("live-btn-loading"), window.ypData["wyp-need-to-process"] && Zi(), setTimeout(function() {
+                        var t = e.attr("data-href");
+                        if (window.ypData.demo_mode) return k({
+                                title: qi.live_preview_alert,
+                                text: qi.live_preview_text
+                        }), e.removeClass("live-btn-loading"), !1;
+                        var a = "",
+                                i;
+                        if (Gi.find(".wyp-inline-data").each(function() {
+                                        i = o(this).attr("data-source-mode"), a += Et(!0, i, !1, !0)
+                                }), window.bMode) return !1;
+                        var n = o.post(ajaxurl, {
+                                action: "wyp_preview_data_save",
+                                wyp_data: a,
+                                _wpnonce: window.wyp_editor_nonce
+                        });
+                        n.always(function() {
+                                return e.removeClass("live-btn-loading"), window.open(t, t), !1
+                        })
+                }, 100)
+        }), window.cacheFirstLoad = [E()];
+        for (var fn = ["single", "template", "global"], gn = 0; gn < fn.length; gn++) fn[gn] != window.cacheFirstLoad && (y(fn[gn]), setTimeout(
+                function() {
+                        n.setValue(Et(!0, fn[gn], !0)), n.getSession().setUndoManager(new ace.UndoManager)
+                }, 300));
+        y(), setTimeout(function() {
+                n.setValue(Et(!0, null, !0)), n.getSession().setUndoManager(new ace.UndoManager)
+        }, 300), window.old_premium_rules = (Gi.find(".wyp-inline-data").text().match(
+                /(\s|\{)(font-family|color|background-image|background-color|width|height|animation-name)\:/g) || []).length, o(
+                "[data-toggle=\"tooltipTopBottom\"]").tooltip({
+                container: ".ed-pnl",
+                template: "<div class=\"tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
+                html: !0
+        }), o("[data-toggle=\"tooltip-bar\"]").tooltip({
+                container: "body",
+                html: !0
+        }), o(".info-btn").on("show.bs.tooltip", function() {
+                if (o(this).hasClass("active")) return !1
+        }), o(".responsive-add-breakpoint").tooltip({
+                template: "<div class=\"tooltip tooltip-breakpoint-add\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
+                title: function() {
+                        return "Add A Breakpoint<span class='breakpoint-tooltip-t'>" + o("#iframe").width() + "px and " + o(
+                                ".media-control").text() + " screens</span>"
+                },
+                container: "body",
+                delay: {
+                        show: 50,
+                        hide: 0
+                },
+                placement: "bottom",
+                html: !0
+        }), o(".mo-i").tooltip({
+                template: "<div class=\"tooltip small-tooltip tooltip-responsive-icon\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
+                title: "Has edits on another screen size(s).",
+                container: ".ed-pnl",
+                delay: {
+                        show: 50,
+                        hide: 0
+                },
+                placement: "top"
+        }), o(".op-l span").tooltip({
+                template: "<div class=\"tooltip property-help-tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
+                delay: {
+                        show: 200,
+                        hide: 0
+                },
+                container: ".ed-pnl",
+                placement: "top",
+                html: !0
+        }), o("[data-toggle=\"tooltipAnimGenerator\"]").tooltip({
+                html: !0
+        }), o("[data-toggle=\"tooltip\"]").tooltip({
+                container: ".ed-pnl",
+                html: !0
+        }).on("shown.bs.tooltip", function() {
+                0 < o(".popover").length && o(this).tooltip("hide")
+        }), o("[data-toggle=\"popover\"]").popover({
+                trigger: "hover",
+                container: ".ed-pnl"
+        }), o(".op-g,.wyp-advanced-option").on("shown.bs.popover", function() {
+                80 > parseFloat(o(".popover").css("top")) && o(this).popover("hide")
+        }), o(".ed-pnl").draggable({
+                handle: ".ed-pnl-top",
+                cancel: ".ed-pnl-top *",
+                start: function() {
+                        tn.append("<div class='fake-layer' style='background-color:rgba(0,0,0,0.05);'></div>"), window.ypData[
+                                "wyp-fix-pan"] && (o(".fixed-right-panel-checkbox input").prop("checked", !1).trigger(
+                                "change"), v("fixed_right_panel", "false"), pe(!0), Ct())
+                },
+                drag: function(e, t) {
+                        t.position.top = Math.max(-30, t.position.top), t.position.top = Math.min(o(window).height() - 30, t
+                                        .position.top), o(".wyp-right-panel-placeholder").show(), t.position.left > o(window)
+                                .width() - o(".ed-pnl").width() ? o(".wyp-right-panel-placeholder").addClass("active") : o(
+                                        ".wyp-right-panel-placeholder").removeClass("active"), o.throttle(Be(), 32)
+                },
+                stop: function(e, t) {
+                        o(".fake-layer").remove(), setTimeout(function() {
+                                Ct()
+                        }, 5), o(".wyp-right-panel-placeholder").hide(), t.position.left > o(window).width() - o(
+                                ".ed-pnl").width() && (o(".fixed-right-panel-checkbox input").prop("checked", !0)
+                                .trigger("change"), v("fixed_right_panel", "true"), N(), o.throttle(Be(), 32), Ze(),
+                                Ct())
+                }
+        }), o(".anim-bar").draggable({
+                handle: ".anim-bar-title",
+                cancel: ".wyp-anim-btn",
+                containment: "window",
+                start: function() {
+                        tn.append("<div class='fake-layer'></div>")
+                },
+                drag: function(e, t) {
+                        t.position.top = Math.max(-30, t.position.top)
+                },
+                stop: function() {
+                        o(".anim-bar").addClass("anim-bar-dragged"), o(".fake-layer").remove(), setTimeout(function() {
+                                Ct()
+                        }, 5)
+                }
+        }), o("#left-area-editor").draggable({
+                handle: "#css-editor-bar",
+                cancel: "#css-editor-bar *",
+                start: function() {
+                        return !!window.ypData["wyp-css-ed-drgable"] && void(tn.append("<div class='fake-layer'></div>"), window
+                                .leftAreaEditors = o("#left-area-editor").attr("style"), o("#css-editor-drag-style")
+                                .remove(), window.cssHeightLimit = parseInt(o(window).height() - 25 * o(
+                                        "#left-area-editor").height() / 100))
+                },
+                drag: function(e, t) {
+                        return !!window.ypData["wyp-css-ed-drgable"] && void(32 > t.position.left && (t.position.left = 32), -
+                                14 > t.position.top && (t.position.top = -14), t.position.top > window.cssHeightLimit &&
+                                (t.position.top = window.cssHeightLimit))
+                },
+                stop: function(e, t) {
+                        return !!window.ypData["wyp-css-ed-drgable"] && void(J(window.leftAreaEditors) ? o("#left-area-editor")
+                                .removeAttr("style") : o("#left-area-editor").attr("style", window.leftAreaEditors), tn
+                                .append("<style id='css-editor-drag-style'>body.wyp-css-ed-drgable #left-area-editor{left:" +
+                                        t.position.left + "px !important;top:" + t.position.top +
+                                        "px !important;}</style>"), o(".fake-layer").remove())
+                }
+        }), o(document).on("keydown keyup", ".scenes .scene input", function() {
+                o(this).val(mi(o(this).val().replace(/\-/g, ""))), 100 < parseFloat(o(this).val()) && o(this).val("100"), 0 >
+                        parseFloat(o(this).val()) && o(this).val("0")
+        }), o(document).on("click", ".scenes .scene-no-click-yet", function() {
+                o(this).removeClass("scene-no-click-yet")
+        }), o(document).on("keyup keydown blur", ".scenes .scene:not(.scene-add):last input", function() {
+                o(this).val("100")
+        }), o(document).on("keyup keydown blur", ".scenes .scene:first-child input", function() {
+                o(this).val("0")
+        }), o(document).on("click", ".wyp-anim-play", function() {
+                var e = o(this);
+                if (tn.hasClass("wyp-animate-test-playing")) return o(".scenes .scene-" + window.willActive + "").trigger("click"), e
+                        .html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title", "Play")
+                        .tooltip("fixTitle").tooltip("show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find(
+                                "#animate-test-drive").empty(), Ji.removeClass("wyp-hid-bor-n"), Ni(), Ze(), Yi(), !1;
+                if (window.willActive = 1, o(".scenes .scene").each(function(e) {
+                                o(this).hasClass("scene-active") && (window.willActive = e + 1)
+                        }), 0 === Gi.find("#wyp-anim-scenes style").length) return k({
+                        title: qi.all_scenes_empty,
+                        text: qi.allScenesEmpty
+                }), !1;
+                o(".scenes .scene-1").trigger("click");
+                var t = te("animationGeneratorTestAnimate");
+                t = t + " " + t.replace(/@keyframes/g, "@-webkit-keyframes");
+                var a, i;
+                Ji.addClass("wyp-hid-bor-n");
+                var n = o.trim(tn.attr("class").replace(/wyp-scene-[0-9]/g, ""));
+                tn.attr("class", n), n = o.trim(Ji.attr("class").replace(/wyp-scene-[0-9]/g, "")), Ji.attr("class", n), Qi.addClass(
+                                "wyp-animate-test-playing"), Gi.find("#animate-test-drive").empty(), Gi.find("#animate-test-drive")
+                        .append("<style>" + za(t, !1) + "</style>"), a = o("#animation-duration-value").val(), i = "s" == o(
+                                "#animation-duration-after").val() ? 1e3 * a : a, i -= 10, a += o("#animation-duration-after").val(), Gi
+                        .find("#animate-test-drive").append(
+                                "<style>body.wyp-animate-test-playing .wyp-selected,body.wyp-animate-test-playing .wyp-selected-others,body.wyp-animate-test-playing.wyp-selected{animation-name:animationGeneratorTestAnimate !important;animation-duration:" +
+                                a + " !important;animation-iteration-count:1 !important;}</style>"), e.html(
+                                "<span class=\"yicon icon-controls-pause\"></span>"), e.attr("data-original-title", "Pause").tooltip(
+                                "fixTitle").tooltip("hide"), Yi(), window.animationTimer4 = setTimeout(function() {
+                                e.html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title",
+                                                "Play").tooltip("fixTitle").tooltip("hide"), e.is(":hover") && e.tooltip(
+                                        "show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find("#animate-test-drive")
+                                        .empty(), Ji.removeClass("wyp-hid-bor-n"), o(".scenes .scene-" + window.willActive + "")
+                                        .trigger("click"), Ni(), Ze()
+                        }, i)
+        }), o(document).on("keyup", ".yellow-alert input", function() {
+                o(this).val(Wn(o(this).val()))
+        }), o(".wyp-anim-save").click(function() {
+                return 0 === Gi.find("#wyp-anim-scenes style").length ? (k({
+                        title: qi.sorry,
+                        text: qi.allScenesEmpty
+                }), !1) : (setTimeout(function() {
+                        var e = Wn(yi(bi(_a(), !1, null))) + "_Animate_" + parseInt(JSON.parse(o(
+                                "#animation-name-group textarea").val()).length + 1);
+                        o(".yellow-alert input").val(e).trigger("focus")
+                }, 20), k({
+                        title: qi.animation_name,
+                        confirmButtonText: qi.save_animation,
+                        showCancelButton: !0,
+                        showInput: !0,
+                        text: qi.set_animation_name
+                }, function() {
+                        o(".scenes .scene-1").trigger("click");
+                        var e = o(".yellow-alert input").val(),
+                                t = te(e);
+                        (!1 == window.ypData.demo_mode || !0 !== window.bMode) && o.post(ajaxurl, {
+                                action: "wyp_add_animation",
+                                wyp_anim_data: t,
+                                wyp_anim_name: e,
+                                _wpnonce: window.wyp_editor_nonce
+                        });
+                        var a = o("#animation-name-group textarea");
+                        a.val(a.val().replace(/^\[\{/, "[{\"value\":\"" + e + "\",\"label\":\"" + e +
+                                        "\",\"category\":\"my animations\"},{")), o("#wyp-animation-name")
+                                .catcomplete({
+                                        source: JSON.parse(decodeURIComponent(a.val()))
+                                }), Gi.find("#wyp-animate-data").append("<style id='" + e + "style'>" + t +
+                                        "</style>"), Gi.find("#wyp-animate-data").append("<style id='webkit-" +
+                                        e + "style'>" + t.replace("@keyframes", "@-webkit-keyframes") +
+                                        "</style>"), ae(!1), setTimeout(function() {
+                                        tt(null, "animation-name", e, ""), tt(null,
+                                                        "animation-fill-mode", "both", ""), o(
+                                                        "li.animation-option").removeAttr(
+                                                "data-loaded"), o("#wyp-animation-name").val(e).trigger(
+                                                        "blur"), ie("animation-name")
+                                }, 500)
+                }), !1)
+        }), o("#search-css-selector").tooltip({
+                container: "body",
+                title: "Find elements by CSS selector"
+        }), o("#search-css-selector").on("click", function() {
+                fe(), o("#wyp-selector-editor").val("")
+        }), o(document).on("click", ".scenes .scene .scene-delete", function() {
+                var e = o(this).parent().attr("data-scene").replace("scene-", ""),
+                        t = o(".scenes .scene").length - 1;
+                o(".scenes .scene:not('.scene-add')").remove();
+                for (var a = 1; a < t; a++) o(".scene-add").trigger("click");
+                return 6 == t && (o(".scene-add").show(), ee()), Gi.find("#wyp-anim-scenes #scene-" + e + "").empty(), o(
+                        ".scenes .scene-" + (e - 1) + "").trigger("click"), !1
+        }), o(document).on("mouseover", ".scene-info", function() {
+                var e = o(this).parent().parent().attr("data-scene"),
+                        t = "";
+                Gi.find("#wyp-anim-scenes #" + e + " style").each(function() {
+                        t += "<span class='anim-info-rule'>" + o(this).attr("data-rule") + "</span>", t +=
+                                "<span class='anim-info-value'>" + Vt(o(this).html()) + "</span>", t +=
+                                "<span class='anim-info-border'></span>"
+                }), o(this).tooltip("destroy"), o(this).popover("destroy"), "" == t ? o(this).tooltip({
+                        title: qi.no_property_yet,
+                        placement: "top",
+                        trigger: "hover",
+                        container: ".anim-bar",
+                        html: !0
+                }).tooltip("show") : o(this).popover({
+                        title: qi.scene_properties + " " + o(".anim-bar ." + e + " input").val() + "%",
+                        content: t,
+                        trigger: "hover",
+                        placement: "top",
+                        container: ".anim-bar",
+                        html: !0
+                }).popover("show")
+        }), o(document).on("click", ".scenes .scene", function() {
+                if (o(this).hasClass("scene-add")) {
+                        var e = o(".scenes .scene").length;
+                        o(".scenes .scene-let-delete").removeClass("scene-let-delete"), o(".scene-add").before(
+                                        "<div class=\"scene-let-delete scene scene-" + e + "\" data-scene=\"scene-" + e +
+                                        "\"><span class=\"yicon icon-trash scene-delete\"></span><p><span class=\"scene-info yicon icon-warning\"></span>" +
+                                        qi.scene + " " + e + "<span><input type=\"text\" value=\"100\" /></span></p></div>"), o(
+                                        ".scenes .scene-" + e + "").trigger("click"), o(".scene-1 input").val("0"), o(".scene-2 input")
+                                .val("100"), 3 == e && (o(".scene-1 input").val("0"), o(".scene-2 input").val("50"), o(".scene-3 input")
+                                        .val("100")), 4 == e && (o(".scene-1 input").val("0"), o(".scene-2 input").val("33.3"), o(
+                                        ".scene-3 input").val("66.6"), o(".scene-4 input").val("100")), 5 == e && (o(".scene-1 input")
+                                        .val("0"), o(".scene-2 input").val("25"), o(".scene-3 input").val("50"), o(".scene-4 input")
+                                        .val("75"), o(".scene-5 input").val("100")), 6 == e && (o(".scene-1 input").val("0"), o(
+                                        ".scene-2 input").val("20"), o(".scene-3 input").val("40"), o(".scene-4 input").val(
+                                        "60"), o(".scene-5 input").val("80"), o(".scene-6 input").val("100")), 6 == e && o(".scene-add")
+                                .hide();
+                        var t, a, i;
+                        return Gi.find("#wyp-anim-scenes #scene-" + e + " style").each(function() {
+                                return a = o(this), t = a.attr("data-rule"), i = Gi.find("#wyp-anim-scenes #scene-" +
+                                                parseInt(e - 1) + " style[data-rule='" + t + "']"), 0 == i.length ||
+                                        void a.text(i.text().replace(/body\.wyp-scene-(\d+)/g, "body.wyp-scene-" + e))
+                        }), ee(), !1
+                }
+                o(".scene-active").removeClass("scene-active"), o(this).addClass("scene-active"), Qi.attr("data-anim-scene", o(this)
+                        .attr("data-scene"));
+                var n = o.trim(tn.attr("class").replace(/wyp-scene-[0-9]/g, ""));
+                tn.attr("class", n), n = o.trim(Ji.attr("class").replace(/wyp-scene-[0-9]/g, "")), Ji.attr("class", n), Qi.addClass(
+                        "wyp-" + o(this).attr("data-scene"));
+                for (var s = parseInt(o(this).attr("data-scene").replace("scene-", "")); 1 < s; s--) Qi.addClass("wyp-scene-" + s);
+                we(), Ze()
+        }), o(".wyp-anim-cancel").click(function() {
+                k({
+                        title: qi.closeAnim,
+                        showCancelButton: !0,
+                        confirmButtonText: "Close"
+                }, function() {
+                        ae(!0)
+                })
+        }), o(".wyp-add-animation-link").click(function() {
+                return window.animGeneratorOldAnim = o("#wyp-animation-name").val(), window.animGeneratorOldAnimDuration = o(
+                                "#animation-duration-value").val(), window.animGeneratorOldAnimDelay = o("#animation-delay-value")
+                .val(), window.animGeneratorOldAnimDurationF = o("#animation-duration-after").val(), window.animGeneratorOldAnimDelayF =
+                        o("#animation-delay-after").val(), window.animGeneratorOldAnimFillMode = o("#wyp-animation-fill-mode").val(),
+                        "none" == window.animGeneratorOldAnim && (window.animGeneratorOldAnim = "disable"), tt(null, "animation-name",
+                                "disable", ""), ("0" == o("#animation-duration-value").val() || "0.00" == o("#animation-duration-value")
+                                .val()) && (o("#animation-duration-value").val("1"), o("#animation-duration-value").trigger("blur")),
+                        0 === Gi.find("#wyp-anim-scenes").length && Gi.find("#wyp-animate-data").after(
+                                "<div id=\"wyp-anim-scenes\"><div id=\"scene-1\"></div><div id=\"scene-2\"></div><div id=\"scene-3\"></div><div id=\"scene-4\"></div><div id=\"scene-5\"></div><div id=\"scene-6\"></div></div><div id=\"animate-test-drive\"></div>"
+                                ), window.ypData["wyp-css-ed-act"] && o(".wyp-css-close-btn").trigger("click"), Qi.addClass(
+                                "wyp-ani-cre"), window.ypData.is_animate_creator = !0, Qi.addClass("wyp-scene-1"), Qi.attr(
+                                "data-anim-scene", "scene-1"), o(".scene-active").removeClass("scene-active"), o(
+                                ".scenes .scene:first-child").addClass("scene-active"), ee(), o(".animation-option.active > h3")
+                        .trigger("click"), sa(), o.throttle(Be(), 32), !1
+        }), o(".wyp-advanced-link").click(function() {
+                return !o(this).hasClass("wyp-add-animation-link") && void(o(".wyp-on").not(this).removeClass("wyp-on"), o(
+                        ".wyp-advanced-option").not(o(this).next(".wyp-advanced-option")).hide(0), o(this).next(
+                        ".wyp-advanced-option").toggle(0), o(this).toggleClass("wyp-on"), o.throttle(Be(), 32))
+        }), o(".wyp-responsive-btn").click(function() {
+                j()
+        }), o(".leftbar-button:not(.left-menu-btn):not(.undo-btn):not(.redo-btn):not(.cursor-main-btn):not(.css-editor-btn)").click(function() {
+                !1 === S() ? (o(this).toggleClass("active"), o(this).tooltip("hide")) : !1 === o(this).hasClass("wyp-selector-mode") &&
+                        (o(this).toggleClass("active"), o(this).tooltip("hide"))
+        }), o(".left-menu-btn").click(function() {
+                o(this).toggleClass("yhover"), o(".interface-settings").toggle()
+        }), o(".undo-btn").click(function() {
+                clearTimeout(window.historyDelay), tn.hasClass("wyp-history-delay") ? window.historyDelay = setTimeout(function() {
+                        U()
+                }, 220) : U()
+        }), o(".redo-btn").click(function() {
+                clearTimeout(window.historyDelay), tn.hasClass("wyp-history-delay") ? window.historyDelay = setTimeout(function() {
+                        q()
+                }, 220) : q()
+        }), o(".wyp-bg-img-btn").click(function() {
+                var e = o(this);
+                e.hasAttr("data-json") && o.getJSON(e.attr("data-json"), function(t) {
+                        var a = "";
+                        o.each(t.patterns, function(e, t) {
+                                a += "<div class=\"wyp-bg-ast\" data-url=\"" + t + "\"></div>"
+                        }), o(".wyp-background-asts").append(a), e.removeAttr("data-json"), se()
+                }).fail(function() {
+                        Li("Loading Error", "Could Not Load Json library. (patterns.json)", "jsonError")
+                }), e.toggleClass("active"), o(".wyp-background-asts").toggle(), e.hasClass("active") ? (o(
+                        ".wyp-gradient-btn.active,.wyp-unsplash-btn.active").trigger("click"), o(
+                        ".wyp-background-image-show").hide()) : ne(null);
+                var t = o("#wyp-background-image").val(); - 1 == t.indexOf("yellow-pencil") ? o(".wyp-bg-ast").removeClass("active") :
+                        o(".wyp-bg-ast[data-url='" + t.replace(/"/g, "").replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, "") +
+                                "']").addClass("active"), !1 == e.hasAttr("data-json") && se(), o.throttle(Be(), 32)
+        }), o(".wyp-bg-ast").on("mouseenter mouseover", function() {
+                o(".wyp-bg-ast").removeClass("focus"), o(this).addClass("focus")
+        }), o(".wyp-background-asts").on("scroll", o.throttle(function() {
+                oe()
+        }, 64)), o(".wyp-gradient-btn").on("click", function() {
+                var e = o(this);
+                if (e.hasAttr("data-json") && o.getJSON(e.attr("data-json"), function(t) {
+                                var a = "";
+                                o.each(t, function(e, t) {
+                                        a += 8 > e ?
+                                                "<div class=\"wyp-gradient-demo free-gradient\" data-gradient=\"" +
+                                                t.gradient + "\"><span style=\"background-image:" + t.gradient +
+                                                "\"></span> <div>" + t.name + "</div></div>" :
+                                                "<div class=\"wyp-gradient-demo\" data-gradient=\"" + t
+                                                .gradient + "\"><span style=\"background-image:" + t.gradient +
+                                                "\"></span> <div>" + t.name + "</div></div>"
+                                }), o(".wyp-gradient-list").append(a), e.removeAttr("data-json")
+                        }).fail(function() {
+                                Li("Loading Error", "Could Not Load Json library. (gradients.json)", "jsonError")
+                        }), e.toggleClass("active"), o(".wyp-gradient-section").toggle(), e.hasClass("active")) {
+                        o(".wyp-unsplash-btn.active,.wyp-bg-img-btn.active").trigger("click"), o(".wyp-background-image-show").hide();
+                        var t = o("#wyp-background-image").val(); - 1 == t.indexOf("linear-gradient(") ? Ot(
+                                "linear-gradient(141deg, #0fb8ad 0%, #2cb5e8 100%)") : Ot(t), setTimeout(function() {
+                                0 < o(".wyp-gradient-demo.active").length ? o(".wyp-gradient-list").scrollTop(30 * (o(
+                                                ".wyp-gradient-demo.active").index() - 3)) : o(".wyp-gradient-list")
+                                        .scrollTop(0)
+                        }, window.YellowDelay)
+                } else ne(null);
+                o.throttle(Be(), 32)
+        }), o(".wyp-clear-btn").on("click", function() {
+                o(this).parent().find("input").val("none").trigger("keyup").trigger("blur"), ne(null)
+        }), o(document).on("change keyup", ".in-wr > input", function() {
+                var e = o(this),
+                        t = e.val(),
+                        a = e.parent();
+                "" == t || "none" == t ? a.addClass("empty-input") : a.removeClass("empty-input")
+        });
+        var hn = !1;
+        o(".wyp-unsplash-btn").on("click", function() {
+                var e = o(this);
+                hn || (Wi(1), hn = !0), e.toggleClass("active"), o(".wyp-unsplash-section").toggle(), e.hasClass("active") ? (o(
+                        ".wyp-gradient-btn.active,.wyp-bg-img-btn.active").trigger("click"), o(
+                        ".wyp-background-image-show").hide(), setTimeout(function() { Fi(); }, 150)) : ne(null), o.throttle(Be(), 32)
+        }), o(document).on("click", ".wyp-gradient-demo", function() {
+                Ot(o(this).attr("data-gradient")), Dt("insert"), o(
+                                ".wyp-unsplash-list > span.active,.wyp-gradient-demo.active,.wyp-bg-ast.active").removeClass("active"),
+                        o(this).addClass("active"), o(".wyp-background-image-show").hide()
+        }), o(".wyp-upload-btn").click(function() {
+                o("#image_uploader iframe")[0].contentWindow.location.replace(o("#image_uploader iframe").attr("data-url")), o(
+                        "#image_uploader iframe").attr("src", function(e, t) {
+                        return t
+                }), window.send_to_editor = function(e) {
+                        var t = e.match(/src="(.*?)"/g);
+                        if (null != t) {
+                                var a = "";
+                                if (t = t.toString().replace("src=\"", "").replace("\"", ""), "" != t) {
+                                        var i = t.split("-").length - 1;
+                                        null === t.split("-")[i].match(/(.*?)x(.*?)\./g) ? a = t : (a = t.replace("-" + t.split(
+                                                "-")[i], ""), -1 != t.split("-")[i].indexOf(".") && (a = a +
+                                                "." + t.split("-")[i].split(".")[1]))
+                                }
+                                0 < o(".background-option.active").length ? o("#wyp-background-image").val(a).trigger("keyup") :
+                                        o("#wyp-list-style-image").val(a).trigger("keyup")
+                        } else k({
+                                title: "Please upload only image type files.",
+                                text: "You can only upload images."
+                        });
+                        window.send_to_editor = window.restore_send_to_editor, o("#image_uploader").toggle(), o(
+                                "#image_uploader_background").toggle(), o(".wyp-upload-btn").toggleClass("active")
+                }, o("#image_uploader").toggle(), o("#image_uploader_background").toggle(), o(".wyp-upload-btn").toggleClass(
+                        "active")
+        }), o("#image_uploader_background").click(function() {
+                o("#image_uploader").toggle(), o("#image_uploader_background").toggle(), o(".wyp-upload-btn").toggleClass("active"), o(
+                        "#image_uploader iframe").attr("src", function(e, t) {
+                        return t
+                })
+        }), window.restore_send_to_editor = window.send_to_editor, window.send_to_editor = function(e) {
+                var t = o("img", e).attr("src");
+                0 < o(".background-option.active").length ? o("#wyp-background-image").val(t) : o("#wyp-list-style-image").val(t), window
+                        .send_to_editor = window.restore_send_to_editor, o("#image_uploader").toggle(), o("#image_uploader_background")
+                .toggle(), o(".wyp-upload-btn").toggleClass("active"), o("#image_uploader iframe").attr("src", function(e, t) {
+                                return t
+                        })
+        }, !1 == window.ypData.demo_mode && (window.onbeforeunload = function() {
+                if (!0 !== window.wyp_redirect_on && o(".wyp-save-btn").hasClass("waiting-for-save")) return confirm(qi.sure)
+        }), o(".wyp-save-btn").on("click", function() {
+                if (o(this).hasClass("wyp-disabled")) return !1;
+                if (window.bMode) {
+                        if (/wp-content/.test(Gi.find("head").html()) && !1 === e()?.is_subscription_active) return o(
+                                ".wyp-info-modal .wyp-info-modal-top-inner h2").text(
+                                "Consider Upgrading to the Professional Plan"), o(
+                                ".wyp-info-modal .wyp-info-modal-top-inner p").text(
+                                "A pro plan is required to editing WordPress-based sites. Save your time with a pro plan."
+                                ), o(".wyp-info-modal .wyp-buy-link").attr("href",
+                                "https://visualcsseditor.com/?utm_source=chrome-editor&utm_medium=wordpress-based-upgrade&utm_campaign=chrome-upgrade"
+                                ), o(".wyp-info-modal .wyp-buy-link").text("See Pricing"), o(
+                                ".wyp-info-modal .wyp-info-modal-close").text("Maybe Later"), o(
+                                ".wyp-info-modal .wyp-info-unlock-p").attr("style", "visibility:hidden;"), o(
+                                ".wyp-info-modal .wyp-info-last-note").text(
+                                "Get unlimited usage and premium customer support today."), o(
+                                ".wyp-info-modal .activate-pro").attr("href", "https://visualcsseditor.com/sign-in"), o(
+                                ".wyp-info-modal,.wyp-popup-background").fadeIn("fast"), !1;
+                        window.ypData["wyp-need-to-process"] && Zi(), o(".wyp-save-btn").removeClass("waiting-for-save");
+                        var t = Et(),
+                                a = t.match(/font-family(\s)?:([^;]+);/gi),
+                                n = "",
+                                s = [],
+                                r;
+                        if (a) {
+                                for (var l = 0; l < a.length; l++) - 1 !== a[l].indexOf(",") && !1 !== /(\"|\')/g.test(a[l]) && (r = a[
+                                                l].replace(/(^font-family(\s)?:|;$|!important|"|')/g, "").split(",")[0].trim(),
+                                        -1 === s.indexOf(r)) && (mt(r) || (s.push(r), n +=
+                                        "@import url(\"//fonts.googleapis.com/css2?family=" + r.replace(/\s+/g, "+") +
+                                        ":ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap\");",
+                                        n += "\n"));
+                                0 < n.length && (n = "/* Import Google Fonts */\n" + n + "\n")
+                        }
+                        k({
+                                customClass: "yellow-alert-bmode",
+                                text: "<div class='export-title'>Export CSS Code <div class='cly' onclick='document.querySelector(\".button-container .cancel\").click();'></div></div><div id='b-mode-css'>" +
+                                        (n + t.replace(/\t/g, " ")) + "</div>",
+                                showCancelButton: !0
+                        }), o(".yellow-alert-bmode.yellow-overlay").on("mousedown", function(t) {
+                                o(t.target).hasClass("yellow-alert-bmode") && o(".yellow-alert-bmode").remove()
+                        });
+                        var d = ace.edit("b-mode-css");
+                        return d.setTheme("ace/theme/twilight"), d.getSession().setMode("ace/mode/css"), d.getSession().setUseWorker(!
+                                1), d.setOptions({
+                                        fontSize: "14px",
+                                        enableBasicAutocompletion: !1,
+                                        enableSnippets: !1,
+                                        enableLiveAutocompletion: !1
+                                }), d.focus(), !1
+                }
+                var p = window.location.href.split("&wyp_page_id=");
+                p = p[1].split("&"), p = p[0];
+                var c = window.location.href.split("&wyp_page_type=");
+                if (c = c[1].split("&"), c = c[0], !window.ypData.demo_mode) {
+                        var u = Gi.find(".wyp-inline-data").text(),
+                                m = Gi.find("#wyp-live-css-data");
+                        0 < m.length && (u += m.text());
+                        var f = !0;
+                        if (tn.hasClass("wtfv")) {
+                                var g = (u.match(
+                                                /(\s|\{)(font-family|color|background-image|background-color|width|height|animation-name)\:/g) ||
+                                        []).length - window.old_premium_rules;
+                                0 >= g ? o(".wyp-save-btn").text(qi.saving).addClass("wyp-disabled") : (f = !1, o(".wt-save-btn").text(
+                                        qi.save).removeClass("waiting-for-save").removeClass("wt-disabled"), o(
+                                        ".wyp-info-modal .wyp-info-modal-top-inner h2").text(
+                                        "Changes Are Not Saved. Upgrade To Pro!"), o(
+                                        ".wyp-info-modal .wyp-info-modal-top-inner p").text(
+                                        "You are using some premium features. Upgrade to Pro or disable premium features to save changes."
+                                        ), o(".wyp-info-modal,.wyp-popup-background").fadeIn("fast"))
+                        } else o(".wyp-save-btn").text(qi.saving).addClass("wyp-disabled");
+                        if (!window.ypData["wyp-need-to-process"]) f && re(p, c);
+                        else if (f) return Zi(), setTimeout(function() {
+                                re(p, c)
+                        }, 100), !1
+                } else k({
+                        title: qi.save_alert,
+                        text: qi.live_preview_text
+                }), o(".wyp-save-btn").text(qi.saved).addClass("wyp-disabled").removeClass("waiting-for-save")
+        }), o("#wyp-crnt-el").on("click", function() {
+                if (C()) {
+                        tn.addClass("wyp-crnt-el-menu");
+                        var e = this.getBoundingClientRect(),
+                                t = e.left + 1 + Ji.scrollLeft() + Ki.scrollLeft(),
+                                a = e.top + 35 + Ji.scrollTop() + Ki.scrollTop();
+                        _().contextMenu({
+                                x: t,
+                                y: a
+                        })
+                }
+        }), o(document).on("mousewheel DOMMouseScroll", "#context-menu-layer", o.throttle(function() {
+                window.ypData.editor_context_menu_open && _().contextMenu("hide")
+        }, 64)), o(document).on("mouseover", "#context-menu-layer", function() {
+                sn.extra.find(".wyp-el-viewer").remove()
+        });
+        var yn = null,
+                wn = null;
+        Gi.on("scroll", o.throttle(function() {
+                null !== yn && clearTimeout(yn), null !== wn && clearTimeout(wn), C() && (!0 === le(_(), "position", "fixed",
+                        "==") && (Ji.hasClass("wyp-h-trfm") ? yn = setTimeout(function() {
+                        Ji.removeClass("wyp-h-trfm")
+                }, 200) : Ji.addClass("wyp-h-trfm")), wn = setTimeout(function() {
+                        Ze()
+                }, 200))
+        }, 64)), o(document).on("click", ".wyp-background-asts div", function() {
+                var e = o(this);
+                o(".wyp-unsplash-list > span.active,.wyp-gradient-demo.active,.wyp-bg-ast.active").removeClass("active"), e.parent()
+                        .parent().find(".wyp-input").val(pluginurl + "assets/" + e.data("url")).trigger("keyup"), e.addClass("active"),
+                        o(".wyp-background-image-show").hide();
+                var t = _(),
+                        a = t.css(["background-repeat", "background-size"]);
+                "no-repeat" == a["background-repeat"] && (tt(null, "background-repeat", "repeat"), pa("background-repeat")), "auto" !=
+                        a["background-size"] && (tt(null, "background-size", "auto"), pa("background-size"))
+        }), o(document).on("click", ".iris-color-preview", function() {
+                var e = o(this),
+                        t = e.parents(".iris-picker"),
+                        a = e.parents(".op-g").find("input.co-p");
+                0 == a.length && (a = o("#iris-gradient-color")), e.addClass("active");
+                var i = a.val();
+                i = i.replace(/\s/g, ""), -1 != i.indexOf("#") && (i = Ri(i), i = i.replace(/rgb\(/g, "rgba("), i = i.replace(/\)$/g,
+                                ",0)")), -1 == i.indexOf("rgba(") ? -1 != i.indexOf("rgb(") && (i = i.replace(/rgb\(/g, "rgba("), i = i
+                                .replace(/\)$/g, ",0)")) : i = i.replace(/,[\d.]+\)$/, ",0)"), a.val("transparent").trigger("change"), a
+                        .iris("color", i), t.find(".information-item.hex input").val("transparent")
+        }), o(document).on("keyup", ".iris-picker .information-item.rgb input", function() {
+                var e = o(this).parents(".op-g").find(".co-p");
+                0 == e.length && (e = o("#iris-gradient-color"));
+                var t = o(this).parents(".information-item"),
+                        i = t.find(".rgb-r input").val(),
+                        n = t.find(".rgb-g input").val(),
+                        s = t.find(".rgb-b input").val(),
+                        r = t.find(".rgb-a input").val(),
+                        a = "rgba(" + i + "," + n + "," + s + "," + r + ")";
+                return 1 == r && (a = "rgb(" + i + "," + n + "," + s + ")"), "" != o(this).val() && void(e.val(a).trigger("change"), e
+                        .iris("color", a))
+        }), window.inputFocusVal = "", o(document).on("focus", ".iris-picker .information-item input", function() {
+                window.inputFocusVal = o(this).val()
+        }), o(document).on("change", ".iris-picker .information-item.rgb input", function() {
+                "" == o(this).val() && (window.BlockIrisTypeChange = !0, o(this).val(window.inputFocusVal).trigger("keyup"), window
+                        .BlockIrisTypeChange = !1)
+        }), o(document).on("change keyup", ".iris-picker .information-item.hex input", function(e) {
+                var t = o(this),
+                        a = t.parents(".op-g").find(".co-p");
+                0 == a.length && (a = o("#iris-gradient-color"));
+                var i = t.val();
+                return "" == i ? ("change" == e.type && t.val(window.inputFocusVal).trigger("keyup"), !1) : void(a.val(i).trigger(
+                        "change"), a.iris("color", i))
+        }), o(document).on("click", ".iris-color", function() {
+                var e = o(this),
+                        t = e.attr("data-color"),
+                        a = e.parents(".op-g").find(".co-p");
+                0 == a.length && (a = o("#iris-gradient-color")), a.val(t).trigger("change"), a.iris("color", t)
+        }), o(document).on("click", "#autocomplete-selector-list li", function() {
+                var e = o(this).text().split(" |")[0];
+                o("#wyp-selector-editor").val(e).trigger("keyup").trigger("focus")
+        }), window.selectorActive = -1, o("#wyp-selector-editor").keyup(function(t) {
+                var e = o(this).val(),
+                        a = e.substr(e.length - 1);
+                if (32 == t.keyCode && !1 == /(\#|\.)/g.test(e) && !1 == Ca(e, !0, !1, !1)) {
+                        var i = o("#autocomplete-selector-list li.active");
+                        if (0 < i.length && e != i.text()) return o(this).val(i.text() + " ").trigger("keyup"), !1
+                }
+                if (40 != t.keyCode && 38 != t.keyCode && me(), o("#wyp-selector-editor").removeClass("selector-is-invalid"), o(
+                                "#autocomplete-selector-list li").removeClass("active"), 0 < o("#autocomplete-selector-list li")
+                        .length && !0 == /[a-z-A-Z0-9_-]/g.test(a)) {
+                        var n = 1e4;
+                        o("#autocomplete-selector-list li").each(function() {
+                                o(this).text().length < n && (n = o(this).text().length, o(
+                                                "#autocomplete-selector-list li").removeClass("active"), o(this)
+                                        .addClass("active"))
+                        })
+                }
+                if (13 == t.keyCode) return 0 < o("#autocomplete-selector-list li.active").length && o(this).val() != o(
+                        "#autocomplete-selector-list li.active").text() ? (o(this).val(o(
+                                "#autocomplete-selector-list li.active").text()), o("#autocomplete-selector-list li")
+                        .remove(), !1) : (ge("#wyp-selector-editor"), !1);
+                var s = o("#autocomplete-selector-list li.active");
+                0 < s.length && -1 == window.selectorActive && (window.selectorActive = o("#autocomplete-selector-list li.active")
+                                .prevAll().length), 40 == t.keyCode && o("#autocomplete-selector-list li").length >= window
+                        .selectorActive + 2 ? window.selectorActive++ : 38 == t.keyCode && 0 <= window.selectorActive - 1 ? window
+                        .selectorActive-- : 38 == t.keyCode && 0 > window.selectorActive && (window.selectorActive = o(
+                                "#autocomplete-selector-list li").length - 1), (40 == t.keyCode || 38 == t.keyCode) && (o(
+                                "#autocomplete-selector-list li").removeClass("active"), o("#autocomplete-selector-list li").eq(
+                                window.selectorActive).addClass("active"), 0 < o("#autocomplete-selector-list li").eq(window
+                                .selectorActive).length && o(this).val(o("#autocomplete-selector-list li").eq(window
+                                .selectorActive).text()))
+        }), o("#wyp-selector-editor").on("keyup keydown", function(t) {
+                if (40 == t.keyCode || 38 == t.keyCode) return !1
+        }), o("#selector-editor-background").click(function() {
+                o("#wyp-selector-editor").val(""), ge("#wyp-selector-editor")
+        }), o(document).on("mouseout", ".info-element-class-list li", function() {
+                clearTimeout(window.focusElementTimer), sn.extra.find(".wyp-el-viewer").remove()
+        }), o(document).on("click", ".info-element-class-list li", function() {
+                var e = o(this).text();
+                window.focusElementTimer = setTimeout(function() {
+                        ce(Gi.find(e)), st(Gi.find(e))
+                }, 80)
+        }), o(document).on("click", ".breakpoint-bar .breakpoint-item", function() {
+                Ja(o(this))
+        }), o(document).on("mouseout", ".breakpoint-bar .breakpoint-item", function() {
+                o(this).tooltip("destroy")
+        }), o("#wyp-animation-play").on("keyup keydown keypress", function(t) {

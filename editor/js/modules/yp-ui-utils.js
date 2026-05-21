@@ -212,19 +212,41 @@
     }
 
     /* =========================================================================
+     * Vendor Prefix Helpers  (original: g / h)
+     * ========================================================================= */
+
+    /**
+     * Remove any vendor prefix from a CSS property name.
+     * Original: g(e)
+     */
+    function stripVendorPrefix(prop) {
+        return prop.replace(/(-webkit-|-moz-|-o-|-ms-|-khtml-)/g, "");
+    }
+
+    /**
+     * Add -webkit- prefix to a CSS property name (stripping any existing prefix first).
+     * Original: h(e)
+     */
+    function addWebkitPrefix(prop) {
+        return "-webkit-" + prop.replace(/(-webkit-|-moz-|-o-|-ms-|-khtml-)/g, "");
+    }
+
+    /* =========================================================================
      * Export to namespace
      * ========================================================================= */
     YP.utils = {
-        showAlert          : showAlert,
-        setCookie          : setCookie,
-        getCookie          : getCookie,
-        cleanFontFamily    : cleanFontFamily,
-        buildMultiValue    : buildMultiValue,
-        showToast          : showToast,
-        hideToast          : hideToast,
-        liveOptionSave     : liveOptionSave,
+        showAlert           : showAlert,
+        setCookie           : setCookie,
+        getCookie           : getCookie,
+        cleanFontFamily     : cleanFontFamily,
+        buildMultiValue     : buildMultiValue,
+        showToast           : showToast,
+        hideToast           : hideToast,
+        liveOptionSave      : liveOptionSave,
         setClickableSelector: setClickableSelector,
-        extractNumber      : extractNumber
+        extractNumber       : extractNumber,
+        stripVendorPrefix   : stripVendorPrefix,
+        addWebkitPrefix     : addWebkitPrefix
     };
 
     // Backward-compat aliases
@@ -239,7 +261,9 @@
         Bi  : hideToast,
         v   : liveOptionSave,
         L   : setClickableSelector,
-        mi  : extractNumber
+        mi  : extractNumber,
+        g   : stripVendorPrefix,
+        h   : addWebkitPrefix
     });
 
 })(jQuery);
