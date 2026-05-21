@@ -66,4 +66,10 @@
         window.YP._compat[alias] = fn;
     };
 
+    // Global utility function Wn needed by modules like yp-css-property-ui
+    window.Wn = function (e) {
+        return "undefined" != typeof e && "" != e ? (e = e.replace(/\W+/g, ""), e) : "";
+    };
+
 }());
+

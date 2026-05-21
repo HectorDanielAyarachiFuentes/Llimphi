@@ -1045,8 +1045,16 @@
                                 t = e.parents(".op-g"),
                                 a = t.attr("data-css"),
                                 n = t.find("textarea");
-                        n = !1 == /^(http|chrome-extension)/g.test(n.val()) ? JSON.parse(decodeURIComponent(n.val())) : n.val(), e
-                                .catcomplete({
+                        var parsedVal = n.val();
+                        if (parsedVal.trim().startsWith('[') || parsedVal.trim().startsWith('{')) {
+                            try {
+                                parsedVal = JSON.parse(decodeURIComponent(parsedVal));
+                            } catch(err) {
+                                console.error("JSON parse error for field:", a, err);
+                            }
+                        }
+                        n = parsedVal;
+                        e.catcomplete({
                                         source: n,
                                         delay: 0,
                                         minLength: 0,
@@ -6873,12 +6881,12 @@
                                         }), e.find(".se-o").each(function() {
                                                 var t = o(this),
                                                         a = t.find("textarea");
-                                                /^http/g.test(a.val()) ? o.getJSON(a.val(), function(e) {
+                                                !(a.val().trim().startsWith('[') || a.val().trim().startsWith('{')) ? o.getJSON(a.val(), function(e) {
                                                         a.val(JSON.stringify(e)), ve(t.find(".in-ac"))
                                                 }).fail(function() {
                                                         Li("Loading Error", "Could Not Load Json library.",
                                                                 "jsonError")
-                                                }) : ve(e.find(".in-ac"))
+                                                }) : ve(t.find(".in-ac"))
                                         }), ct(e), e.attr("data-setup", "true")), "undefined" == typeof t || !1 === t) {
                                         var n = _a();
                                         t = {

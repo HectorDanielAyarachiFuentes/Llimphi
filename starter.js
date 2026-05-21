@@ -221,7 +221,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                         var style = document.createElement('link');
                         style.rel = "stylesheet";
-                        if (link.indexOf('chrome-extension:') !== -1) {
+                        if (link.indexOf('chrome-extension:') !== -1 || link.indexOf('moz-extension:') !== -1) {
                             link = link + (link.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
                         }
                         style.href = link;
@@ -338,7 +338,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         }
 
                         var src = scripts[i];
-                        if (src.indexOf('chrome-extension:') !== -1) {
+                        if (src.indexOf('chrome-extension:') !== -1 || src.indexOf('moz-extension:') !== -1) {
                             src = src + (src.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
                         }
                         var script = document.createElement('script');
