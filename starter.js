@@ -287,6 +287,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         chrome.runtime.getURL('editor/') + "js/modules/yp-element-select.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/modules/yp-animation.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/modules/yp-info-panel.js?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "js/modules/yp-css-property-ui.js?wypver=7.6.0",
                         // Layer 7: events (dep: all above)
                         chrome.runtime.getURL('editor/') + "js/modules/yp-events.js?wypver=7.6.0",
                         // ─────────────────────────────────────────────────────────────────────
