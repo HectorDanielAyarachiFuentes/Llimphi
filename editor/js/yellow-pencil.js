@@ -6,7 +6,8 @@
         // All functions below are implemented in editor/js/modules/.
         // These var assignments run before any function call in this IIFE,
         // overriding the (now dead) function declarations of the same name below.
-        window.YP.elements = window.YP.elements || {};\nwindow.YP.applyCompat();
+        window.YP.elements = window.YP.elements || {};
+        window.YP.applyCompat();
         var _YP = window.YP._compat;
 
         // yp-state.js
@@ -23,8 +24,8 @@
         var a  = _YP.a,  r  = _YP.r,  l  = _YP.l,  V  = _YP.V;
 
         // yp-css-parser.js
-        var d  = _YP.d,  p  = _YP.p,  c  = _YP.c,  u  = _YP.u,
-            m  = _YP.m,  f  = _YP.f,  gi = _YP.gi;
+        var d  = _YP.d,  p  = _YP.p,  c  = _YP.c,  u  = _YP.u,  m  = _YP.m,
+            f  = _YP.f,  gi = _YP.gi;
 
         // yp-selector.js
         var ya = _YP.ya, wa = _YP.wa, ua = _YP.ua, ma = _YP.ma, fa = _YP.fa,
@@ -35,22 +36,35 @@
         var Y  = _YP.Y,  N  = _YP.N,  X  = _YP.X,  ei = _YP.ei;
 
         // yp-save.js
-        var re = _YP.re;
+        var ba = _YP.ba, xa = _YP.xa, ka = _YP.ka, za = _YP.za, Oa = _YP.Oa,
+            Sa = _YP.Sa, Ta = _YP.Ta, Ea = _YP.Ea, La = _YP.La, Ba = _YP.Ba;
 
         // yp-info-panel.js
-        var M  = _YP.M,  Z  = _YP.Z,  ia = _YP.ia, aa = _YP.aa,
-            ea = _YP.ea, ta = _YP.ta;
+        // (Some variables overlap, but we explicitly re-assign them to maintain safety)
+        var _a = _YP._a, Ca = _YP.Ca, Da = _YP.Da;
 
         // yp-animation.js
-        var H  = _YP.H,  F  = _YP.F,  j  = _YP.j,  Vt = _YP.Vt,
-            Ut = _YP.Ut, yi = _YP.yi;
+        var H  = _YP.H,  F  = _YP.F,  j  = _YP.j,  Vt = _YP.Vt, Ut = _YP.Ut, yi = _YP.yi;
 
         // yp-element-select.js
-        var Q  = _YP.Q,  ee = _YP.ee, bi = _YP.bi, vi = _YP.vi,
-            da = _YP.da, At = _YP.At, Ba = _YP.Ba, Di = _YP.Di;
+        var Q  = _YP.Q,  ee = _YP.ee, bi = _YP.bi, vi = _YP.vi, da = _YP.da,
+            At = _YP.At, Di = _YP.Di;
 
         // yp-events.js
-        var He = _YP.He, We = _YP.We;\n\n// yp-css-property-ui.js\nvar Ke = _YP.Ke, Je = _YP.Je, Qe = _YP.Qe, et = _YP.et, tt = _YP.tt, at = _YP.at, it = _YP.it, nt = _YP.nt, st = _YP.st, ot = _YP.ot, rt = _YP.rt, lt = _YP.lt, dt = _YP.dt, pt = _YP.pt, ct = _YP.ct, ut = _YP.ut, mt = _YP.mt, ft = _YP.ft, gt = _YP.gt, ht = _YP.ht, yt = _YP.yt, wt = _YP.wt, vt = _YP.vt, bt = _YP.bt, xt = _YP.xt, _t = _YP._t, kt = _YP.kt, Ct = _YP.Ct, zt = _YP.zt, Ot = _YP.Ot, Dt = _YP.Dt, St = _YP.St, Tt = _YP.Tt, Et = _YP.Et, qt = _YP.qt,  = _YP., Gt = _YP.Gt, Kt = _YP.Kt, Jt = _YP.Jt, Qt = _YP.Qt, ea = _YP.ea, ta = _YP.ta, aa = _YP.aa, ia = _YP.ia, na = _YP.na, sa = _YP.sa, oa = _YP.oa, ra = _YP.ra, la = _YP.la, pa = _YP.pa, ca = _YP.ca;
+        var He = _YP.He, We = _YP.We;
+
+        // yp-css-property-ui.js
+        var Ke = _YP.Ke, Je = _YP.Je, Qe = _YP.Qe, et = _YP.et, tt = _YP.tt,
+            at = _YP.at, it = _YP.it, nt = _YP.nt, st = _YP.st, ot = _YP.ot,
+            rt = _YP.rt, lt = _YP.lt, dt = _YP.dt, pt = _YP.pt, ct = _YP.ct,
+            ut = _YP.ut, mt = _YP.mt, ft = _YP.ft, gt = _YP.gt, ht = _YP.ht,
+            yt = _YP.yt, wt = _YP.wt, vt = _YP.vt, bt = _YP.bt, xt = _YP.xt,
+            _t = _YP._t, kt = _YP.kt, Ct = _YP.Ct, zt = _YP.zt, Ot = _YP.Ot,
+            Dt = _YP.Dt, St = _YP.St, Tt = _YP.Tt, Et = _YP.Et, qt = _YP.qt,
+            $t = _YP.$t, Gt = _YP.Gt, Kt = _YP.Kt, Jt = _YP.Jt, Qt = _YP.Qt,
+            ea = _YP.ea, ta = _YP.ta, aa = _YP.aa, ia = _YP.ia, na = _YP.na,
+            sa = _YP.sa, oa = _YP.oa, ra = _YP.ra, la = _YP.la, pa = _YP.pa,
+            ca = _YP.ca;
 
         // ─────────────────────────────────────────────────────────────────────────
 
@@ -3348,7 +3362,16 @@
                 Ji = Gi.find("body"),
                 Qi = o(document.body).add(Ji),
                 en = o(document).add(Gi),
-                tn = o(document.body),\n                _setYpElements = (function() {\n                    if (window.YP && window.YP.elements) {\n                        window.YP.elements.Gi = Gi;\n                        window.YP.elements.Ki = Ki;\n                        window.YP.elements.Ji = Ji;\n                        window.YP.elements.Qi = Qi;\n                        window.YP.elements.tn = tn;\n                    }\n                })(),
+                tn = o(document.body),
+                _setYpElements = (function() {
+                    if (window.YP && window.YP.elements) {
+                        window.YP.elements.Gi = Gi;
+                        window.YP.elements.Ki = Ki;
+                        window.YP.elements.Ji = Ji;
+                        window.YP.elements.Qi = Qi;
+                        window.YP.elements.tn = tn;
+                    }
+                })(),
                 an = document.getElementById("iframe"),
                 nn = an.contentWindow;
         an = an.contentWindow.document || an.contentDocument, Gi.find("#wyp-animate-data").after(
