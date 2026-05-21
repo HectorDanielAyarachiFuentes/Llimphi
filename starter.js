@@ -9,15 +9,24 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 // Open
 }else{
 
-    fetch(chrome.runtime.getURL('editor.html'))
-        .then(response => response.text())
-        .then(editorHtml => {
-            // Replace placeholders with actual URLs
-            editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
+    chrome.runtime.sendMessage({ action: "getEditorHtml" }, function(response) {
+        if (chrome.runtime.lastError || !response || !response.html) {
+            console.error('Error loading editor.html:', chrome.runtime.lastError || (response && response.error));
+            alert('Failed to load editor interface.');
+            return;
+        }
+        var editorHtml = response.html;
+        // Replace placeholders with actual URLs
+        editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
 
+        try {
             document.open();
             document.write(editorHtml);
             document.close();
+        } catch (e) {
+            console.warn("document.open() failed, falling back to innerHTML replacement:", e);
+            document.documentElement.innerHTML = editorHtml;
+        }
 
             // Vars
             window.bMode = true;
@@ -293,10 +302,6 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                                     };
 
             })();
-        })
-        .catch(error => {
-            console.error('Error loading editor.html:', error);
-            alert('Failed to load editor interface.');
         });
 
 } // End of if
