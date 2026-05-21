@@ -6548,6 +6548,7 @@ if (window.YP && window.YP._compat) {
     window.YP._compat.Pi = typeof Pi !== 'undefined' ? Pi : undefined;
     window.YP._compat.Ri = typeof Ri !== 'undefined' ? Ri : undefined;
     window.YP._compat.Ci = typeof Ci !== 'undefined' ? Ci : undefined;
+    window.YP._compat.Ie = typeof Ie !== 'undefined' ? Ie : undefined;
     window.YP._compat._e = typeof _e !== 'undefined' ? _e : undefined;
     window.YP._compat.$ = typeof $ !== 'undefined' ? $ : undefined;
     window.YP._compat.he = typeof he !== 'undefined' ? he : undefined;

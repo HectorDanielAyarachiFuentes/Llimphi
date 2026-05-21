@@ -39,6 +39,7 @@ function Pi(e)  { var fn = YP._compat && YP._compat.Pi;  return fn ? fn(e)  : un
 function Ri(e)  { var fn = YP._compat && YP._compat.Ri;  return fn ? fn(e)  : undefined; }
 function Ci(e, t) { var fn = YP._compat && YP._compat.Ci; return fn ? fn(e, t) : undefined; }
 function Ma(e, t) { var fn = YP._compat && YP._compat.Ma; return fn ? fn(e, t) : undefined; }
+function Ie(e, t, i, n, s, o, l) { var fn = YP._compat && YP._compat.Ie; return fn ? fn(e, t, i, n, s, o, l) : undefined; }
 
 function Ke() {
                 o(".type-has-change").removeClass("type-has-change")
@@ -1142,6 +1143,7 @@ function Et(e, t, n, s) {
         }
 
         function Nt(e) {
+                var an = window.an;
                 (null == e || null == e) && (e = E());
                 for (var t = {
                                 selectors: [],
@@ -1460,6 +1462,7 @@ function Et(e, t, n, s) {
         }
 
         function sa() {
+                var an = window.an;
                 if (C()) {
                         o(".wyp-group-edited").removeClass("wyp-group-edited"), o(".reset-enable").removeClass("reset-enable"), Ke(), o(
                                         ".property-responsive").removeClass("property-responsive"), getTn().removeClass("node-has-other-screen-edits"), getTn()
