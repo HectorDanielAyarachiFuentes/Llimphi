@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Tooltips and Popovers */
+/* Llimphi Editor - Tooltips and Popovers */
 
 .tooltip {
     position: absolute;
@@ -450,4 +450,5 @@
 
 .tooltip-breakpoint-add .tooltip-inner {
     text-align: center !important
+}
 

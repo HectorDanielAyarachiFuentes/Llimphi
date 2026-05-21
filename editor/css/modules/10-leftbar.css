@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Left Sidebar */
+/* Llimphi Editor - Left Sidebar */
 
 .editor-leftbar {
     position: fixed;
@@ -456,6 +456,7 @@ body.node-has-other-screen-edits .wyp-responsive-btn.active .responsive-icon:aft
 .redo-icon {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg)
+}
 
 .left-menu-sublist {
     position: absolute;
@@ -538,6 +539,7 @@ body.node-has-other-screen-edits .wyp-responsive-btn.active .responsive-icon:aft
 
 .inspector-sublist {
     display: none
+}
 
 .left-menu-sublist.interface-settings {
     bottom: 0;

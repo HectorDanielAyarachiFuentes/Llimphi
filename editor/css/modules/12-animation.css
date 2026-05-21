@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Animation Manager and Timeline */
+/* Llimphi Editor - Animation Manager and Timeline */
 
 body.wyp-ani-cre .animation-option {
     pointer-events: none
@@ -313,6 +313,8 @@ body.wyp-ani-cre #ac-pl-background-position .ui-autocomplete {
 }
 
 .ui-helper-hidden-accessible {
+    display: none !important
+}
 
 .wyp-animate-manager {
     position: fixed;
@@ -797,6 +799,8 @@ body.wyp-animate-manager-active .ed-pnl {
 
 .wyp-animate-manager>.ui-resizable-handle.active,
 .wyp-animate-manager>.ui-resizable-handle:hover {
+    border-bottom: 2px solid rgba(230, 40, 40, .85)
+}
 
 .wyp-background-filter-section,
 .wyp-border-bottom-section,

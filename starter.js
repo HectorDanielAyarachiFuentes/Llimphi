@@ -21,7 +21,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
             var placeholders = Array.from(newDoc.querySelectorAll('[data-wyp-template]'));
             var fetchPromises = placeholders.map(placeholder => {
                 var templateName = placeholder.getAttribute('data-wyp-template');
-                var templateUrl = chrome.runtime.getURL(`editor/templates/${templateName}.html`);
+                var templateUrl = chrome.runtime.getURL(`editor/templates/${templateName}.html`) + "?t=" + Date.now();
                 return fetch(templateUrl)
                     .then(response => response.text())
                     .then(templateHtml => {
@@ -219,6 +219,9 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                         var style = document.createElement('link');
                         style.rel = "stylesheet";
+                        if (link.indexOf('chrome-extension:') !== -1) {
+                            link = link + (link.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
+                        }
                         style.href = link;
                         style.async = false;
                         document.head.appendChild(style);
@@ -229,15 +232,29 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
                     }
 
-                    // Loading The Styles
                     var styles = [
                         "//fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap",
-                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/00-reset.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/01-fonts-icons.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/02-tokens.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/03-base.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/04-overlay-alerts.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/05-context-menu.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/06-sliders.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/07-color-picker.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/08-tooltips-popovers.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/09-panel.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/10-leftbar.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/11-css-editor.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/12-animation.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/13-inspector.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/14-responsive.css?wypver=7.6.0",
+                        chrome.runtime.getURL('editor/') + "css/modules/15-utilities.css?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "css/editor-bar.css?wypver=7.6.0"
                     ];
 
                     // Load styles in iframe
-                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
+                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0&t="+Date.now()+"' type='text/css' media='all' />");
 
                     // Loading.
                     for(var i = 0; i < styles.length; i++){
@@ -297,6 +314,9 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         }
 
                         var src = scripts[i];
+                        if (src.indexOf('chrome-extension:') !== -1) {
+                            src = src + (src.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
+                        }
                         var script = document.createElement('script');
                         script.src = src;
                         script.async = false;

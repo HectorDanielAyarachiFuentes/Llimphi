@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Utilities, Scrollbars, Media Queries */
+/* Llimphi Editor - Utilities, Scrollbars, Media Queries */
 
 .wyp-select-data {
     display: none !important
@@ -182,6 +182,9 @@ body .ed-pnl li.empty-property {
 
 .wyp-unsplash-list:empty {
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px
+}
 
 ::-webkit-scrollbar {
     width: 5px;

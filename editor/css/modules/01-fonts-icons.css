@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Fonts and Icon Font */
+/* Llimphi Editor - Fonts and Icon Font */
 
 b,
 strong {
@@ -7,7 +7,7 @@ strong {
 
 @font-face {
     font-family: wyp-ed;
-    src: url("icons/wyp-ed.ttf?jfoaz6") format("truetype"), url("icons/wyp-ed.woff?jfoaz6") format("woff"), url("icons/wyp-ed.svg?jfoaz6#wyp-ed") format("svg");
+    src: url("../icons/wyp-ed.woff?jfoaz6") format("woff"), url("../icons/wyp-ed.ttf?jfoaz6") format("truetype"), url("../icons/wyp-ed.svg?jfoaz6#wyp-ed") format("svg");
     font-weight: 400;
     font-style: normal;
     font-display: block

@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Overlays and Alert Dialogs */
+/* Llimphi Editor - Overlays and Alert Dialogs */
 
 .yellow-overlay {
     top: 0;
@@ -250,6 +250,7 @@
 .wyp-info-modal-top-inner h2 {
     margin-top: 35px;
     font-weight: 500;
+}
 
 .wyp-popup-background {
     z-index: 2147483645;

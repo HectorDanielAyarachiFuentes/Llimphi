@@ -1,4 +1,4 @@
-﻿/* Llimphi Editor - Color Picker (Iris) */
+/* Llimphi Editor - Color Picker (Iris) */
 
 .iris-picker {
     width: 224px;
@@ -396,6 +396,7 @@ body.wyp-bg-layer-active .ui-autocomplete-input.active {
     margin-top: 6px;
     border-radius: 8px;
     background-color: #eaeaea
+}
 
 .wyp-gradient-section {
     margin-top: 6px;
@@ -545,4 +546,5 @@ body.wyp-bg-layer-active .ui-autocomplete-input.active {
     background: #992323;
     border: 1px solid rgba(255, 255, 255, .9);
     border-radius: 3px
+}
 
