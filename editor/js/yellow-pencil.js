@@ -41,7 +41,7 @@
 
         // yp-info-panel.js
         // (Some variables overlap, but we explicitly re-assign them to maintain safety)
-        var _a = _YP._a, Ca = _YP.Ca, Da = _YP.Da;
+        var M = _YP.M, Z = _YP.Z, _a = _YP._a, Ca = _YP.Ca, Da = _YP.Da;
 
         // yp-animation.js
         var H  = _YP.H,  F  = _YP.F,  j  = _YP.j,  Vt = _YP.Vt, Ut = _YP.Ut, yi = _YP.yi;
@@ -205,184 +205,7 @@
                 return a
         }
 
-        function M(e) {
-                var t = !1;
-                Ji.hasClass("wyp-wf-on") && (t = !0, Ji.removeClass("wyp-wf-on"));
-                var n, s, r, d;
-                if ("typography" == e) {
-                        window.colorJsonList = [], o(
-                                ".info-color-scheme-list,.info-font-family-list,.info-animation-list,.info-basic-typography-list,.info-image-list"
-                                ).empty();
-                        var c = o(".info-color-scheme-list"),
-                                u = o(".info-font-family-list"),
-                                m = o(".info-image-list"),
-                                f = o(".info-animation-list"),
-                                g = o(".info-basic-typography-list"),
-                                h, w, v;
-                        Ji.append(
-                                "<h1 id='wyp-heading-test-level-1'></h1><h2 id='wyp-heading-test-level-2'></h2><h3 id='wyp-heading-test-level-3'></h3><h4 id='wyp-heading-test-level-4'></h4><h5 id='wyp-heading-test-level-5'></h5><h6 id='wyp-heading-test-level-6'></h6><h6 id='wyp-paragraph-test'></h6>");
-                        var b = Ji.find("#wyp-paragraph-test"),
-                                k = Math.round(10 * parseFloat(Ji.css("fontSize"))) / 10,
-                                z = Math.round(10 * parseFloat(b.css("fontSize"))) / 10;
-                        for (w = Ji.css("fontFamily"), v = b.css("fontFamily"), g.append("<li><span class=\"typo-list-left\">" + qi.general +
-                                        " (body)</span><span class=\"typo-list-right\"><span>" + k + "px, " + P(w) + "</span></span></li>").append(
-                                        "<li><span class=\"typo-list-left\">" + qi.paragraph + "</span><span class=\"typo-list-right\"><span>" + z +
-                                        "px, " + P(v) + "</span></span></li>"), b.remove(), s = "", r = 1; 6 >= r; r++) {
-                                d = Ji.find("#wyp-heading-test-level-" + r);
-                                var O = parseFloat(d.css("fontSize"));
-                                O = Math.round(10 * O) / 10, h = d.css("fontFamily"), s += "<li><span class=\"typo-list-left\">" + qi.heading_level +
-                                        " " + r + "</span><span class=\"typo-list-right\"><span>" + O + "px, " + P(h) + "</span></span></li>", d
-                                        .remove()
-                        }
-                        g.append(s);
-                        var D = [],
-                                A = [],
-                                S = [],
-                                T = [];
-                        n = Ji.find(ui());
-                        var E = 0;
-                        for (r = 0; r < n.length && !(1e4 < r); r++) {
-                                var L = n[r].tagName;
-                                if (!/^(UL|LI|SPAN|A|I|STRONG|IFRAME|LABEL|BUTTON|FORM|INPUT|B|EM)$/g.test(L)) {
-                                        if (n[r].clientWidth && 40 > n[r].clientWidth) {
-                                                E++;
-                                                continue
-                                        }
-                                        d = o(n[r]), h = P(d.css("fontFamily")).toLowerCase(), -1 == A.indexOf(h) && A.push(h);
-                                        var M = d.css("backgroundColor").toLowerCase().replace(/ /g, "");
-                                        if ("transparent" != M && "rgb(255,255,255)" != M && "rgba(0,0,0,0)" != M && "rgba(255,255,255,0)" != M && D
-                                                .push(M), -1 != d.css("background-image").indexOf("http")) {
-                                                var R = d.css("background-image");
-                                                !0 == /url\((\"|\')?(.*?)(\"|\')?\)/i.test(R) && T.push(R.match(/url\((\"|\')?(.*?)(\"|\')?\)/i)[0]
-                                                        .replace(/^url\(("|'|)/g, "").replace(/("|'|)\)$/g, ""))
-                                        }
-                                        if ("IMG" == L) {
-                                                var I = d.attr("src");
-                                                d.hasAttr("data-src") && (I = d.attr("data-src")), null != I && "" != I && null != I && T.push(I)
-                                        }
-                                }
-                        }
-                        var Y = p(a(null, !1), "[rule=animation-name]"),
-                                N, H;
-                        for (r = 0; r < Y.length; r++) N = Y[r].replace(/(\/\*(.*?)\*\/|\n)/g, ""), H = Vt(N), -1 == S.indexOf(H) && S.push(H);
-                        s = "";
-                        var W = [];
-                        for (r = 0; r < D.length; r++)
-                                if (-1 == W.indexOf(D[r])) {
-                                        for (var F = 0, j = 0; j < D.length; j++) D[j] == D[r] && F++;
-                                        var X = 100 * F / D.length;
-                                        W.push(D[r]), window.colorJsonList.push(D[r]), s += "<div data-width=\"" + X + "\" data-color=\"" + D[r] +
-                                                "\" style=\"width:" + X + "%;background-color:" + D[r] + ";\"></div>"
-                                } c.append(s), s = "";
-                        var V = [];
-                        for (o.each(T, function(e, t) {
-                                        -1 === o.inArray(t, V) && V.push(t)
-                                }), r = 0; r < V.length; r++) - 1 === V[r].indexOf("wyp_rand=") && -1 === V[r].indexOf("wyp_mode=") && -1 === V[r]
-                                .indexOf("bing.com/action/") && (s += "<img src='" + V[r] + "' />");
-                        for ("" == s ? (m.prev("h3").remove(), m.remove()) : m.append(s), s = "", r = 0; r < A.length; r++) s += "<li>" + A[r] +
-                        "</li>";
-                        for (u.append(s), s = "", r = 0; r < S.length; r++) s += "<li>" + S[r] + "</li>";
-                        f.append(s), 0 == S.length ? o("#animations-heading").hide() : o("#animations-heading").show()
-                } else if ("element" == e) {
-                        var U = o(".info-element-general"),
-                                q = o(".info-element-accessibility"),
-                                $ = o(".info-element-class-list"),
-                                G = o(".info-element-selector-list");
-                        if (o(".info-element-general,.info-element-class-list,.info-element-selector-list,.info-element-accessibility").empty(), C()) {
-                                o(".info-no-element-selected").hide(), o(".info-element-selected-section").show(), o("info-element-selector-section")
-                                        .hide();
-                                var J = _(),
-                                        Q = J.attr("id");
-                                K(Q) && "" !== Q && U.append("<li><span class=\"typo-list-left\">" + qi.element_id +
-                                        "</span><span class=\"typo-list-right\"><span>#" + Q + "</span></span></li>"), U.append(
-                                        "<li><span class=\"typo-list-left\">" + qi.tag + "</span><span class=\"typo-list-right\"><span>" + J
-                                        .prop("tagName") + "</span></span></li>"), U.append("<li><span class=\"typo-list-left\">" + qi
-                                        .affected_els + "</span><span class=\"typo-list-right\"><span>" + (parseInt(Ji.find(
-                                                ".wyp-selected-others").length) + 1) + "</span></span></li>");
-                                var ee = B(J, []),
-                                        te;
-                                for (s = "", te = 0; te < ee.length; te++) s += "<li>." + ee[te] + "</li>";
-                                if ($.append(s), 0 === $.find("li").length ? o(".info-element-classes-section").hide() : o(
-                                                ".info-element-classes-section").show(), G.append("<li>" + _a() + "</li>"), 0 < J.text().length) {
-                                        q.append("<li class=\"contrast-accessibility\"><span class=\"typo-list-left\">Text Contrast</span><span class=\"typo-list-right\"><span>" +
-                                                ia() + "</span></span></li>");
-                                        var ae = parseFloat(J.height()) / ta(J);
-                                        2 <= ae && q.append(
-                                                "<li class=\"line-spacing-accessibility\"><span class=\"typo-list-left\">Line Spacing</span><span class=\"typo-list-right\"><span>" +
-                                                aa() + "</span></span></li>"), q.append(
-                                                "<li class=\"font-size-accessibility\"><span class=\"typo-list-left\">Legibility</span><span class=\"typo-list-right\"><span>" +
-                                                ea() + "</span></span></li>")
-                                }
-                                0 === q.find("li").length ? o(".info-element-accessibility-section").hide() : o(".info-element-accessibility-section")
-                                        .show();
-                                var ie = J.clone();
-                                for (ie.removeAttr("class"), ie.removeAttr("data-wyp-slctr"), te = 0; te < ee.length; te++) ie.addClass(ee[te]);
-                                ie.html("...");
-                                var ne = o("<div />").append(ie).html();
-                                ne = ne.replace(/(\s+)?style=\"\"/, ""), o(".info-element-dom").val(ne)
-                        } else o(".info-no-element-selected").show(), o(".info-element-selected-section").hide()
-                }!0 == t && Ji.addClass("wyp-wf-on"), Z(), o(".info-element-accessibility li").tooltip("destroy"), o(".font-size-accessibility")
-                        .tooltip({
-                                trigger: "hover",
-                                container: ".advanced-info-box-inner",
-                                title: qi.font_size_ac,
-                                delay: {
-                                        show: 100,
-                                        hide: 0
-                                }
-                        }), o(".line-spacing-accessibility").tooltip({
-                                trigger: "hover",
-                                container: ".advanced-info-box-inner",
-                                title: qi.line_spacing_ac,
-                                delay: {
-                                        show: 100,
-                                        hide: 0
-                                }
-                        }), o(".contrast-accessibility").tooltip({
-                                trigger: "hover",
-                                container: ".advanced-info-box-inner",
-                                title: qi.contrast_ac,
-                                delay: {
-                                        show: 100,
-                                        hide: 0
-                                }
-                        })
-        }
 
-        function Z() {
-                new ClipboardJS(".info-color-scheme-list div", {
-                        text: function(e) {
-                                return Pi(e.getAttribute("data-color"))
-                        }
-                }), o(".info-color-scheme-list > div").tooltip("destroy"), o(".info-color-scheme-list > div").tooltip({
-                        animation: !0,
-                        trigger: "manual",
-                        container: ".advanced-info-box-inner",
-                        html: !0
-                }), o(".info-color-scheme-list > div").on("mouseenter", function() {
-                        o(this).attr("data-original-title", Pi(o(this).attr("data-color"))).tooltip("fixTitle").tooltip("show")
-                }), o(".info-color-scheme-list > div").on("click", function() {
-                        o(this).attr("data-original-title", "Copied!").tooltip("fixTitle").tooltip("show")
-                }), o(".info-color-scheme-list > div").on("mouseleave", function() {
-                        o(this).tooltip("hide")
-                }), new ClipboardJS(".info-image-list img", {
-                        text: function(e) {
-                                return e.getAttribute("src")
-                        }
-                }), o(".info-image-list img").tooltip("destroy"), o(".info-image-list img").tooltip({
-                        placement: "top",
-                        animation: !0,
-                        trigger: "manual",
-                        container: ".advanced-info-box-inner",
-                        html: !0
-                }), o(".info-image-list img").on("mouseenter", function() {
-                        o(this).attr("data-original-title", "Copy URL").tooltip("fixTitle").tooltip("show")
-                }), o(".info-image-list img").on("click", function() {
-                        o(this).attr("data-original-title", "Copied!").tooltip("fixTitle").tooltip("show")
-                }), o(".info-image-list img").on("mouseleave", function() {
-                        o(this).tooltip("hide")
-                })
-        }
 
         
 
@@ -7072,5 +6895,7 @@ if (window.YP && window.YP._compat) {
     window.YP._compat.fi = typeof fi !== 'undefined' ? fi : function(e) { return typeof e !== 'undefined' && e !== '' ? e.replace(/\d/g, '').replace('.px', 'px') : ''; };
     window.YP._compat.je = typeof je !== 'undefined' ? je : undefined;
     window.YP._compat.ne = typeof ne !== 'undefined' ? ne : undefined;
+    window.YP._compat.Pi = typeof Pi !== 'undefined' ? Pi : undefined;
+    window.YP._compat.Ri = typeof Ri !== 'undefined' ? Ri : undefined;
 }
 })(jQuery);

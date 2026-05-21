@@ -35,6 +35,8 @@ function Yi()   { var fn = YP._compat && YP._compat.Yi;  return fn ? fn()   : un
 function fi(e)  { var fn = YP._compat && YP._compat.fi;  return fn ? fn(e)  : (typeof e !== 'undefined' && e !== '' ? String(e).replace(/\d/g, '').replace('.px','px') : ''); }
 function je(e, t, a) { var fn = YP._compat && YP._compat.je; return fn ? fn(e, t, a) : undefined; }
 function ne(e)  { var fn = YP._compat && YP._compat.ne;  return fn ? fn(e)  : undefined; }
+function Pi(e)  { var fn = YP._compat && YP._compat.Pi;  return fn ? fn(e)  : undefined; }
+function Ri(e)  { var fn = YP._compat && YP._compat.Ri;  return fn ? fn(e)  : undefined; }
 
 function Ke() {
                 o(".type-has-change").removeClass("type-has-change")
@@ -297,7 +299,7 @@ function tt(s, l, d, f, y, w, v) {
                                         fe, ge;
                                 for (K = parseInt(getQi().attr("data-anim-scene").replace("scene-", "")) + 1; 6 >= K; K++) me = "scene-" + K, fe = getGi().find(
                                         "#wyp-anim-scenes #" + me + " .scenes-" + gi(x) + "-style"), (0 == fe.length || fe.hasClass(
-                                        "dynamic-generated-scene")) && (ge = s.replace(/body\.wyp-scene-[0-9]]/g, "body.wyp-scene-" + K), getGi()
+                                        "dynamic-generated-scene")) && (ge = s.replace(/body\.wyp-scene-[0-9]/g, "body.wyp-scene-" + K), getGi()
                                         .find("#wyp-anim-scenes #" + me + " style[data-rule='" + x + "']").remove(), getGi().find(
                                                 "#wyp-anim-scenes #" + me + "").append("<style data-rule=\"" + x +
                                                 "\" class=\"dynamic-generated-scene style-" + me + " scenes-" + gi(x) + "-style\">" + ge + "{" +
@@ -324,8 +326,8 @@ function tt(s, l, d, f, y, w, v) {
         }
 
 function at(e, t) {
-                if (!0 === S() && "position" != t ? (e = o.trim(e.replace(/(body)?\.wyp-scene-[0-9]]/g, "")), e = Hi(e, "wyp-" + getQi().attr(
-                                "data-anim-scene"))) : e = o.trim(e.replace(/(body)?\.wyp-scene-[0-9]]/g, "")), !1 === getTn().hasClass(
+                if (!0 === S() && "position" != t ? (e = o.trim(e.replace(/(body)?\.wyp-scene-[0-9]/g, "")), e = Hi(e, "wyp-" + getQi().attr(
+                                "data-anim-scene"))) : e = o.trim(e.replace(/(body)?\.wyp-scene-[0-9]/g, "")), !1 === getTn().hasClass(
                                 "process-by-code-editor") && !1 === T() && ("animation-name" == t || "animation-duration" == t || "animation-delay" ==
                                 t)) {
                         var a = e;
@@ -529,8 +531,8 @@ function lt(e, t, a, i) {
                 !0 === a && (d = e.slider("value")), o("#" + s + "-value").is(":focus") && (d = o("#" + s + "-value").val());
                 var p = o("#" + s + "-after").val();
                 if ("-" != p) d = parseFloat(d);
-                else if (/(\d+)([a-z%]]{1,3})$/i.test(d)) {
-                        var c = d.match(/(\d+)([a-z%]]{1,3})$/i);
+                else if (/(\d+)([a-z%]{1,3})$/i.test(d)) {
+                        var c = d.match(/(\d+)([a-z%]{1,3})$/i);
                         /^(em|rem|vh|vw|%|px|ms|s|pt|pc|in|mm|cm|ex|ch|vmin|vmax)$/.test(c[2]) && (d = parseFloat(c[1]), p = c[2])
                 } else p = "", d = l, d = parseFloat(d);
                 var r = o("#" + s + "-value").val();
@@ -607,17 +609,17 @@ function ut() {
                                 if (o(".background-size-custom-group").css("display", "flex"), J(t)) return;
                                 var i = t.split(" ");
                                 if (1 < i.length) {
-                                        var n = i[0].replace(/[^0-9]]/g, ""),
-                                                s = i[1].replace(/[^0-9]]/g, ""),
-                                                r = i[0].replace(/[0-9]]/g, ""),
-                                                l = i[1].replace(/[0-9]]/g, "");
+                                        var n = i[0].replace(/[^0-9]/g, ""),
+                                                s = i[1].replace(/[^0-9]/g, ""),
+                                                r = i[0].replace(/[0-9]/g, ""),
+                                                l = i[1].replace(/[0-9]/g, "");
                                         "auto" == r && (r = "-", n = "auto"), "auto" == l && (l = "-", s = "auto"), o(
                                                 "#background-size-x-value").val(n), o("#background-size-y-value").val(s), o(
                                                 "#background-size-x-custom").val(r), o("#background-size-y-custom").val(l)
                                 } else "auto" == t || "cover" == t || "contain" == t ? (o(
                                         "#background-size-x-value,#background-size-y-value").val("auto"), o(
                                         "#background-size-x-custom,#background-size-y-custom").val("-")) : (o(
-                                        "#background-size-x-value,#background-size-y-value").val(t.replace(/[^0-9]]/g,
+                                        "#background-size-x-value,#background-size-y-value").val(t.replace(/[^0-9]/g,
                                         "")), o("#background-size-x-custom,#background-size-y-custom").val(t.replace(
                                         /[0-9]/g, "")))
                         }
@@ -855,12 +857,12 @@ function zt(e) {
                 else if (-1 == a.indexOf("to "))
                         if (-1 != a.indexOf("deg") && !0 == t) {
                                 var i = mi(a);
-                                90 > i ? i = 90 - i : 90 < i && (i = 360 - (i - 90)), e = e.replace(/linear-gradient\(([^,]]+)/, "linear-gradient(" + i +
+                                90 > i ? i = 90 - i : 90 < i && (i = 360 - (i - 90)), e = e.replace(/linear-gradient\(([^,]+)/, "linear-gradient(" + i +
                                         "deg")
-                        } else a = a.trim(), -1 == a.indexOf(" ") && ("left" == a ? e = e.replace(/linear-gradient\(([^,]]+)/,
-                                "linear-gradient(to right") : "right" == a ? e = e.replace(/linear-gradient\(([^,]]+)/,
-                                "linear-gradient(to left") : "top" == a ? e = e.replace(/linear-gradient\(([^,]]+)/,
-                                "linear-gradient(to bottom") : "bottom" == a && (e = e.replace(/linear-gradient\(([^,]]+)/,
+                        } else a = a.trim(), -1 == a.indexOf(" ") && ("left" == a ? e = e.replace(/linear-gradient\(([^,]+)/,
+                                "linear-gradient(to right") : "right" == a ? e = e.replace(/linear-gradient\(([^,]+)/,
+                                "linear-gradient(to left") : "top" == a ? e = e.replace(/linear-gradient\(([^,]+)/,
+                                "linear-gradient(to bottom") : "bottom" == a && (e = e.replace(/linear-gradient\(([^,]+)/,
                                 "linear-gradient(to top")));
                 if (-1 == e.indexOf("%")) {
                         e = e.replace(/rgb(a?)\((.*?)\)/g, function(e) {
@@ -1002,7 +1004,7 @@ function Et(e, t, n, s) {
         function Bt(e, t, a, i) {
                 var n = Pe(i),
                         s = Re(i);
-                a = a.replace(/\s+\![a-zA-Z]]{0,9}(\s+)?$/g, ""), -1 == window.webkitArray.indexOf(t) ? getJi().append(
+                a = a.replace(/\s+\![a-zA-Z]{0,9}(\s+)?$/g, ""), -1 == window.webkitArray.indexOf(t) ? getJi().append(
                         "<style class='wyp-fastest-live-css'>" + n + e + "{" + t + ":unset !important;" + t + ":" + a + " !important;}" + s +
                         "</style>") : getJi().append("<style class='wyp-fastest-live-css'>" + n + e + "{" + t + ":unset !important;" + t + ":" + a +
                         " !important;-webkit-" + t + ":" + a + " !important;}" + s + "</style>")
