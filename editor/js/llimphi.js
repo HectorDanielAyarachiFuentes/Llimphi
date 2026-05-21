@@ -576,7 +576,7 @@
                                                         "px;'></div><div class='wyp-anim-process-bar' data-toggle='tooltipAnim' data-placement='top' title='" +
                                                         qi.duration + ": " + parseFloat(g).toFixed(2) + "s' style='width:" + S +
                                                         "px;'><span class='animate-part-icons wyp-control-trash' data-toggle='tooltipAnim' data-placement='top' title='" +
-                                                        qi.delete_t + "'><span class='yicon icon-trash'></span></span><span class='animation-name'>" +
+                                                        qi.delete_t + "'><span class='licon icon-trash'></span></span><span class='animation-name'>" +
                                                         m + "</span></div>",
                                                         M, Z, P;
                                                 if (-1 != m.indexOf(",")) {
@@ -598,7 +598,7 @@
                                                                         qi.duration + ": " + parseFloat(Z).toFixed(2) + "s' style='width:" + P +
                                                                         "px;'><span class='animate-part-icons wyp-control-trash' data-toggle='tooltipAnim' data-placement='top' title='" +
                                                                         qi.delete_t +
-                                                                        "'><span class='yicon icon-trash'></span></span><span class='animation-name'>" +
+                                                                        "'><span class='licon icon-trash'></span></span><span class='animation-name'>" +
                                                                         Y + "</span></div>", R = M + P
                                                         }
                                                 }
@@ -3704,8 +3704,8 @@
                 var e = _(),
                         t = parseFloat(e.css("font-size"));
                 isNaN(t) && (t = 0);
-                var a = "<span class='accessibility-pass-badge'>" + t + "px<i class='yicon icon-yes'></i></span>";
-                return 12 >= t && (a = "<span class='accessibility-fail-badge'>" + t + "px<i class='yicon icon-no-alt'></i></span>"), a
+                var a = "<span class='accessibility-pass-badge'>" + t + "px<i class='licon icon-yes'></i></span>";
+                return 12 >= t && (a = "<span class='accessibility-fail-badge'>" + t + "px<i class='licon icon-no-alt'></i></span>"), a
         }
 
         function ta(e) {
@@ -3722,9 +3722,9 @@
                         n = Math.ceil(10 * parseFloat(i / 1.2 + 1)) / 10,
                         s = Math.ceil(10 * parseFloat(i / 1.2 + 1.6)) / 10;
                 a = a.toFixed(2);
-                var o = "<span class='accessibility-pass-badge'>" + a + "<i class='yicon icon-yes'></i></span>";
-                return a < n && (o = "<span class='accessibility-fail-badge'>" + a + "<i class='yicon icon-no-alt'></i></span>"), a > s && (o =
-                        "<span class='accessibility-fail-badge'>" + a + "<i class='yicon icon-no-alt'></i></span>"), o
+                var o = "<span class='accessibility-pass-badge'>" + a + "<i class='licon icon-yes'></i></span>";
+                return a < n && (o = "<span class='accessibility-fail-badge'>" + a + "<i class='licon icon-no-alt'></i></span>"), a > s && (o =
+                        "<span class='accessibility-fail-badge'>" + a + "<i class='licon icon-no-alt'></i></span>"), o
         }
 
         function ia() {
@@ -3769,9 +3769,9 @@
                 var u = Kt(t, a),
                         m = parseInt(e.css("font-size"));
                 isNaN(m) && (m = 0);
-                var f = "<span class='accessibility-pass-badge'>" + u + "<i class='yicon icon-yes'></i></span>";
-                return 4.5 > u && 18.66 > m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='yicon icon-no-alt'></i></span>"), 3 >
-                        u && 18.66 < m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='yicon icon-no-alt'></i></span>"), f
+                var f = "<span class='accessibility-pass-badge'>" + u + "<i class='licon icon-yes'></i></span>";
+                return 4.5 > u && 18.66 > m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='licon icon-no-alt'></i></span>"), 3 >
+                        u && 18.66 < m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='licon icon-no-alt'></i></span>"), f
         }
 
         function na(e) {
@@ -4165,11 +4165,11 @@
                                                         "'><input class='this-grid-input' placeholder='auto' type='number' min='1' value='" +
                                                         $ +
                                                         "' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' /><div class='grid-format-div'><select class='grid-format'>" +
-                                                        G + "</select></div><span class='yicon icon-no-alt delete-grid'></span></div>"),
+                                                        G + "</select></div><span class='licon icon-no-alt delete-grid'></span></div>"),
                                                 "auto" == V.find(".this-grid").last().find(".grid-format").val() && V.find(".this-grid")
                                                 .last().find(".this-grid-input").prop("disabled", !0)
                                 }
-                                if (V.append("<span class='grid-builder-add-new yicon icon-plus'></span>"), 0 < V.find(".this-grid")
+                                if (V.append("<span class='grid-builder-add-new licon icon-plus'></span>"), 0 < V.find(".this-grid")
                                         .length && 0 < V.find(".grid-format option[value=\"fr\"][selected]").length) {
                                         var ee = null,
                                                 te = !0;
@@ -4791,7 +4791,7 @@
                                         "BODY" == u && (s =
                                                 "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\"><g transform=\"translate(-32 -72)\"><path fill=\"currentColor\" d=\"M9,1V9H1V1H9m1-1H0V10H10Z\" transform=\"translate(32 72)\"/><rect fill=\"currentColor\" width=\"9.5\" height=\"2.8\" transform=\"translate(32.25 72.25)\"/></g></svg>"
                                                 ), i += "<li " + n + "data-index='" + a +
-                                        "'><div class='layer-tree-wrap'><div class='yicon icon-arrow-down'></div><div class='layer-tree-title'>" +
+                                        "'><div class='layer-tree-wrap'><div class='licon icon-arrow-down'></div><div class='layer-tree-title'>" +
                                         s + d + "</div></div></li>"
                         }), i += "</ul>"
                 }
@@ -5441,7 +5441,7 @@
                 i.find(".pr-res-ite").tooltip("destroy"), i.empty();
                 var n, s, r, l, d, p, c, u;
                 i.append("<div class='pr-res-ite' data-info='-' title='" + qi.all_msg +
-                        "' data-insert-media='desktop' data-responsive-size='all'><span class='yicon icon-desktop'></span>All<span class='yicon icon-no-alt'></span></div>"
+                        "' data-insert-media='desktop' data-responsive-size='all'><span class='licon icon-desktop'></span>All<span class='licon icon-no-alt'></span></div>"
                         );
                 for (var m = 0; m < t.length; m++) {
                         n = t[m].rule, s = t[m].query;
@@ -5455,8 +5455,8 @@
                                 -1 == l.indexOf(",") && -1 == l.indexOf("and") && (-1 != l.indexOf(">") && (u = "(min-width:" + c + "px)"), -
                                         1 != l.indexOf("<") && (u = "(max-width:" + c + "px)")), i.append(
                                         "<div class='pr-res-ite' data-info='-' title='" + p + "' data-insert-media='" + u +
-                                        "' data-responsive-size='" + l + "'><span class='yicon icon-smartphone'></span>" + d +
-                                        "<span class='yicon icon-no-alt'></span></div>")))
+                                        "' data-responsive-size='" + l + "'><span class='licon icon-smartphone'></span>" + d +
+                                        "<span class='licon icon-no-alt'></span></div>")))
                 }
                 o(".pr-res-ite").tooltip({
                         template: "<div class=\"tooltip small-tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
@@ -7127,7 +7127,7 @@
         }), o(document).on("click", ".wyp-anim-play", function() {
                 var e = o(this);
                 if (tn.hasClass("wyp-animate-test-playing")) return o(".scenes .scene-" + window.willActive + "").trigger("click"), e
-                        .html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title", "Play")
+                        .html("<span class=\"licon icon-controls-play\"></span>"), e.attr("data-original-title", "Play")
                         .tooltip("fixTitle").tooltip("show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find(
                                 "#animate-test-drive").empty(), Ji.removeClass("wyp-hid-bor-n"), Ni(), Ze(), Yi(), !1;
                 if (window.willActive = 1, o(".scenes .scene").each(function(e) {
@@ -7149,9 +7149,9 @@
                         .find("#animate-test-drive").append(
                                 "<style>body.wyp-animate-test-playing .wyp-selected,body.wyp-animate-test-playing .wyp-selected-others,body.wyp-animate-test-playing.wyp-selected{animation-name:animationGeneratorTestAnimate !important;animation-duration:" +
                                 a + " !important;animation-iteration-count:1 !important;}</style>"), e.html(
-                                "<span class=\"yicon icon-controls-pause\"></span>"), e.attr("data-original-title", "Pause").tooltip(
+                                "<span class=\"licon icon-controls-pause\"></span>"), e.attr("data-original-title", "Pause").tooltip(
                                 "fixTitle").tooltip("hide"), Yi(), window.animationTimer4 = setTimeout(function() {
-                                e.html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title",
+                                e.html("<span class=\"licon icon-controls-play\"></span>"), e.attr("data-original-title",
                                                 "Play").tooltip("fixTitle").tooltip("hide"), e.is(":hover") && e.tooltip(
                                         "show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find("#animate-test-drive")
                                         .empty(), Ji.removeClass("wyp-hid-bor-n"), o(".scenes .scene-" + window.willActive + "")
@@ -7237,7 +7237,7 @@
                         var e = o(".scenes .scene").length;
                         o(".scenes .scene-let-delete").removeClass("scene-let-delete"), o(".scene-add").before(
                                         "<div class=\"scene-let-delete scene scene-" + e + "\" data-scene=\"scene-" + e +
-                                        "\"><span class=\"yicon icon-trash scene-delete\"></span><p><span class=\"scene-info yicon icon-warning\"></span>" +
+                                        "\"><span class=\"licon icon-trash scene-delete\"></span><p><span class=\"scene-info licon icon-warning\"></span>" +
                                         qi.scene + " " + e + "<span><input type=\"text\" value=\"100\" /></span></p></div>"), o(
                                         ".scenes .scene-" + e + "").trigger("click"), o(".scene-1 input").val("0"), o(".scene-2 input")
                                 .val("100"), 3 == e && (o(".scene-1 input").val("0"), o(".scene-2 input").val("50"), o(".scene-3 input")
@@ -9141,7 +9141,7 @@
                         n = t.find(".this-grid").length + 1,
                         i = "Row";
                 "grid-template-columns" == a && (i = "Column"), o(this).before(
-                        "<div class=\"this-grid\"><input class=\"this-grid-input\" placeholder=\"auto\" type=\"number\" min=\"1\" value=\"1\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\"><div class=\"grid-format-div\"><select class=\"grid-format\"><option value=\"fr\" selected>fr</option><option value=\"%\">%</option><option value=\"px\">px</option><option value=\"auto\">auto</option></select></div><span class=\"yicon icon-no-alt delete-grid\"></span></div>"
+                        "<div class=\"this-grid\"><input class=\"this-grid-input\" placeholder=\"auto\" type=\"number\" min=\"1\" value=\"1\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\"><div class=\"grid-format-div\"><select class=\"grid-format\"><option value=\"fr\" selected>fr</option><option value=\"%\">%</option><option value=\"px\">px</option><option value=\"auto\">auto</option></select></div><span class=\"licon icon-no-alt delete-grid\"></span></div>"
                         ), o(".last-grid").removeClass("last-grid"), la(t)
         }), o(document).on("click", ".delete-grid", function() {
                 var e = o(this).parents(".gr-bu-ar"),
