@@ -129,7 +129,8 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
         ];
 
         var classes = [];
-        node[0].className.split(" ").forEach(function (c) {
+        var rawClass = node[0].getAttribute("class") || "";
+        rawClass.split(" ").forEach(function (c) {
             c = o.trim(c);
             var skip = false;
             for (var i = 0; i < blacklist.length; i++) {

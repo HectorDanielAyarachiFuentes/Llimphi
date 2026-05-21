@@ -7056,4 +7056,13 @@ window.YP_refreshPropertyPanel = typeof Be !== 'undefined' ? Be : window.YP_refr
 window.YP_refreshCSSEditor = typeof _e !== 'undefined' ? _e : window.YP_refreshCSSEditor;
 window.YP_scrollPanelToSelector = typeof Ae !== 'undefined' ? Ae : window.YP_scrollPanelToSelector;
 window.YP_updateBreadcrumb = typeof Ze !== 'undefined' ? Ze : window.YP_updateBreadcrumb;
+if (window.YP && window.YP._compat) {
+    window.YP._compat.Be = typeof Be !== 'undefined' ? Be : undefined;
+    window.YP._compat.Mi = typeof Mi !== 'undefined' ? Mi : undefined;
+    window.YP._compat.Ni = typeof Ni !== 'undefined' ? Ni : undefined;
+    window.YP._compat.Yi = typeof Yi !== 'undefined' ? Yi : undefined;
+    window.YP._compat.fi = typeof fi !== 'undefined' ? fi : function(e) { return typeof e !== 'undefined' && e !== '' ? e.replace(/\d/g, '').replace('.px', 'px') : ''; };
+    window.YP._compat.je = typeof je !== 'undefined' ? je : undefined;
+    window.YP._compat.ne = typeof ne !== 'undefined' ? ne : undefined;
+}
 })(jQuery);
