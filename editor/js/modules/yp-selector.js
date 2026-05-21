@@ -199,19 +199,26 @@ function setOn(v) { if (window.YP && window.YP.elements) window.YP.elements.setO
      * Returns the selector only if it matches ≥ 1 element in the iframe,
      * or false if it would throw or match nothing.
      * ========================================================================= */
-    function validateSelector(sel, quiet, noIframe, returnBool) {
-        if (!sel) return false;
+    function validateSelector(sel, quiet, useBodyOnly, returnBool) {
+        var J = window.YP && window.YP.state ? window.YP.state.isEmpty : function(v) { return !v; };
+        var qi = window.YP && window.YP.elements ? window.YP.elements.Qi : null;
+        if (J(sel)) {
+            return returnBool ? (qi ? qi.selector_no_match : "No elements match") : false;
+        }
+        sel = resolveSelector(sel, true, true, true);
         try {
-            var Gi = getIframe();
-            if (noIframe) {
-                var count = document.querySelectorAll(sel).length;
-                return returnBool ? count > 0 : (count > 0 ? sel : false);
+            var Gi = getGi();
+            var Ji = window.YP && window.YP.elements ? window.YP.elements.Ji : null;
+            if (!Gi || Gi.length === 0) Gi = o("#iframe").contents();
+            if (!Ji || Ji.length === 0) Ji = Gi.find("body");
+            var matches = useBodyOnly ? Ji.find(sel) : Gi.find(sel);
+            if (quiet && matches.length === 0) {
+                return returnBool ? (qi ? qi.selector_no_match : false) : false;
             }
-            var matches = getGi().find(sel);
-            return returnBool ? matches.length > 0 : (matches.length > 0 ? sel : false);
+            return returnBool ? true : matches;
         } catch (err) {
             if (!quiet) console.warn("[yp-selector] invalid selector:", sel, err);
-            return false;
+            return returnBool ? err.message : false;
         }
     }
 

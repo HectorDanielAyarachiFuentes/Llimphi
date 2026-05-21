@@ -2066,4 +2066,11 @@ YP.cssPropertyUI = {
 
 Object.assign(YP._compat, YP.cssPropertyUI);
 
-})(jQuery);\n\n// Global hooks\nwindow.YP_refreshPropertyPanel = ca;\nwindow.YP_refreshCSSEditor = _t;\nwindow.YP_refreshVisualPanel = et;\nwindow.YP_initContextMenu = rt;\nwindow.YP_rebuildContextMenu = yt;\n
+})(jQuery);
+
+// Global hooks
+window.YP_refreshPropertyPanel = ca;
+window.YP_refreshCSSEditor = _t;
+window.YP_refreshVisualPanel = et;
+window.YP_initContextMenu = rt;
+window.YP_rebuildContextMenu = yt;
