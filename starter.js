@@ -32,7 +32,7 @@ if (document.body.classList.contains('yp-llimphi')) {
             function wyp_load_note(text, p){
                 if(window.loadStatus == false && oldP < p){
                     if(text){
-                        document.querySelector('.loading-files').innerHTML = text;
+                        document.querySelector('.loading-files').textContent = text;
                     }
                     document.querySelector('#loader i').style.width = p + "%";
                     oldP = p;
@@ -111,7 +111,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
                             // show loading
                             document.querySelector(".wyp-iframe-loader").style.display = "block";
-                            document.querySelector(".loading-files").innerHTML = "¡La página fue redirigida!";
+                            document.querySelector(".loading-files").textContent = "¡La página fue redirigida!";
                             window.wyp_redirect_on = true;
 
                             // Get parent url
@@ -140,9 +140,10 @@ if (document.body.classList.contains('yp-llimphi')) {
                                 if (this.status == 200) {
 
                                             // Find page details
-                                            var data = document.createElement("div");
-                                            data.insertAdjacentHTML('beforeend', this.responseText);
-                                            data = data.querySelector('#wyp_page_details').innerHTML;
+                                            var parser = new DOMParser();
+                                            var doc = parser.parseFromString(this.responseText, 'text/html');
+                                            var detailsNode = doc.querySelector('#wyp_page_details');
+                                            var data = detailsNode ? detailsNode.textContent : null;
 
                                             // same like fail
                                             if(data === undefined || data === null){
@@ -188,10 +189,25 @@ if (document.body.classList.contains('yp-llimphi')) {
                     // Moving styles to iframe
                     var editorData = document.querySelector("#llimphi-iframe-data");
                     if(editorData !== null){
-                        iframeHead.insertAdjacentHTML('beforeend', editorData.innerHTML.replace(/(^\<\!\-\-|\-\-\>$)/g, ""));
+                        var parsedStr = editorData.innerHTML.replace(/(^\<\!\-\-|\-\-\>$)/g, "");
+                        var parser = new DOMParser();
+                        var doc = parser.parseFromString(parsedStr, 'text/html');
+                        
+                        Array.from(doc.head.childNodes).forEach(node => iframeHead.appendChild(node));
+                        Array.from(doc.body.childNodes).forEach(node => iframeHead.appendChild(node));
+                        
                         document.body.removeChild(editorData);
-                        iframeBody.insertAdjacentHTML('beforeend', '<div id="wyp-animate-data">'+iframeHead.querySelector("#wyp-animate-data").innerHTML+'</div>');
-                        iframeHead.removeChild(iframeHead.querySelector("#wyp-animate-data"));
+                        
+                        var animData = iframeHead.querySelector("#wyp-animate-data");
+                        if(animData){
+                            var newAnimDiv = iframe.createElement("div");
+                            newAnimDiv.id = "wyp-animate-data";
+                            while(animData.firstChild) {
+                                newAnimDiv.appendChild(animData.firstChild);
+                            }
+                            iframeBody.appendChild(newAnimDiv);
+                            animData.parentNode.removeChild(animData);
+                        }
                     }
 
                     // CSS Loader
@@ -216,7 +232,13 @@ if (document.body.classList.contains('yp-llimphi')) {
                     ];
 
                     // Load styles in iframe
-                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='llimphi-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
+                    var linkNode = iframe.createElement('link');
+                    linkNode.rel = 'stylesheet';
+                    linkNode.id = 'llimphi-frame';
+                    linkNode.href = chrome.runtime.getURL('editor/') + "css/frame.css?wypver=7.6.0";
+                    linkNode.type = 'text/css';
+                    linkNode.media = 'all';
+                    iframeHead.appendChild(linkNode);
 
                     // Loading.
                     for(var i = 0; i < styles.length; i++){
@@ -241,7 +263,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                         window.loadStatus = true;
 
                         if(window.bMode){
-                            document.querySelector("#customizing-mode .type-heading").innerHTML = window.location.hostname;
+                            document.querySelector("#customizing-mode .type-heading").textContent = window.location.hostname;
                         }
 
                         setTimeout(function(){

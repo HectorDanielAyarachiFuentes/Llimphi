@@ -27,14 +27,13 @@
                         "a" != a && (Gi.find("[data-source-mode='" + t + "']").addClass("wyp-data-updated wyp-data-only-updated"), o(
                                 "#c-t-list li[data-value='" + t + "']").addClass("customizing-type-updated"));
                         var i = an.querySelector("[data-source-mode=\"" + t + "\"]");
-                        null !== i && (i.innerHTML = e)
+                        null !== i && (i.textContent = e)
                 } else "a" != a && (St().addClass("wyp-data-updated wyp-data-only-updated"), o(".active-customizing-list").addClass(
-                        "customizing-type-updated")), an.getElementById("wyp-styles-area").innerHTML = e
+                        "customizing-type-updated")), an.getElementById("wyp-styles-area").textContent = e
         }
 
         function l(e, t) {
-                e = e.replace(/\/\*/g, "\n/*").replace(/\*\//g, "*/\n"), K(t) ? an.querySelector("[data-source-mode=\"" + t + "\"]").insertAdjacentHTML(
-                        "beforeend", e) : an.getElementById("wyp-styles-area").insertAdjacentHTML("beforeend", e)
+                e = e.replace(/\/\*/g, "\n/*").replace(/\*\//g, "*/\n"), K(t) ? an.querySelector("[data-source-mode=\"" + t + "\"]").appendChild(an.createTextNode(e)) : an.getElementById("wyp-styles-area").appendChild(an.createTextNode(e))
         }
 
         function d(e) {
@@ -6174,7 +6173,7 @@
                                                 "' ><i>Upload</i></span>")
                                 }), window.getJsonNow = !1, Fi()
                         }).fail(function() {
-                                Li("Loading Error", "Could Not Load Json library. (Unsplash API)", "jsonError")
+                                Li("Error de Carga", "No se pudo cargar la librería JSON. (API de Unsplash)", "jsonError")
                         })
         }
 
@@ -7312,7 +7311,7 @@
                                 a += "<div class=\"wyp-bg-ast\" data-url=\"" + t + "\"></div>"
                         }), o(".wyp-background-asts").append(a), e.removeAttr("data-json"), se()
                 }).fail(function() {
-                        Li("Loading Error", "Could Not Load Json library. (patterns.json)", "jsonError")
+                        Li("Error de Carga", "No se pudo cargar la librería JSON. (patterns.json)", "jsonError")
                 }), e.toggleClass("active"), o(".wyp-background-asts").toggle(), e.hasClass("active") ? (o(
                         ".wyp-gradient-btn.active,.wyp-unsplash-btn.active").trigger("click"), o(
                         ".wyp-background-image-show").hide()) : ne(null);
@@ -7337,7 +7336,7 @@
                                                 "\"></span> <div>" + t.name + "</div></div>"
                                 }), o(".wyp-gradient-list").append(a), e.removeAttr("data-json")
                         }).fail(function() {
-                                Li("Loading Error", "Could Not Load Json library. (gradients.json)", "jsonError")
+                                Li("Error de Carga", "No se pudo cargar la librería JSON. (gradients.json)", "jsonError")
                         }), e.toggleClass("active"), o(".wyp-gradient-section").toggle(), e.hasClass("active")) {
                         o(".wyp-unsplash-btn.active,.wyp-bg-img-btn.active").trigger("click"), o(".wyp-background-image-show").hide();
                         var t = o("#wyp-background-image").val(); - 1 == t.indexOf("linear-gradient(") ? Ot(
@@ -9855,7 +9854,7 @@
                                                 /^http/g.test(a.val()) ? o.getJSON(a.val(), function(e) {
                                                         a.val(JSON.stringify(e)), ve(t.find(".in-ac"))
                                                 }).fail(function() {
-                                                        Li("Loading Error", "Could Not Load Json library.",
+                                                        Li("Error de Carga", "No se pudo cargar la librería JSON.",
                                                                 "jsonError")
                                                 }) : ve(e.find(".in-ac"))
                                         }), ct(e), e.attr("data-setup", "true")), "undefined" == typeof t || !1 === t) {
