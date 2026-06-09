@@ -6289,12 +6289,12 @@
                 "There is no style matching with the selected element.", qi.manager_msg2 = "Select an item to review matching styles.", qi
                 .manager_msg3 = "Single customization is empty.", qi.manager_msg4 = "Template customization is empty.", qi.manager_msg5 =
                 "Global customization is empty.", qi.manager_msg6 = "There is no style in this media query.", qi.manager_msg7 =
-                "There are no styles matching your search term.", qi.manager_msg8 = "No style found. Check again after making a few edits.", qi
+                "There are no styles matching your search term.", qi.manager_msg8 = "No se encontraron estilos. Vuelve a revisar después de hacer algunas ediciones.", qi
                 .manager_msg9 = "All styles on the current page are listed below.", qi.manager_msg10 =
                 "The styles matching with the selected element are listed below.", qi.manager_msg11 = "Single Customization styles listed below.", qi
                 .manager_msg12 = "Template Customization styles listed below.", qi.manager_msg13 = "Global Customization styles listed below.", qi
                 .manager_msg14 = "All styles in this media query are listed below.", qi.manager_msg15 =
-                "No styles were found. Check again after making a few edits.", qi.manager_msg16 =
+                "No se encontraron estilos. Vuelve a revisar después de hacer algunas ediciones.", qi.manager_msg16 =
                 "All styles that match your search term are listed below.", qi.selector_no_match =
                 "The selector doesn't match any element on this page", qi.all_msg = "All screen sizes", qi.not_wp_link =
                 "This link is not an wordpress page. You can't edit this page.", qi.external_link =
