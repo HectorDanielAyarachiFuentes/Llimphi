@@ -1,7 +1,7 @@
 "use strict";
 
 // Close
-if (document.body.classList.contains('yp-yellow-pencil')) {
+if (document.body.classList.contains('yp-llimphi')) {
 	var url = new URL(window.location);
 	url.searchParams.delete("wyp");
 	window.location.replace(url);
@@ -186,7 +186,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
 
 
                     // Moving styles to iframe
-                    var editorData = document.querySelector("#yellow-pencil-iframe-data");
+                    var editorData = document.querySelector("#llimphi-iframe-data");
                     if(editorData !== null){
                         iframeHead.insertAdjacentHTML('beforeend', editorData.innerHTML.replace(/(^\<\!\-\-|\-\-\>$)/g, ""));
                         document.body.removeChild(editorData);
@@ -212,11 +212,11 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                     // Loading The Styles
                     var styles = [
                         "//fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap",
-                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "css/llimphi.css?wypver=7.6.0"
                     ];
 
                     // Load styles in iframe
-                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
+                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='llimphi-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
 
                     // Loading.
                     for(var i = 0; i < styles.length; i++){
@@ -229,7 +229,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         chrome.runtime.getURL('editor/') + "js/ace/ace.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/ace/ext-language_tools.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/addons.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/yellow-pencil.js?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "js/llimphi.js?wypver=7.6.0"
                     ];
 
                     // Stop load and call editor function.
@@ -246,7 +246,7 @@ if (document.body.classList.contains('yp-yellow-pencil')) {
                         }
 
                         setTimeout(function(){
-                            var addClasses = ["yp-yellow-pencil", "yellow-pencil-ready"];
+                            var addClasses = ["yp-llimphi", "llimphi-ready"];
 
                             if(window.bMode){
                                 addClasses.push("wyp-b-mode");

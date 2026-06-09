@@ -973,7 +973,7 @@
         function ne(e) {
                 null == e && (e = o("#wyp-background-image").val()), 0 < o(".wyp-background-image-show").length && o(".wyp-background-image-show").attr(
                                 "src") == e && o(".wyp-background-image-show").show(), o(".wyp-background-image-show").remove(), e = e.replace(/"/g, "")
-                        .replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), -1 == e.indexOf("yellow-pencil") && (-1 != e.indexOf("//") || -1 !=
+                        .replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), -1 == e.indexOf("llimphi") && (-1 != e.indexOf("//") || -1 !=
                                 e.indexOf("data:")) && o("#background-image-group .op-c").append("<img src='" + e +
                                 "' class='wyp-background-image-show' />")
         }
@@ -1348,7 +1348,7 @@
                                                                 "data-code") && -1 == r.indexOf("min-breakpoint-" + n) && n <= c && (r
                                                                 .push("min-breakpoint-" + n), m = "", 0 < p(a(null, !1),
                                                                         "[selector=YPtoAddBreakpoint][msize=(min-width:" + s + ")]")
-                                                                .length && (m = " defined-with-yellowpencil"), l +=
+                                                                .length && (m = " defined-with-llimphi"), l +=
                                                                 "<div data-breakpoint='" + n + "' data-media-content='" + t +
                                                                 "' data-breakpoint-data='(min-width:" + s +
                                                                 ")' class='min-width breakpoint-item" + m + "' id='min-breakpoint-" +
@@ -1356,7 +1356,7 @@
                                                         "max-width" == d && -1 == r.indexOf("max-breakpoint-" + n) && (r.push(
                                                                         "max-breakpoint-" + n), m = "", 0 < p(a(null, !1),
                                                                         "[selector=YPtoAddBreakpoint][msize=(max-width:" + s + ")]")
-                                                                .length && (m = " defined-with-yellowpencil"), l +=
+                                                                .length && (m = " defined-with-llimphi"), l +=
                                                                 "<div data-breakpoint='" + n + "' data-media-content='" + t +
                                                                 "' data-breakpoint-data='(max-width:" + s +
                                                                 ")' class='max-width breakpoint-item" + m + "' id='max-breakpoint-" +
@@ -1397,7 +1397,7 @@
                                                         a = "";
                                                 return a = o(this).hasClass("edited") ?
                                                         "<span class='breakpoint-tooltip-e'>(right-click to manage)</span>" :
-                                                        o(this).hasClass("defined-with-yellowpencil") ?
+                                                        o(this).hasClass("defined-with-llimphi") ?
                                                         "<span class='breakpoint-tooltip-e'>(right-click to manage)</span>" :
                                                         "<span class='breakpoint-tooltip-t'>(defined by the theme)</span>",
                                                         qi.breakpoint_size.replace("{$1}", t).replace("{$2}",
@@ -4289,7 +4289,7 @@
                                         (f = ""), !0 == /url\((\"|\')?(.*?)(\"|\')?\)/i.test(f) && (f = f.match(
                                                 /url\((\"|\')?(.*?)(\"|\')?\)/i)[0]), Z.val(f.replace(/"/g, "").replace(/'/g,
                                                 "").replace(/url\(/g, "").replace(/\)/g, "")), o(".wyp-bg-ast").removeClass(
-                                                "active"), -1 == f.indexOf("yellow-pencil") ? ne(f) : (o(
+                                                "active"), -1 == f.indexOf("llimphi") ? ne(f) : (o(
                                                 ".wyp-bg-ast[data-url='" + f.replace(/"/g, "").replace(/'/g, "")
                                                 .replace(/url\(/g, "").replace(/\)/g, "") + "']").addClass("active"), o(
                                                 ".wyp-background-image-show").hide())) : o(".wyp-background-image-show").hide(),
@@ -4373,7 +4373,7 @@
                         s = e.attr("class"),
                         r, d;
                 return null != s && null != s && (s = s.replace(/ /g, "  "), s = s.replace(/(^|\s)yp(-|_)(.*?)(\s|$)/g, " ").replace(
-                                        /(^|\s)yellow-pencil(-|_)(.*?)(\s|$)/g, " ").replace(/(^|\s)(data-anim-scene|context-menu-active)(\s|$)/g, " "),
+                                        /(^|\s)llimphi(-|_)(.*?)(\s|$)/g, " ").replace(/(^|\s)(data-anim-scene|context-menu-active)(\s|$)/g, " "),
                                 s = o.trim(_i(s)), i = s.length, n = s.charAt(0) + s.charAt(i / 2) + s.charAt(i - 1), a = s.length + n), null != t &&
                         null != t ? (r = t.split("|"), r[1] == a ? d = r[0] : (d = wa(e), window.isDynamicSelectorsReady && e.attr("data-wyp-slctr", d +
                                 "|" + a))) : (d = wa(e), window.isDynamicSelectorsReady && e.attr("data-wyp-slctr", d + "|" + a)), d
@@ -4739,8 +4739,8 @@
 
         function Sa(e, t, a, i, n) {
                 return "LINK" != t && "STYLE" != t && "SCRIPT" != t && "PARAM" != t && "OPTION" != t && "NOSCRIPT" != t && "BR" != t &&
-                        "wyp-anim-scenes" != a && "animate-test-drive" != a && "wyp-animate-data" != a && "yellow-pencil-canvas" != a &&
-                        "yellow-pencil-focus-canvas" != a && "yellow-pencil-other-canvas" != a && "yellow-pencil-extra-canvas" != a &&
+                        "wyp-anim-scenes" != a && "animate-test-drive" != a && "wyp-animate-data" != a && "llimphi-canvas" != a &&
+                        "llimphi-focus-canvas" != a && "llimphi-other-canvas" != a && "llimphi-extra-canvas" != a &&
                         "elementor-device-mode" != a && !(i.contains("wyp-x-distance-border") || i.contains("wyp-y-distance-border") || i.contains(
                                         "hv-in-bx") || i.contains("wyp-size-handle") || i.contains("wyp-slct-tooltip") || i.contains("wyp-slct-menu") ||
                                 i.contains("wyp-selected-tooltip") || i.contains("wyp-tooltip-small") || i.contains("wyp-helper-tooltip") || i.contains(
@@ -5234,7 +5234,7 @@
                                         "wyp-ui-transform-hide")) && !(s && (-1 != O.indexOf("wyp-inline-data") || -1 != O.indexOf(
                                         "wyp-live-css-data") || -1 != O.indexOf("wyp-styles-area"))) && !(o && -1 == O.indexOf("wyp-inline-data") && -
                                         1 == O.indexOf("wyp-live-css-data") && -1 == O.indexOf("wyp-styles-area")) && (l = _.href, null == l && (l =
-                                                location.protocol + "//" + window.location.hostname), -1 == l.indexOf("waspthemes-yellow-pencil") && -
+                                                location.protocol + "//" + window.location.hostname), -1 == l.indexOf("waspthemes-llimphi") && -
                                         1 == l.indexOf("animate") && -1 == l.indexOf("webkit") && -1 == l.indexOf("animation") && -1 == l.indexOf(
                                                 "keyframe") && -1 == l.indexOf("font") && -1 == l.indexOf("icon") && -1 == l.indexOf(
                                         "googleapis.com") && -1 == l.indexOf("print") && -1 == l.indexOf("reset") && -1 == l.indexOf("player") && -1 ==
@@ -6261,7 +6261,7 @@
                 "Are you sure you want to close Animation Generator without saving?", qi.notice = "Notice", qi.warning = "Warning", qi.empty = "empty",
                 qi.style = "style", qi.type_not_available = "Can not be used on the current page.", qi.you_are_sure = "You are sure?", qi.delete_anim =
                 "Delete Animate", qi.welcome_pro = "Welcome to Pro Club!", qi.license_activated =
-                "License Activated! Thank you for your purchase. We are here to help! Check out <a href='https://yellowpencil.waspthemes.com/documentation/' target='_blank'>Plugin Docs</a> and join <a href='https://www.facebook.com/groups/YellowPencils/' target='_blank'>Facebook Community</a>.",
+                "License Activated! Thank you for your purchase. We are here to help! Check out <a href='https://llimphi.waspthemes.com/documentation/' target='_blank'>Plugin Docs</a> and join <a href='https://www.facebook.com/groups/Llimphis/' target='_blank'>Facebook Community</a>.",
                 qi.general = "General", qi.paragraph = "Paragraph", qi.heading_level = "Heading Level", qi.element_id = "Element ID", qi.tag = "Tag", qi
                 .affected_els = "Selected elements", qi.pseudo_class = "States&hellip;", qi.conditions = "Conditions&hellip;", qi.all_devices =
                 "All Devices", qi.delay = "Delay", qi.duration = "Duration", qi.delete_t = "Delete", qi.reset = "Reset", qi.add_new_anim =
@@ -6271,7 +6271,7 @@
                 "The server may be offline either server's maximum post limit is not enough. Please try again later.", qi.save_error_nonce_msg =
                 "Nonce verification has failed. Please copy the CSS data from the CSS Editor and refresh the page.", qi.save_error_authorized_msg =
                 "You do not have the authority to edit the site appearance or you may have logged out.", qi.save_error_json_msg =
-                "Unable to save CSS comments. You can fix this problem by resetting settings from WP Dashboard > YellowPencil > Settings page.", qi
+                "Unable to save CSS comments. You can fix this problem by resetting settings from WP Dashboard > Llimphi > Settings page.", qi
                 .define_breakpoints = "breakpoints", qi.breakpoint_size = "{$1}px and {$2} screens", qi.css_parse_error = "CSS Parse Error.", qi
                 .css_parse_error_text =
                 "The changes you made in the CSS editor seems to be invalid. To continue, undo changes with CMD + Z or fix this CSS error.", qi
@@ -6302,14 +6302,14 @@
                 qi.link_not_valid =
                 "This link is not an wordpress page. You can't edit this page. <em style='opacity:0.8'>(Click the element while holding down CTRL key to run the Javascript action.)</em>",
                 qi.page_loading = "Loading Editor", qi.page_information_cant_be_retrieved = "Page information cannot be retrieved.", qi
-                .page_information_cant_be_retrieved_msg = "Please close the page and open the target page manually with YellowPencil.", qi.contrast_ac =
+                .page_information_cant_be_retrieved_msg = "Please close the page and open the target page manually with Llimphi.", qi.contrast_ac =
                 "Background and text colors should meet WCAG contrast standards to make the text legible on all devices.", qi.line_spacing_ac =
                 "Line spacing should be minimum 1 and maximum 2. This ratio varies depending on the font size.", qi.font_size_ac =
                 "Font size should be a minimum of 12 pixels to easy readable.", window.plugin_classes_list =
-                "wyp-bg-layer-active|wyp-x-distance-border|wyp-y-distance-border|hv-in-bx|wyp-helper-tooltip|wyp-css-editor-disable|wyp-no-wf|wyp-ele-n-vis|wyp-iframe-ph|wyp-data-updated|wyp-inline-data|wyp-animating|wyp-scene-1|wyp-single-inspector-active|wyp-scene-2|wyp-scene-3|wyp-scene-4|wyp-scene-5|wyp-scene-6|wyp-ani-cre|wyp-animate-test-playing|yp-yellow-pencil-demo-mode|yellow-pencil-ready|yp_onscreen|yp_hover|yp_click|yp_focus|wyp-selected-others|wyp-multiple-selected|wyp-demo-link|wyp-live-editor-link|yp-yellow-pencil|wyp-con-slcd|wyp-hid-bor-n|wyp-selector-editor-active|wyp-res-mod|wyp-met-dis|wyp-css-ed-act|wtfv|wyp-clean-look|wyp-h-trfm|wyp-selected|wyp-el-reing|context-menu-active|wyp-selectors-hide|wyp-control-key-down|wyp-selected-others-multiple-box|wyp-if-movleav|wyp-selected-boxed-top|wyp-selected-boxed-bottom|wyp-selected-boxed-left|wyp-selected-boxed-right|wyp-selected-boxed-margin-left|wyp-zero-m-w|wyp-animate-manager-active|wyp-wf-on|yp-selector-hover|wyp-size-handle|wyp-flexible-inspector-active|wyp-selected-boxed-margin-top|wyp-selected-boxed-margin-bottom|wyp-selected-boxed-margin-right|wyp-selected-boxed-padding-left|wyp-selected-boxed-padding-top|wyp-selected-boxed-padding-bottom|wyp-selected-boxed-padding-right|wyp-selected-tooltip|wyp-slct-tooltip|wyp-slct-menu|wyp-full-width-selected|wyp-zero-m-h|wyp-tooltip-small|wyp-selected-bottom|wyp-fixed-tooltip|wyp-tooltip-bttm-out|wyp-css-slctr-off";
+                "wyp-bg-layer-active|wyp-x-distance-border|wyp-y-distance-border|hv-in-bx|wyp-helper-tooltip|wyp-css-editor-disable|wyp-no-wf|wyp-ele-n-vis|wyp-iframe-ph|wyp-data-updated|wyp-inline-data|wyp-animating|wyp-scene-1|wyp-single-inspector-active|wyp-scene-2|wyp-scene-3|wyp-scene-4|wyp-scene-5|wyp-scene-6|wyp-ani-cre|wyp-animate-test-playing|yp-llimphi-demo-mode|llimphi-ready|yp_onscreen|yp_hover|yp_click|yp_focus|wyp-selected-others|wyp-multiple-selected|wyp-demo-link|wyp-live-editor-link|yp-llimphi|wyp-con-slcd|wyp-hid-bor-n|wyp-selector-editor-active|wyp-res-mod|wyp-met-dis|wyp-css-ed-act|wtfv|wyp-clean-look|wyp-h-trfm|wyp-selected|wyp-el-reing|context-menu-active|wyp-selectors-hide|wyp-control-key-down|wyp-selected-others-multiple-box|wyp-if-movleav|wyp-selected-boxed-top|wyp-selected-boxed-bottom|wyp-selected-boxed-left|wyp-selected-boxed-right|wyp-selected-boxed-margin-left|wyp-zero-m-w|wyp-animate-manager-active|wyp-wf-on|yp-selector-hover|wyp-size-handle|wyp-flexible-inspector-active|wyp-selected-boxed-margin-top|wyp-selected-boxed-margin-bottom|wyp-selected-boxed-margin-right|wyp-selected-boxed-padding-left|wyp-selected-boxed-padding-top|wyp-selected-boxed-padding-bottom|wyp-selected-boxed-padding-right|wyp-selected-tooltip|wyp-slct-tooltip|wyp-slct-menu|wyp-full-width-selected|wyp-zero-m-h|wyp-tooltip-small|wyp-selected-bottom|wyp-fixed-tooltip|wyp-tooltip-bttm-out|wyp-css-slctr-off";
         for (var $i = 0; 51 > $i; $i++) window.plugin_classes_list += "|wyp-pa-r" + $i;
         window.plugin_id_list =
-                "wyp-drw-bx|wyp-anim-scenes|anim-tester|wyp-animate-data|yellow-pencil-canvas|yellow-pencil-focus-canvas|yellow-pencil-other-canvas|yellow-pencil-extra-canvas",
+                "wyp-drw-bx|wyp-anim-scenes|anim-tester|wyp-animate-data|llimphi-canvas|llimphi-focus-canvas|llimphi-other-canvas|llimphi-extra-canvas",
                 window.simple_not_list =
                 "link|style|script|noscript|meta|title|br|param|option|head|circle|rect|polygon|defs|linearGradient|stop|ellipse|text|line|polyline|path|g|tspan",
                 o(".fixed_right_panel_checkbox input").prop("checked", window.ypOption.fixed_right_panel), o(".fixed_left_bar_checkbox input").prop(
@@ -6354,12 +6354,12 @@
                 an = document.getElementById("iframe"),
                 nn = an.contentWindow;
         an = an.contentWindow.document || an.contentDocument, Gi.find("#wyp-animate-data").after(
-                "<div id='yellow-pencil-canvas'></div><div id='yellow-pencil-focus-canvas'></div><div id='yellow-pencil-other-canvas'></div><div id='yellow-pencil-extra-canvas'></div>"
+                "<div id='llimphi-canvas'></div><div id='llimphi-focus-canvas'></div><div id='llimphi-other-canvas'></div><div id='llimphi-extra-canvas'></div>"
                 );
         var sn = [];
-        sn.general = Ji.find("#yellow-pencil-canvas"), sn.active = Ji.find("#yellow-pencil-focus-canvas"), sn.other = Ji.find(
-                "#yellow-pencil-other-canvas"), sn.extra = Ji.find("#yellow-pencil-extra-canvas");
-        var on = Ji.find("#yellow-pencil-canvas,#yellow-pencil-focus-canvas,#yellow-pencil-other-canvas");
+        sn.general = Ji.find("#llimphi-canvas"), sn.active = Ji.find("#llimphi-focus-canvas"), sn.other = Ji.find(
+                "#llimphi-other-canvas"), sn.extra = Ji.find("#llimphi-extra-canvas");
+        var on = Ji.find("#llimphi-canvas,#llimphi-focus-canvas,#llimphi-other-canvas");
         if (!1 == window.ypData.demo_mode) {
                 var rn = !1;
                 window.addEventListener("beforeunload", function() {
@@ -6440,7 +6440,7 @@
                         o(this).is(":checked") ? (window.ypOption.append_auto_comments = !0, t.originalEvent && v("append_auto_comments",
                                 "true")) : (window.ypOption.append_auto_comments = !1, t.originalEvent && v("append_auto_comments",
                                 "false"))
-                }), tn.hasClass("yp-yellow-pencil-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
+                }), tn.hasClass("yp-llimphi-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
                         ".fixed_right_panel_checkbox input").prop("checked", !0), o(".fixed_right_panel_checkbox input").trigger("change")), !0 ==
                 window.ypOption.fixed_left_bar && (o(".fixed_left_bar_checkbox input").prop("checked", !0), o(".fixed_left_bar_checkbox input").trigger(
                         "change")), !0 == window.ypOption.hide_premium_options && (o(".hide_premium_options_checkbox input").prop("checked", !0), o(
@@ -6734,7 +6734,7 @@
                         t = Pe(e),
                         i = Re(e);
                 r(m(a(null, !1), t + "YPtoAddBreakpoint{b:b;}" + i, null), null, "b"), Mi(), o(".breakpoint-bar .focus").addClass(
-                        "defined-with-yellowpencil").removeClass("edited"), we(), j()
+                        "defined-with-llimphi").removeClass("edited"), we(), j()
         });
         var un = 0;
         en.on("keyup", function(t) {
@@ -7316,7 +7316,7 @@
                 }), e.toggleClass("active"), o(".wyp-background-asts").toggle(), e.hasClass("active") ? (o(
                         ".wyp-gradient-btn.active,.wyp-unsplash-btn.active").trigger("click"), o(
                         ".wyp-background-image-show").hide()) : ne(null);
-                var t = o("#wyp-background-image").val(); - 1 == t.indexOf("yellow-pencil") ? o(".wyp-bg-ast").removeClass("active") :
+                var t = o("#wyp-background-image").val(); - 1 == t.indexOf("llimphi") ? o(".wyp-bg-ast").removeClass("active") :
                         o(".wyp-bg-ast[data-url='" + t.replace(/"/g, "").replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, "") +
                                 "']").addClass("active"), !1 == e.hasAttr("data-json") && se(), o.throttle(Be(), 32)
         }), o(".wyp-bg-ast").on("mouseenter mouseover", function() {
@@ -7860,7 +7860,7 @@
                                 tn.addClass("wyp-contextmenu-breakpoint"), e.nextAll(".breakpoint-item").addClass(
                                         "hover-breakpoint"), setTimeout(function() {
                                         !1 == e.hasClass("edited") && !1 == e.hasClass(
-                                                "defined-with-yellowpencil") ? (o(
+                                                "defined-with-llimphi") ? (o(
                                                         ".reset-breakpoint-menu").addClass("disabled"),
                                                 o(".review-breakpoint-menu").addClass("disabled"), o(
                                                         ".show-css-menu").addClass("disabled")) : (o(
@@ -9527,7 +9527,7 @@
                                                 if (!0 == confirm(qi.sure)) o(".waiting-for-save").removeClass("waiting-for-save");
                                                 else return !0
                                 } else return !0;
-                                o("#loader i").css("width", "5%"), o("#iframe").remove(), tn.removeClass("yellow-pencil-ready"), o(
+                                o("#loader i").css("width", "5%"), o("#iframe").remove(), tn.removeClass("llimphi-ready"), o(
                                         ".wyp-iframe-loader").show(), o(".loading-files").text(qi.page_loading);
                                 var n = window.location;
                                 n = n.toString().split("href=")[0] + "href=";
