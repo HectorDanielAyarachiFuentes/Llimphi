@@ -41,7 +41,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
             // Reload the page after browser undo & undo
             if (!!window.performance && window.performance.navigation.type === 2) {
-                wyp_load_note("Reloading Editor", "0");
+                wyp_load_note("Recargando el editor", "0");
                 window.location.reload();
             }
 
@@ -49,7 +49,7 @@ if (document.body.classList.contains('yp-llimphi')) {
             window.loadStatus = false;
 
             // Document Load Note:
-            wyp_load_note("Loading Editor", "20");
+            wyp_load_note("Cargando el editor", "20");
 
             setTimeout(function(){
                 wyp_load_note(null, "23");
@@ -76,7 +76,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                 }
 
                 // 33%
-                wyp_load_note("Loading Page", "33");
+                wyp_load_note("Cargando página", "33");
 
                 setTimeout(function(){
                     wyp_load_note(null, "33");
@@ -94,14 +94,14 @@ if (document.body.classList.contains('yp-llimphi')) {
                     try {
                         var iframeURL = document.getElementById("iframe").contentWindow.location.href;
                     } catch(e) {
-                        alert("This page does not allow to use of the editor.");
+                        alert("Esta página no permite el uso del editor.");
                         if(window.bMode){window.location.reload();}
                         return false;
                     }
 
                     // b mode
                     if(iframeReady && window.bMode){
-                        alert("This page cannot be edited as it is redirected. Please open the redirected page directly in the editor.");
+                        alert("Esta página no puede ser editada porque ha sido redirigida. Por favor, abre la página redirigida directamente en el editor.");
                         window.location.href = iframeURL;
                     }
 
@@ -111,7 +111,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
                             // show loading
                             document.querySelector(".wyp-iframe-loader").style.display = "block";
-                            document.querySelector(".loading-files").innerHTML = "Page was redirected!";
+                            document.querySelector(".loading-files").innerHTML = "¡La página fue redirigida!";
                             window.wyp_redirect_on = true;
 
                             // Get parent url
@@ -146,7 +146,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
                                             // same like fail
                                             if(data === undefined || data === null){
-                                                alert("Page information cannot be retrieved.");
+                                                alert("No se pudo obtener la información de la página.");
                                                 return false;
                                             }
 
@@ -165,7 +165,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
 
                                 }else{
-                                        alert("Page information cannot be retrieved.");
+                                        alert("No se pudo obtener la información de la página.");
                                     }
 
                             };
@@ -204,7 +204,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                         document.head.appendChild(style);
 
                         style.onload = function(){
-                            wyp_load_note("Loading Styles", 39 + parseInt(21*i/(length - 1)));
+                            wyp_load_note("Cargando estilos", 39 + parseInt(21*i/(length - 1)));
                         };
 
                     }
@@ -235,8 +235,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                     // Stop load and call editor function.
                     function wyp_start_editor(){
 
-                        // Ready!:
-                        wyp_load_note("Ready!", "100");
+                        wyp_load_note("¡Listo!", "100");
 
                         // Set true.
                         window.loadStatus = true;
@@ -282,7 +281,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                         document.head.appendChild(script);
 
                         script.onload = function(){
-                            wyp_load_note("Loading Scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
+                            wyp_load_note("Cargando scripts", 60 + parseInt(38 * i / (scripts.length - 1)));
                             // Load the next script
                             wyp_load_script(i + 1);
                         };
@@ -301,7 +300,7 @@ if (document.body.classList.contains('yp-llimphi')) {
         })
         .catch(error => {
             console.error('Error loading editor.html:', error);
-            alert('Failed to load editor interface.');
+            alert('Error al cargar la interfaz del editor.');
         });
 
 } // End of if
