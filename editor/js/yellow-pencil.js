@@ -186,7 +186,7 @@
                         t && (o(".editor-tabs").removeClass("active"), o(".editor-tabs[data-type-value='" + e + "']").addClass("active")), A() &&
                         setTimeout(function() {
                                 X()
-                        }, window.Llimphi2Delay), window.history.pushState && 0 < window.location.href.split("wyp_mode=").length && o.urlParam(
+                        }, window.Yellow2Delay), window.history.pushState && 0 < window.location.href.split("wyp_mode=").length && o.urlParam(
                                 "wyp_mode") != e && 2 < x) {
                         var a = window.location.href.split("wyp_mode=")[1];
                         K(a) && (a = -1 == a.indexOf("&") ? "" : "&" + a.split(/&(.+)/)[1], window.history.pushState(null, null, window.location.href
@@ -215,18 +215,18 @@
 
         function k(e, t) {
                 var a, i, n;
-                a = o("<div class='llimphi-overlay'><div class='llimphi-alert'></div></div>"), e.title && a.find(".llimphi-alert").append("<h2>" + e
-                        .title + "</h2>"), e.text && a.find(".llimphi-alert").append("<p>" + e.text + "</p>"), e.customClass && a.addClass(e
-                        .customClass), e.showInput && a.find(".llimphi-alert").append("<input type=\"text\" />"), !0 !== e.noButton && a.find(
-                        ".llimphi-alert").append("<div class='button-container'></div>"), !0 !== e.noButton && e.showCancelButton && (i = o(
+                a = o("<div class='yellow-overlay'><div class='yellow-alert'></div></div>"), e.title && a.find(".yellow-alert").append("<h2>" + e
+                        .title + "</h2>"), e.text && a.find(".yellow-alert").append("<p>" + e.text + "</p>"), e.customClass && a.addClass(e
+                        .customClass), e.showInput && a.find(".yellow-alert").append("<input type=\"text\" />"), !0 !== e.noButton && a.find(
+                        ".yellow-alert").append("<div class='button-container'></div>"), !0 !== e.noButton && e.showCancelButton && (i = o(
                         "<span class='cancel'>Cancel</span>"), a.find(".button-container").append(i), i.on("click", function() {
-                        tn.find(".llimphi-overlay").remove()
+                        tn.find(".yellow-overlay").remove()
                 })), !0 !== e.noButton && (n = o("<span>Ok!</span>"), a.find(".button-container").append(n), e.confirmButtonText && n.text(e
                         .confirmButtonText), e.confirmButtonColor && n.css("background-color", e.confirmButtonColor)), tn.find(
-                        ".llimphi-overlay").remove(), tn.append(a), setTimeout(function() {
+                        ".yellow-overlay").remove(), tn.append(a), setTimeout(function() {
                         a.css("opacity", "1")
                 }, 5), n.on("click", function() {
-                        t && t(), tn.find(".llimphi-overlay").remove()
+                        t && t(), tn.find(".yellow-overlay").remove()
                 })
         }
 
@@ -576,7 +576,7 @@
                                                         "px;'></div><div class='wyp-anim-process-bar' data-toggle='tooltipAnim' data-placement='top' title='" +
                                                         qi.duration + ": " + parseFloat(g).toFixed(2) + "s' style='width:" + S +
                                                         "px;'><span class='animate-part-icons wyp-control-trash' data-toggle='tooltipAnim' data-placement='top' title='" +
-                                                        qi.delete_t + "'><span class='licon icon-trash'></span></span><span class='animation-name'>" +
+                                                        qi.delete_t + "'><span class='yicon icon-trash'></span></span><span class='animation-name'>" +
                                                         m + "</span></div>",
                                                         M, Z, P;
                                                 if (-1 != m.indexOf(",")) {
@@ -598,7 +598,7 @@
                                                                         qi.duration + ": " + parseFloat(Z).toFixed(2) + "s' style='width:" + P +
                                                                         "px;'><span class='animate-part-icons wyp-control-trash' data-toggle='tooltipAnim' data-placement='top' title='" +
                                                                         qi.delete_t +
-                                                                        "'><span class='licon icon-trash'></span></span><span class='animation-name'>" +
+                                                                        "'><span class='yicon icon-trash'></span></span><span class='animation-name'>" +
                                                                         Y + "</span></div>", R = M + P
                                                         }
                                                 }
@@ -765,7 +765,7 @@
                                 ".breakpoint-bar .breakpoint-item.focus").length && o(".breakpoint-bar .breakpoint-item").addClass("active"),
                         setTimeout(function() {
                                 ye()
-                        }, window.Llimphi2Delay)
+                        }, window.Yellow2Delay)
         }
 
         function V(e) {
@@ -973,7 +973,7 @@
         function ne(e) {
                 null == e && (e = o("#wyp-background-image").val()), 0 < o(".wyp-background-image-show").length && o(".wyp-background-image-show").attr(
                                 "src") == e && o(".wyp-background-image-show").show(), o(".wyp-background-image-show").remove(), e = e.replace(/"/g, "")
-                        .replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), -1 == e.indexOf("llimphi") && (-1 != e.indexOf("//") || -1 !=
+                        .replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), -1 == e.indexOf("yellow-pencil") && (-1 != e.indexOf("//") || -1 !=
                                 e.indexOf("data:")) && o("#background-image-group .op-c").append("<img src='" + e +
                                 "' class='wyp-background-image-show' />")
         }
@@ -1348,7 +1348,7 @@
                                                                 "data-code") && -1 == r.indexOf("min-breakpoint-" + n) && n <= c && (r
                                                                 .push("min-breakpoint-" + n), m = "", 0 < p(a(null, !1),
                                                                         "[selector=YPtoAddBreakpoint][msize=(min-width:" + s + ")]")
-                                                                .length && (m = " defined-with-llimphi"), l +=
+                                                                .length && (m = " defined-with-yellowpencil"), l +=
                                                                 "<div data-breakpoint='" + n + "' data-media-content='" + t +
                                                                 "' data-breakpoint-data='(min-width:" + s +
                                                                 ")' class='min-width breakpoint-item" + m + "' id='min-breakpoint-" +
@@ -1356,7 +1356,7 @@
                                                         "max-width" == d && -1 == r.indexOf("max-breakpoint-" + n) && (r.push(
                                                                         "max-breakpoint-" + n), m = "", 0 < p(a(null, !1),
                                                                         "[selector=YPtoAddBreakpoint][msize=(max-width:" + s + ")]")
-                                                                .length && (m = " defined-with-llimphi"), l +=
+                                                                .length && (m = " defined-with-yellowpencil"), l +=
                                                                 "<div data-breakpoint='" + n + "' data-media-content='" + t +
                                                                 "' data-breakpoint-data='(max-width:" + s +
                                                                 ")' class='max-width breakpoint-item" + m + "' id='max-breakpoint-" +
@@ -1397,7 +1397,7 @@
                                                         a = "";
                                                 return a = o(this).hasClass("edited") ?
                                                         "<span class='breakpoint-tooltip-e'>(right-click to manage)</span>" :
-                                                        o(this).hasClass("defined-with-llimphi") ?
+                                                        o(this).hasClass("defined-with-yellowpencil") ?
                                                         "<span class='breakpoint-tooltip-e'>(right-click to manage)</span>" :
                                                         "<span class='breakpoint-tooltip-t'>(defined by the theme)</span>",
                                                         qi.breakpoint_size.replace("{$1}", t).replace("{$2}",
@@ -1429,7 +1429,7 @@
                         })
                 }!0 == e && X(), setTimeout(function() {
                         j()
-                }, window.LlimphiDelay)
+                }, window.YellowDelay)
         }
 
         function ye() {
@@ -1615,7 +1615,7 @@
                                         clearTimeout(window.AutoCompleteDelay), window.AutoCompleteDelay = setTimeout(
                                 function() {
                                                 e.catcomplete("search", "")
-                                        }, window.Llimphi2Delay)
+                                        }, window.Yellow2Delay)
                                 })
                 })
         }
@@ -1843,7 +1843,7 @@
                 n.css("width", parseInt(a.width()) + "px"), i.scrollTop(window.lastScrollTop), 0 < o(".ed-pnl-list > li.active").length ? n.hide() : n
                         .show(), !1 == A() && (clearTimeout(vn), vn = setTimeout(function() {
                                 d > p ? a.css("marginRight", 4 + ei() + "px") : a.css("marginRight", "4px")
-                        }, window.Llimphi2Delay))
+                        }, window.Yellow2Delay))
         }
 
         function Me(e) {
@@ -1979,7 +1979,7 @@
                                         "[selector=" + gi(e) + "][rule=" + h(t) + "][msize=" + s + "]"), o), Ie(p, t, i, n, s,
                                         o, "default"), setTimeout(function() {
                                         Ze()
-                                }, window.Llimphi2Delay)
+                                }, window.Yellow2Delay)
                         }
                 })
         }
@@ -2413,7 +2413,7 @@
                                         "wyp-flex-container"), ("grid" == d || "inline-grid" == d) && tn.addClass("wyp-grid-element"), setTimeout(
                                         function() {
                                                 o.throttle(Be(), 32)
-                                        }, window.LlimphiDelay)), "border-width" == l) {
+                                        }, window.YellowDelay)), "border-width" == l) {
                         var L = _a();
                         o.each(["border-top-width", "border-left-width", "border-right-width", "border-bottom-width"], function(e, t) {
                                 pa(t, L)
@@ -2679,7 +2679,7 @@
                                                 p = !1, !1)
                                 }), Gi.find("#wyp-fake-test-dom").remove(), Ji.removeClass("wyp-imp-chk"), n.removeClass(
                                 "wyp-no-wf"), !1 != s && null != s ? n.attr("style", s) : n.removeAttr("style"), l.resolve(p)
-                }, window.LlimphiDelay), l.promise()
+                }, window.YellowDelay), l.promise()
         }
 
         function st(e) {
@@ -2897,7 +2897,7 @@
                                         "")), o("#background-size-x-custom,#background-size-y-custom").val(t.replace(
                                         /[0-9]/g, "")))
                         }
-                }, 2 * window.Llimphi2Delay)
+                }, 2 * window.Yellow2Delay)
         }
 
         function mt(e) {
@@ -3621,7 +3621,7 @@
                                         .resolve(_().css(t))
                         }
                         0 < h.length && Ji.find("#wyp-calcature-style").remove()
-                }, window.LlimphiDelay), s.promise()
+                }, window.YellowDelay), s.promise()
         }
 
         function jt(e) {
@@ -3704,8 +3704,8 @@
                 var e = _(),
                         t = parseFloat(e.css("font-size"));
                 isNaN(t) && (t = 0);
-                var a = "<span class='accessibility-pass-badge'>" + t + "px<i class='licon icon-yes'></i></span>";
-                return 12 >= t && (a = "<span class='accessibility-fail-badge'>" + t + "px<i class='licon icon-no-alt'></i></span>"), a
+                var a = "<span class='accessibility-pass-badge'>" + t + "px<i class='yicon icon-yes'></i></span>";
+                return 12 >= t && (a = "<span class='accessibility-fail-badge'>" + t + "px<i class='yicon icon-no-alt'></i></span>"), a
         }
 
         function ta(e) {
@@ -3722,9 +3722,9 @@
                         n = Math.ceil(10 * parseFloat(i / 1.2 + 1)) / 10,
                         s = Math.ceil(10 * parseFloat(i / 1.2 + 1.6)) / 10;
                 a = a.toFixed(2);
-                var o = "<span class='accessibility-pass-badge'>" + a + "<i class='licon icon-yes'></i></span>";
-                return a < n && (o = "<span class='accessibility-fail-badge'>" + a + "<i class='licon icon-no-alt'></i></span>"), a > s && (o =
-                        "<span class='accessibility-fail-badge'>" + a + "<i class='licon icon-no-alt'></i></span>"), o
+                var o = "<span class='accessibility-pass-badge'>" + a + "<i class='yicon icon-yes'></i></span>";
+                return a < n && (o = "<span class='accessibility-fail-badge'>" + a + "<i class='yicon icon-no-alt'></i></span>"), a > s && (o =
+                        "<span class='accessibility-fail-badge'>" + a + "<i class='yicon icon-no-alt'></i></span>"), o
         }
 
         function ia() {
@@ -3769,9 +3769,9 @@
                 var u = Kt(t, a),
                         m = parseInt(e.css("font-size"));
                 isNaN(m) && (m = 0);
-                var f = "<span class='accessibility-pass-badge'>" + u + "<i class='licon icon-yes'></i></span>";
-                return 4.5 > u && 18.66 > m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='licon icon-no-alt'></i></span>"), 3 >
-                        u && 18.66 < m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='licon icon-no-alt'></i></span>"), f
+                var f = "<span class='accessibility-pass-badge'>" + u + "<i class='yicon icon-yes'></i></span>";
+                return 4.5 > u && 18.66 > m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='yicon icon-no-alt'></i></span>"), 3 >
+                        u && 18.66 < m && (f = "<span class='accessibility-fail-badge'>" + u + "<i class='yicon icon-no-alt'></i></span>"), f
         }
 
         function na(e) {
@@ -4010,7 +4010,7 @@
                                         m || "initial" == m ? (f = da(r, n), g = mi(f)) : (f = m, g = mi(f))), J(f) && (f = "", g = mi(
                                         "")), setTimeout(function() {
                                         "cursor" == e && Ji.removeClass("wyp-imp-chk")
-                                }, window.LlimphiDelay), ("top" == e || "left" == e) && "auto" == f && (f = "0px", g = 0),
+                                }, window.YellowDelay), ("top" == e || "left" == e) && "auto" == f && (f = "0px", g = 0),
                                 "border-type" == e && !1 == o("#border-type-group").find(".ra.active").length && (f = "all"),
                                 "background-type" == e && !1 == o("#background-type-group").find(".ra.active").length && (f =
                                         "background");
@@ -4024,7 +4024,7 @@
                                 }
                                 setTimeout(function() {
                                         o.throttle(Be(), 32)
-                                }, window.LlimphiDelay)
+                                }, window.YellowDelay)
                         }
                         "column-count" == e && 0 == g && (g = 1), "spacing-type" == e && !1 == o("#spacing-type-group").find(
                                         ".ra.active").length && (f = "padding"), "transform-type" == e && !1 == o(
@@ -4165,11 +4165,11 @@
                                                         "'><input class='this-grid-input' placeholder='auto' type='number' min='1' value='" +
                                                         $ +
                                                         "' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' /><div class='grid-format-div'><select class='grid-format'>" +
-                                                        G + "</select></div><span class='licon icon-no-alt delete-grid'></span></div>"),
+                                                        G + "</select></div><span class='yicon icon-no-alt delete-grid'></span></div>"),
                                                 "auto" == V.find(".this-grid").last().find(".grid-format").val() && V.find(".this-grid")
                                                 .last().find(".this-grid-input").prop("disabled", !0)
                                 }
-                                if (V.append("<span class='grid-builder-add-new licon icon-plus'></span>"), 0 < V.find(".this-grid")
+                                if (V.append("<span class='grid-builder-add-new yicon icon-plus'></span>"), 0 < V.find(".this-grid")
                                         .length && 0 < V.find(".grid-format option[value=\"fr\"][selected]").length) {
                                         var ee = null,
                                                 te = !0;
@@ -4284,12 +4284,12 @@
                                         e && o("#box-shadow-color-group .co-sw-co").css("backgroundColor", f)
                         } else(Z.hasClass("wyp-input") || Z.hasClass("wyp-textarea")) && ("disable" != f && "background-image" == e &&
                                 f != window.location.href && -1 == f.indexOf("gradient(") && -1 == f.indexOf(
-                                        "llimphi_frame") ? (I = o(document).find("#iframe").attr("src"), Y = f.replace(
+                                        "yellow_pencil_frame") ? (I = o(document).find("#iframe").attr("src"), Y = f.replace(
                                                 /"/g, "").replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, ""), I == Y &&
                                         (f = ""), !0 == /url\((\"|\')?(.*?)(\"|\')?\)/i.test(f) && (f = f.match(
                                                 /url\((\"|\')?(.*?)(\"|\')?\)/i)[0]), Z.val(f.replace(/"/g, "").replace(/'/g,
                                                 "").replace(/url\(/g, "").replace(/\)/g, "")), o(".wyp-bg-ast").removeClass(
-                                                "active"), -1 == f.indexOf("llimphi") ? ne(f) : (o(
+                                                "active"), -1 == f.indexOf("yellow-pencil") ? ne(f) : (o(
                                                 ".wyp-bg-ast[data-url='" + f.replace(/"/g, "").replace(/'/g, "")
                                                 .replace(/url\(/g, "").replace(/\)/g, "") + "']").addClass("active"), o(
                                                 ".wyp-background-image-show").hide())) : o(".wyp-background-image-show").hide(),
@@ -4373,7 +4373,7 @@
                         s = e.attr("class"),
                         r, d;
                 return null != s && null != s && (s = s.replace(/ /g, "  "), s = s.replace(/(^|\s)yp(-|_)(.*?)(\s|$)/g, " ").replace(
-                                        /(^|\s)llimphi(-|_)(.*?)(\s|$)/g, " ").replace(/(^|\s)(data-anim-scene|context-menu-active)(\s|$)/g, " "),
+                                        /(^|\s)yellow-pencil(-|_)(.*?)(\s|$)/g, " ").replace(/(^|\s)(data-anim-scene|context-menu-active)(\s|$)/g, " "),
                                 s = o.trim(_i(s)), i = s.length, n = s.charAt(0) + s.charAt(i / 2) + s.charAt(i - 1), a = s.length + n), null != t &&
                         null != t ? (r = t.split("|"), r[1] == a ? d = r[0] : (d = wa(e), window.isDynamicSelectorsReady && e.attr("data-wyp-slctr", d +
                                 "|" + a))) : (d = wa(e), window.isDynamicSelectorsReady && e.attr("data-wyp-slctr", d + "|" + a)), d
@@ -4739,8 +4739,8 @@
 
         function Sa(e, t, a, i, n) {
                 return "LINK" != t && "STYLE" != t && "SCRIPT" != t && "PARAM" != t && "OPTION" != t && "NOSCRIPT" != t && "BR" != t &&
-                        "wyp-anim-scenes" != a && "animate-test-drive" != a && "wyp-animate-data" != a && "llimphi-canvas" != a &&
-                        "llimphi-focus-canvas" != a && "llimphi-other-canvas" != a && "llimphi-extra-canvas" != a &&
+                        "wyp-anim-scenes" != a && "animate-test-drive" != a && "wyp-animate-data" != a && "yellow-pencil-canvas" != a &&
+                        "yellow-pencil-focus-canvas" != a && "yellow-pencil-other-canvas" != a && "yellow-pencil-extra-canvas" != a &&
                         "elementor-device-mode" != a && !(i.contains("wyp-x-distance-border") || i.contains("wyp-y-distance-border") || i.contains(
                                         "hv-in-bx") || i.contains("wyp-size-handle") || i.contains("wyp-slct-tooltip") || i.contains("wyp-slct-menu") ||
                                 i.contains("wyp-selected-tooltip") || i.contains("wyp-tooltip-small") || i.contains("wyp-helper-tooltip") || i.contains(
@@ -4791,7 +4791,7 @@
                                         "BODY" == u && (s =
                                                 "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\"><g transform=\"translate(-32 -72)\"><path fill=\"currentColor\" d=\"M9,1V9H1V1H9m1-1H0V10H10Z\" transform=\"translate(32 72)\"/><rect fill=\"currentColor\" width=\"9.5\" height=\"2.8\" transform=\"translate(32.25 72.25)\"/></g></svg>"
                                                 ), i += "<li " + n + "data-index='" + a +
-                                        "'><div class='layer-tree-wrap'><div class='licon icon-arrow-down'></div><div class='layer-tree-title'>" +
+                                        "'><div class='layer-tree-wrap'><div class='yicon icon-arrow-down'></div><div class='layer-tree-title'>" +
                                         s + d + "</div></div></li>"
                         }), i += "</ul>"
                 }
@@ -5234,7 +5234,7 @@
                                         "wyp-ui-transform-hide")) && !(s && (-1 != O.indexOf("wyp-inline-data") || -1 != O.indexOf(
                                         "wyp-live-css-data") || -1 != O.indexOf("wyp-styles-area"))) && !(o && -1 == O.indexOf("wyp-inline-data") && -
                                         1 == O.indexOf("wyp-live-css-data") && -1 == O.indexOf("wyp-styles-area")) && (l = _.href, null == l && (l =
-                                                location.protocol + "//" + window.location.hostname), -1 == l.indexOf("waspthemes-llimphi") && -
+                                                location.protocol + "//" + window.location.hostname), -1 == l.indexOf("waspthemes-yellow-pencil") && -
                                         1 == l.indexOf("animate") && -1 == l.indexOf("webkit") && -1 == l.indexOf("animation") && -1 == l.indexOf(
                                                 "keyframe") && -1 == l.indexOf("font") && -1 == l.indexOf("icon") && -1 == l.indexOf(
                                         "googleapis.com") && -1 == l.indexOf("print") && -1 == l.indexOf("reset") && -1 == l.indexOf("player") && -1 ==
@@ -5441,7 +5441,7 @@
                 i.find(".pr-res-ite").tooltip("destroy"), i.empty();
                 var n, s, r, l, d, p, c, u;
                 i.append("<div class='pr-res-ite' data-info='-' title='" + qi.all_msg +
-                        "' data-insert-media='desktop' data-responsive-size='all'><span class='licon icon-desktop'></span>All<span class='licon icon-no-alt'></span></div>"
+                        "' data-insert-media='desktop' data-responsive-size='all'><span class='yicon icon-desktop'></span>All<span class='yicon icon-no-alt'></span></div>"
                         );
                 for (var m = 0; m < t.length; m++) {
                         n = t[m].rule, s = t[m].query;
@@ -5455,8 +5455,8 @@
                                 -1 == l.indexOf(",") && -1 == l.indexOf("and") && (-1 != l.indexOf(">") && (u = "(min-width:" + c + "px)"), -
                                         1 != l.indexOf("<") && (u = "(max-width:" + c + "px)")), i.append(
                                         "<div class='pr-res-ite' data-info='-' title='" + p + "' data-insert-media='" + u +
-                                        "' data-responsive-size='" + l + "'><span class='licon icon-smartphone'></span>" + d +
-                                        "<span class='licon icon-no-alt'></span></div>")))
+                                        "' data-responsive-size='" + l + "'><span class='yicon icon-smartphone'></span>" + d +
+                                        "<span class='yicon icon-no-alt'></span></div>")))
                 }
                 o(".pr-res-ite").tooltip({
                         template: "<div class=\"tooltip small-tooltip\"><div class=\"tooltip-arrow\"></div><div class=\"tooltip-inner\"></div></div>",
@@ -5499,7 +5499,7 @@
                 var a = e.attr("data-breakpoint");
                 o("#iframe").width(a), j(), setTimeout(function() {
                         Ze(), ce(), j(), ye(), we()
-                }, window.LlimphiDelay)
+                }, window.YellowDelay)
         }
 
         function Qa() {
@@ -6261,7 +6261,7 @@
                 "Are you sure you want to close Animation Generator without saving?", qi.notice = "Notice", qi.warning = "Warning", qi.empty = "empty",
                 qi.style = "style", qi.type_not_available = "Can not be used on the current page.", qi.you_are_sure = "You are sure?", qi.delete_anim =
                 "Delete Animate", qi.welcome_pro = "Welcome to Pro Club!", qi.license_activated =
-                "¡Licencia de Llimphi Activada! Gracias por su compra. Revise la <a href='https://llimphi.dev/documentation/' target='_blank'>Documentación de Llimphi</a>.",
+                "License Activated! Thank you for your purchase. We are here to help! Check out <a href='https://yellowpencil.waspthemes.com/documentation/' target='_blank'>Plugin Docs</a> and join <a href='https://www.facebook.com/groups/YellowPencils/' target='_blank'>Facebook Community</a>.",
                 qi.general = "General", qi.paragraph = "Paragraph", qi.heading_level = "Heading Level", qi.element_id = "Element ID", qi.tag = "Tag", qi
                 .affected_els = "Selected elements", qi.pseudo_class = "States&hellip;", qi.conditions = "Conditions&hellip;", qi.all_devices =
                 "All Devices", qi.delay = "Delay", qi.duration = "Duration", qi.delete_t = "Delete", qi.reset = "Reset", qi.add_new_anim =
@@ -6271,7 +6271,7 @@
                 "The server may be offline either server's maximum post limit is not enough. Please try again later.", qi.save_error_nonce_msg =
                 "Nonce verification has failed. Please copy the CSS data from the CSS Editor and refresh the page.", qi.save_error_authorized_msg =
                 "You do not have the authority to edit the site appearance or you may have logged out.", qi.save_error_json_msg =
-                "No se pudieron guardar los comentarios de CSS. Puede solucionar este problema restableciendo la configuración desde el panel de control de Llimphi.", qi
+                "Unable to save CSS comments. You can fix this problem by resetting settings from WP Dashboard > YellowPencil > Settings page.", qi
                 .define_breakpoints = "breakpoints", qi.breakpoint_size = "{$1}px and {$2} screens", qi.css_parse_error = "CSS Parse Error.", qi
                 .css_parse_error_text =
                 "The changes you made in the CSS editor seems to be invalid. To continue, undo changes with CMD + Z or fix this CSS error.", qi
@@ -6302,14 +6302,14 @@
                 qi.link_not_valid =
                 "This link is not an wordpress page. You can't edit this page. <em style='opacity:0.8'>(Click the element while holding down CTRL key to run the Javascript action.)</em>",
                 qi.page_loading = "Loading Editor", qi.page_information_cant_be_retrieved = "Page information cannot be retrieved.", qi
-                .page_information_cant_be_retrieved_msg = "Por favor, cierre la página y abra la página de destino manualmente con Llimphi.", qi.contrast_ac =
+                .page_information_cant_be_retrieved_msg = "Please close the page and open the target page manually with YellowPencil.", qi.contrast_ac =
                 "Background and text colors should meet WCAG contrast standards to make the text legible on all devices.", qi.line_spacing_ac =
                 "Line spacing should be minimum 1 and maximum 2. This ratio varies depending on the font size.", qi.font_size_ac =
                 "Font size should be a minimum of 12 pixels to easy readable.", window.plugin_classes_list =
-                "wyp-bg-layer-active|wyp-x-distance-border|wyp-y-distance-border|hv-in-bx|wyp-helper-tooltip|wyp-css-editor-disable|wyp-no-wf|wyp-ele-n-vis|wyp-iframe-ph|wyp-data-updated|wyp-inline-data|wyp-animating|wyp-scene-1|wyp-single-inspector-active|wyp-scene-2|wyp-scene-3|wyp-scene-4|wyp-scene-5|wyp-scene-6|wyp-ani-cre|wyp-animate-test-playing|yp-llimphi-demo-mode|llimphi-ready|yp_onscreen|yp_hover|yp_click|yp_focus|wyp-selected-others|wyp-multiple-selected|wyp-demo-link|wyp-live-editor-link|yp-llimphi|wyp-con-slcd|wyp-hid-bor-n|wyp-selector-editor-active|wyp-res-mod|wyp-met-dis|wyp-css-ed-act|wtfv|wyp-clean-look|wyp-h-trfm|wyp-selected|wyp-el-reing|context-menu-active|wyp-selectors-hide|wyp-control-key-down|wyp-selected-others-multiple-box|wyp-if-movleav|wyp-selected-boxed-top|wyp-selected-boxed-bottom|wyp-selected-boxed-left|wyp-selected-boxed-right|wyp-selected-boxed-margin-left|wyp-zero-m-w|wyp-animate-manager-active|wyp-wf-on|yp-selector-hover|wyp-size-handle|wyp-flexible-inspector-active|wyp-selected-boxed-margin-top|wyp-selected-boxed-margin-bottom|wyp-selected-boxed-margin-right|wyp-selected-boxed-padding-left|wyp-selected-boxed-padding-top|wyp-selected-boxed-padding-bottom|wyp-selected-boxed-padding-right|wyp-selected-tooltip|wyp-slct-tooltip|wyp-slct-menu|wyp-full-width-selected|wyp-zero-m-h|wyp-tooltip-small|wyp-selected-bottom|wyp-fixed-tooltip|wyp-tooltip-bttm-out|wyp-css-slctr-off";
+                "wyp-bg-layer-active|wyp-x-distance-border|wyp-y-distance-border|hv-in-bx|wyp-helper-tooltip|wyp-css-editor-disable|wyp-no-wf|wyp-ele-n-vis|wyp-iframe-ph|wyp-data-updated|wyp-inline-data|wyp-animating|wyp-scene-1|wyp-single-inspector-active|wyp-scene-2|wyp-scene-3|wyp-scene-4|wyp-scene-5|wyp-scene-6|wyp-ani-cre|wyp-animate-test-playing|yp-yellow-pencil-demo-mode|yellow-pencil-ready|yp_onscreen|yp_hover|yp_click|yp_focus|wyp-selected-others|wyp-multiple-selected|wyp-demo-link|wyp-live-editor-link|yp-yellow-pencil|wyp-con-slcd|wyp-hid-bor-n|wyp-selector-editor-active|wyp-res-mod|wyp-met-dis|wyp-css-ed-act|wtfv|wyp-clean-look|wyp-h-trfm|wyp-selected|wyp-el-reing|context-menu-active|wyp-selectors-hide|wyp-control-key-down|wyp-selected-others-multiple-box|wyp-if-movleav|wyp-selected-boxed-top|wyp-selected-boxed-bottom|wyp-selected-boxed-left|wyp-selected-boxed-right|wyp-selected-boxed-margin-left|wyp-zero-m-w|wyp-animate-manager-active|wyp-wf-on|yp-selector-hover|wyp-size-handle|wyp-flexible-inspector-active|wyp-selected-boxed-margin-top|wyp-selected-boxed-margin-bottom|wyp-selected-boxed-margin-right|wyp-selected-boxed-padding-left|wyp-selected-boxed-padding-top|wyp-selected-boxed-padding-bottom|wyp-selected-boxed-padding-right|wyp-selected-tooltip|wyp-slct-tooltip|wyp-slct-menu|wyp-full-width-selected|wyp-zero-m-h|wyp-tooltip-small|wyp-selected-bottom|wyp-fixed-tooltip|wyp-tooltip-bttm-out|wyp-css-slctr-off";
         for (var $i = 0; 51 > $i; $i++) window.plugin_classes_list += "|wyp-pa-r" + $i;
         window.plugin_id_list =
-                "wyp-drw-bx|wyp-anim-scenes|anim-tester|wyp-animate-data|llimphi-canvas|llimphi-focus-canvas|llimphi-other-canvas|llimphi-extra-canvas",
+                "wyp-drw-bx|wyp-anim-scenes|anim-tester|wyp-animate-data|yellow-pencil-canvas|yellow-pencil-focus-canvas|yellow-pencil-other-canvas|yellow-pencil-extra-canvas",
                 window.simple_not_list =
                 "link|style|script|noscript|meta|title|br|param|option|head|circle|rect|polygon|defs|linearGradient|stop|ellipse|text|line|polyline|path|g|tspan",
                 o(".fixed_right_panel_checkbox input").prop("checked", window.ypOption.fixed_right_panel), o(".fixed_left_bar_checkbox input").prop(
@@ -6333,8 +6333,8 @@
                         globalData: ace.createEditSession("", "ace/mode/css")
                 },
                 x = 0;
-        window.leftBarSize = !1, window.setSelector = !1, window.separator = " ", window.minCrpdSlctr = !1, window.LlimphiDelay = 5, window
-                .Llimphi2Delay = 10, window.lastTextColor = null, window.targetIsParentTree = !1, window.selectedByView = !1, window.editedByReview = !1,
+        window.leftBarSize = !1, window.setSelector = !1, window.separator = " ", window.minCrpdSlctr = !1, window.YellowDelay = 5, window
+                .Yellow2Delay = 10, window.lastTextColor = null, window.targetIsParentTree = !1, window.selectedByView = !1, window.editedByReview = !1,
                 window.sourceViewClick = !1, window.resizedByPropertySize = !1, window.licenseCheckDelay = !1, window.responsiveFirstWasOpen = !1,
                 window.parentItems = "", window.childrenItems = "", window.idList = [], window.ClassList = [], window.allow_input_CSS_process = !1,
                 window.firstSelectLimit = !1, window.newComments = [], window.placeholderSelector = !1, window.mouseoverTrigger = !1, window
@@ -6354,12 +6354,12 @@
                 an = document.getElementById("iframe"),
                 nn = an.contentWindow;
         an = an.contentWindow.document || an.contentDocument, Gi.find("#wyp-animate-data").after(
-                "<div id='llimphi-canvas'></div><div id='llimphi-focus-canvas'></div><div id='llimphi-other-canvas'></div><div id='llimphi-extra-canvas'></div>"
+                "<div id='yellow-pencil-canvas'></div><div id='yellow-pencil-focus-canvas'></div><div id='yellow-pencil-other-canvas'></div><div id='yellow-pencil-extra-canvas'></div>"
                 );
         var sn = [];
-        sn.general = Ji.find("#llimphi-canvas"), sn.active = Ji.find("#llimphi-focus-canvas"), sn.other = Ji.find(
-                "#llimphi-other-canvas"), sn.extra = Ji.find("#llimphi-extra-canvas");
-        var on = Ji.find("#llimphi-canvas,#llimphi-focus-canvas,#llimphi-other-canvas");
+        sn.general = Ji.find("#yellow-pencil-canvas"), sn.active = Ji.find("#yellow-pencil-focus-canvas"), sn.other = Ji.find(
+                "#yellow-pencil-other-canvas"), sn.extra = Ji.find("#yellow-pencil-extra-canvas");
+        var on = Ji.find("#yellow-pencil-canvas,#yellow-pencil-focus-canvas,#yellow-pencil-other-canvas");
         if (!1 == window.ypData.demo_mode) {
                 var rn = !1;
                 window.addEventListener("beforeunload", function() {
@@ -6440,7 +6440,7 @@
                         o(this).is(":checked") ? (window.ypOption.append_auto_comments = !0, t.originalEvent && v("append_auto_comments",
                                 "true")) : (window.ypOption.append_auto_comments = !1, t.originalEvent && v("append_auto_comments",
                                 "false"))
-                }), tn.hasClass("yp-llimphi-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
+                }), tn.hasClass("yp-yellow-pencil-demo-mode") && (window.ypData.demo_mode = !0), !0 == window.ypOption.fixed_right_panel && (o(
                         ".fixed_right_panel_checkbox input").prop("checked", !0), o(".fixed_right_panel_checkbox input").trigger("change")), !0 ==
                 window.ypOption.fixed_left_bar && (o(".fixed_left_bar_checkbox input").prop("checked", !0), o(".fixed_left_bar_checkbox input").trigger(
                         "change")), !0 == window.ypOption.hide_premium_options && (o(".hide_premium_options_checkbox input").prop("checked", !0), o(
@@ -6714,7 +6714,7 @@
                                 .pageX), tn.hasClass("wyp-res-resizing-left") ? j("left") : j(), clearTimeout(pn), clearTimeout(
                                         cn), pn = setTimeout(function() {
                                         X()
-                                }, window.LlimphiDelay), cn = setTimeout(function() {
+                                }, window.YellowDelay), cn = setTimeout(function() {
                                         o(".metric-left-tooltip").html("W: <span>" + parseInt(o("#iframe").width()) +
                                                 "</span>px")
                                 }, 1)
@@ -6734,7 +6734,7 @@
                         t = Pe(e),
                         i = Re(e);
                 r(m(a(null, !1), t + "YPtoAddBreakpoint{b:b;}" + i, null), null, "b"), Mi(), o(".breakpoint-bar .focus").addClass(
-                        "defined-with-llimphi").removeClass("edited"), we(), j()
+                        "defined-with-yellowpencil").removeClass("edited"), we(), j()
         });
         var un = 0;
         en.on("keyup", function(t) {
@@ -6761,9 +6761,9 @@
                         s && !1 === d && (t.preventDefault(), o(".wyp-button.wyp-save-btn").trigger("click")), 46 == n && !1 === s && !
                         1 === p && !1 === d && (tt(null, "display", "none", ""), Mi(), setTimeout(function() {
                                 At(), sn.extra.find(".wyp-el-viewer").remove()
-                        }, window.Llimphi2Delay)), 27 == n && !1 === s && !1 === d) {
+                        }, window.Yellow2Delay)), 27 == n && !1 === s && !1 === d) {
                         if (O() || D()) return !1;
-                        if ("none" == o(".llimphi-alert").css("display") || 0 === o(".llimphi-alert").length) {
+                        if ("none" == o(".yellow-alert").css("display") || 0 === o(".yellow-alert").length) {
                                 if (!0 !== window.bMode && "none" != o(".wyp-popup-background").css("display")) return o(
                                         ".wyp-info-modal-close").trigger("click"), !1;
                                 if (Qi.hasClass("wyp-selector-editor-active")) return o("#wyp-selector-editor").val(""), ge(
@@ -6842,8 +6842,8 @@
                                 "#wyp-customizing-type-frame").css("display", "none"), !1;
                         if ("block" == o("#image_uploader").css("display") && !1 == p) return o("#image_uploader").toggle(), o(
                                 "#image_uploader_background").toggle(), o(".wyp-upload-btn").toggleClass("active"), !1;
-                        if (!1 === tn.hasClass("autocomplete-active") && "none" == o(".llimphi-alert").css("display") || 0 === o(
-                                        ".llimphi-alert").length && !1 == p) {
+                        if (!1 === tn.hasClass("autocomplete-active") && "none" == o(".yellow-alert").css("display") || 0 === o(
+                                        ".yellow-alert").length && !1 == p) {
                                 if (window.isIrisOpen) return o(".iris-picker").hide(), !1;
                                 if (0 < o("#context-menu-layer:visible").length) return o("#context-menu-layer,.context-menu-list")
                                         .hide(), !1;
@@ -7127,7 +7127,7 @@
         }), o(document).on("click", ".wyp-anim-play", function() {
                 var e = o(this);
                 if (tn.hasClass("wyp-animate-test-playing")) return o(".scenes .scene-" + window.willActive + "").trigger("click"), e
-                        .html("<span class=\"licon icon-controls-play\"></span>"), e.attr("data-original-title", "Play")
+                        .html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title", "Play")
                         .tooltip("fixTitle").tooltip("show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find(
                                 "#animate-test-drive").empty(), Ji.removeClass("wyp-hid-bor-n"), Ni(), Ze(), Yi(), !1;
                 if (window.willActive = 1, o(".scenes .scene").each(function(e) {
@@ -7149,15 +7149,15 @@
                         .find("#animate-test-drive").append(
                                 "<style>body.wyp-animate-test-playing .wyp-selected,body.wyp-animate-test-playing .wyp-selected-others,body.wyp-animate-test-playing.wyp-selected{animation-name:animationGeneratorTestAnimate !important;animation-duration:" +
                                 a + " !important;animation-iteration-count:1 !important;}</style>"), e.html(
-                                "<span class=\"licon icon-controls-pause\"></span>"), e.attr("data-original-title", "Pause").tooltip(
+                                "<span class=\"yicon icon-controls-pause\"></span>"), e.attr("data-original-title", "Pause").tooltip(
                                 "fixTitle").tooltip("hide"), Yi(), window.animationTimer4 = setTimeout(function() {
-                                e.html("<span class=\"licon icon-controls-play\"></span>"), e.attr("data-original-title",
+                                e.html("<span class=\"yicon icon-controls-play\"></span>"), e.attr("data-original-title",
                                                 "Play").tooltip("fixTitle").tooltip("hide"), e.is(":hover") && e.tooltip(
                                         "show"), Qi.removeClass("wyp-animate-test-playing"), Gi.find("#animate-test-drive")
                                         .empty(), Ji.removeClass("wyp-hid-bor-n"), o(".scenes .scene-" + window.willActive + "")
                                         .trigger("click"), Ni(), Ze()
                         }, i)
-        }), o(document).on("keyup", ".llimphi-alert input", function() {
+        }), o(document).on("keyup", ".yellow-alert input", function() {
                 o(this).val(Wn(o(this).val()))
         }), o(".wyp-anim-save").click(function() {
                 return 0 === Gi.find("#wyp-anim-scenes style").length ? (k({
@@ -7166,7 +7166,7 @@
                 }), !1) : (setTimeout(function() {
                         var e = Wn(yi(bi(_a(), !1, null))) + "_Animate_" + parseInt(JSON.parse(o(
                                 "#animation-name-group textarea").val()).length + 1);
-                        o(".llimphi-alert input").val(e).trigger("focus")
+                        o(".yellow-alert input").val(e).trigger("focus")
                 }, 20), k({
                         title: qi.animation_name,
                         confirmButtonText: qi.save_animation,
@@ -7175,7 +7175,7 @@
                         text: qi.set_animation_name
                 }, function() {
                         o(".scenes .scene-1").trigger("click");
-                        var e = o(".llimphi-alert input").val(),
+                        var e = o(".yellow-alert input").val(),
                                 t = te(e);
                         (!1 == window.ypData.demo_mode || !0 !== window.bMode) && o.post(ajaxurl, {
                                 action: "wyp_add_animation",
@@ -7237,7 +7237,7 @@
                         var e = o(".scenes .scene").length;
                         o(".scenes .scene-let-delete").removeClass("scene-let-delete"), o(".scene-add").before(
                                         "<div class=\"scene-let-delete scene scene-" + e + "\" data-scene=\"scene-" + e +
-                                        "\"><span class=\"licon icon-trash scene-delete\"></span><p><span class=\"scene-info licon icon-warning\"></span>" +
+                                        "\"><span class=\"yicon icon-trash scene-delete\"></span><p><span class=\"scene-info yicon icon-warning\"></span>" +
                                         qi.scene + " " + e + "<span><input type=\"text\" value=\"100\" /></span></p></div>"), o(
                                         ".scenes .scene-" + e + "").trigger("click"), o(".scene-1 input").val("0"), o(".scene-2 input")
                                 .val("100"), 3 == e && (o(".scene-1 input").val("0"), o(".scene-2 input").val("50"), o(".scene-3 input")
@@ -7316,7 +7316,7 @@
                 }), e.toggleClass("active"), o(".wyp-background-asts").toggle(), e.hasClass("active") ? (o(
                         ".wyp-gradient-btn.active,.wyp-unsplash-btn.active").trigger("click"), o(
                         ".wyp-background-image-show").hide()) : ne(null);
-                var t = o("#wyp-background-image").val(); - 1 == t.indexOf("llimphi") ? o(".wyp-bg-ast").removeClass("active") :
+                var t = o("#wyp-background-image").val(); - 1 == t.indexOf("yellow-pencil") ? o(".wyp-bg-ast").removeClass("active") :
                         o(".wyp-bg-ast[data-url='" + t.replace(/"/g, "").replace(/'/g, "").replace(/url\(/g, "").replace(/\)/g, "") +
                                 "']").addClass("active"), !1 == e.hasAttr("data-json") && se(), o.throttle(Be(), 32)
         }), o(".wyp-bg-ast").on("mouseenter mouseover", function() {
@@ -7345,7 +7345,7 @@
                                 0 < o(".wyp-gradient-demo.active").length ? o(".wyp-gradient-list").scrollTop(30 * (o(
                                                 ".wyp-gradient-demo.active").index() - 3)) : o(".wyp-gradient-list")
                                         .scrollTop(0)
-                        }, window.LlimphiDelay)
+                        }, window.YellowDelay)
                 } else ne(null);
                 o.throttle(Be(), 32)
         }), o(".wyp-clear-btn").on("click", function() {
@@ -7437,12 +7437,12 @@
                                 0 < n.length && (n = "/* Import Google Fonts */\n" + n + "\n")
                         }
                         k({
-                                customClass: "llimphi-alert-bmode",
+                                customClass: "yellow-alert-bmode",
                                 text: "<div class='export-title'>Export CSS Code <div class='cly' onclick='document.querySelector(\".button-container .cancel\").click();'></div></div><div id='b-mode-css'>" +
                                         (n + t.replace(/\t/g, " ")) + "</div>",
                                 showCancelButton: !0
-                        }), o(".llimphi-alert-bmode.llimphi-overlay").on("mousedown", function(t) {
-                                o(t.target).hasClass("llimphi-alert-bmode") && o(".llimphi-alert-bmode").remove()
+                        }), o(".yellow-alert-bmode.yellow-overlay").on("mousedown", function(t) {
+                                o(t.target).hasClass("yellow-alert-bmode") && o(".yellow-alert-bmode").remove()
                         });
                         var d = ace.edit("b-mode-css");
                         return d.setTheme("ace/theme/twilight"), d.getSession().setMode("ace/mode/css"), d.getSession().setUseWorker(!
@@ -7643,7 +7643,7 @@
                 } else e = o("#iframe").attr("data-style"), o("#iframe").removeAttr("data-style"), o("#iframe").attr("style", e);
                 N(), Ze(), ce(), setTimeout(function() {
                         window.responsiveFirstWasOpen && X(), we()
-                }, window.LlimphiDelay)
+                }, window.YellowDelay)
         }), Gi.contextmenu(function(t) {
                 if (!1 == o(t.target).is("input,textarea,select,img")) return !1
         }), window.disable_auto_insert = !1, o(".css-editor-btn,.wyp-css-close-btn").click(function() {
@@ -7860,7 +7860,7 @@
                                 tn.addClass("wyp-contextmenu-breakpoint"), e.nextAll(".breakpoint-item").addClass(
                                         "hover-breakpoint"), setTimeout(function() {
                                         !1 == e.hasClass("edited") && !1 == e.hasClass(
-                                                "defined-with-llimphi") ? (o(
+                                                "defined-with-yellowpencil") ? (o(
                                                         ".reset-breakpoint-menu").addClass("disabled"),
                                                 o(".review-breakpoint-menu").addClass("disabled"), o(
                                                         ".show-css-menu").addClass("disabled")) : (o(
@@ -7868,7 +7868,7 @@
                                                         "disabled"), o(".reset-breakpoint-menu")
                                                 .removeClass("disabled"), o(".show-css-menu")
                                                 .removeClass("disabled"))
-                                }, window.LlimphiDelay)
+                                }, window.YellowDelay)
                         },
                         hide: function() {
                                 tn.removeClass("wyp-contextmenu-breakpoint"), o(".breakpoint-item").removeClass(
@@ -8638,7 +8638,7 @@
                         var e = mt(o("#wyp-font-family").val());
                         e ? (o("#include-webfont-label").css("display", "none"), tt(null, "--google-webfont",
                                 "disable")) : o("#include-webfont-label").css("display", "inline-block")
-                }, window.Llimphi2Delay))
+                }, window.Yellow2Delay))
         }), o(".in-ac").on("blur keyup", function(t) {
                 var e = o(this),
                         a = e.parent().parent().parent().attr("data-css"),
@@ -8738,7 +8738,7 @@
                                         ".ui-state-active").parents(".op-g"), t = e.data("css"),
                                 a = e.find(".co-p").val(), "background-image" != t && (_t(t, !
                                         1), ht(t, a, !1)))
-                }, window.LlimphiDelay))
+                }, window.YellowDelay))
         }, 48)), en.on("mouseup", function(e) {
                 if (!0 === window.isIrisOpen) {
                         var t;
@@ -9141,7 +9141,7 @@
                         n = t.find(".this-grid").length + 1,
                         i = "Row";
                 "grid-template-columns" == a && (i = "Column"), o(this).before(
-                        "<div class=\"this-grid\"><input class=\"this-grid-input\" placeholder=\"auto\" type=\"number\" min=\"1\" value=\"1\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\"><div class=\"grid-format-div\"><select class=\"grid-format\"><option value=\"fr\" selected>fr</option><option value=\"%\">%</option><option value=\"px\">px</option><option value=\"auto\">auto</option></select></div><span class=\"licon icon-no-alt delete-grid\"></span></div>"
+                        "<div class=\"this-grid\"><input class=\"this-grid-input\" placeholder=\"auto\" type=\"number\" min=\"1\" value=\"1\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\"><div class=\"grid-format-div\"><select class=\"grid-format\"><option value=\"fr\" selected>fr</option><option value=\"%\">%</option><option value=\"px\">px</option><option value=\"auto\">auto</option></select></div><span class=\"yicon icon-no-alt delete-grid\"></span></div>"
                         ), o(".last-grid").removeClass("last-grid"), la(t)
         }), o(document).on("click", ".delete-grid", function() {
                 var e = o(this).parents(".gr-bu-ar"),
@@ -9310,7 +9310,7 @@
                         window.resizedByPropertySize = !1, We(200), setTimeout(function() {
                                 He(200)
                         }, 1500)
-                }, window.LlimphiDelay)
+                }, window.YellowDelay)
         }), o(document).on("click", ".mo-i", function() {
                 var e = o(this);
                 e.toggleClass("active");
@@ -9348,7 +9348,7 @@
                                 window.resizedByPropertySize = !1, We(200), setTimeout(function() {
                                         He(200)
                                 }, 1500)
-                        }, window.LlimphiDelay), Qa()
+                        }, window.YellowDelay), Qa()
         }), window.scrollbar_width_cache = void 0, window.drag = {
                 active: !1,
                 currentX: 0,
@@ -9493,7 +9493,7 @@
                                                 "px, " + (k + A + 40 + 10) + "px, 0)").html("X: " + parseInt(
                                                 window.drag.currentX) + "<br>Y: " + parseInt(window.drag
                                                 .currentY))
-                        }, window.LlimphiDelay))
+                        }, window.YellowDelay))
                 }, 32), !1), window.mouseisDown = !1, window.styleAttrBeforeChange = null, window.visualResizingType = null, window
                 .ResizeSelectedBorder = null, window.elementOffsetLeft = null, window.elementOffsetRight = null;
         var Hn = function(e) {
@@ -9506,9 +9506,9 @@
                                 if (window.bMode) return !1;
                                 var t = o(this).attr("href");
                                 if ("" == t || "#" == t.substring(0, 1) || -1 != t.indexOf("javascript:") || -1 != t.indexOf(
-                                                "llimphi=true")) return !0;
+                                                "yellow_pencil=true")) return !0;
                                 if (t = Hn(t), "" != t && "#" != t.substring(0, 1) && -1 == t.indexOf("javascript:") && -1 == t.indexOf(
-                                                "llimphi=true")) {
+                                                "yellow_pencil=true")) {
                                         var a = ni(t),
                                                 i = window.location.hostname;
                                         if (a != i) return !1 != e.ctrlKey || !1 != e.metaKey || (k({
@@ -9527,7 +9527,7 @@
                                                 if (!0 == confirm(qi.sure)) o(".waiting-for-save").removeClass("waiting-for-save");
                                                 else return !0
                                 } else return !0;
-                                o("#loader i").css("width", "5%"), o("#iframe").remove(), tn.removeClass("llimphi-ready"), o(
+                                o("#loader i").css("width", "5%"), o("#iframe").remove(), tn.removeClass("yellow-pencil-ready"), o(
                                         ".wyp-iframe-loader").show(), o(".loading-files").text(qi.page_loading);
                                 var n = window.location;
                                 n = n.toString().split("href=")[0] + "href=";
@@ -9545,8 +9545,8 @@
                                         var t = e.split("|")[0],
                                                 a = e.split("|")[1],
                                                 i = e.split("|")[2];
-                                        s = s.replace(/.*?:\/\//g, ""), s = s.replace("&llimphi_frame", "").replace(
-                                                        "?llimphi_frame", ""), s = encodeURIComponent(s), n = n + s +
+                                        s = s.replace(/.*?:\/\//g, ""), s = s.replace("&yellow_pencil_frame", "").replace(
+                                                        "?yellow_pencil_frame", ""), s = encodeURIComponent(s), n = n + s +
                                                 "&wyp_page_id=" + t + "&wyp_page_type=" + a + "&wyp_mode=" + i, window
                                                 .location = n
                                 }).fail(function() {
@@ -9888,7 +9888,7 @@
                                                 !1 !== t && ("all" == t && (t = "desktop"), tt(null, e, "disable", "", t),
                                                         setTimeout(function() {
                                                                 pa(e)
-                                                        }, window.Llimphi2Delay))
+                                                        }, window.Yellow2Delay))
                                         })
                                 }
                                 Mi()
@@ -10014,7 +10014,7 @@
                                 a;
                         a = !0 === window.bMode ? decodeURIComponent(window.location.href) : location.protocol + "//" + decodeURIComponent(o.urlParam(
                                         "href")), a = new URL(a), !0 !== window.bMode && (a.searchParams.set("wyp_rand", t), a.searchParams.set(
-                                        "llimphi_frame", "true"), o.urlParam("wyp_out") && a.searchParams.set("wyp_out", "true")), o.post(a)
+                                        "yellow_pencil_frame", "true"), o.urlParam("wyp_out") && a.searchParams.set("wyp_out", "true")), o.post(a)
                                 .always(function(t, a, n) {
                                         var s = n.status;
                                         if (window.isDynamicSelectorsReady = !0, 200 != s) return !1;

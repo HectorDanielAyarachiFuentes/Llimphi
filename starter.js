@@ -1,7 +1,7 @@
 "use strict";
 
 // Close
-if (document.body.classList.contains('yp-llimphi')) {
+if (document.body.classList.contains('yp-yellow-pencil')) {
 	var url = new URL(window.location);
 	url.searchParams.delete("wyp");
 	window.location.replace(url);
@@ -9,24 +9,20 @@ if (document.body.classList.contains('yp-llimphi')) {
 // Open
 }else{
 
-    chrome.runtime.sendMessage({ action: "getEditorHtml" }, function(response) {
-        if (chrome.runtime.lastError || !response || !response.html) {
-            console.error('Error loading editor.html:', chrome.runtime.lastError || (response && response.error));
-            alert('Failed to load editor interface.');
-            return;
-        }
-        var editorHtml = response.html;
-        // Replace placeholders with actual URLs
-        editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
+    fetch(chrome.runtime.getURL('editor.html'))
+        .then(response => response.text())
+        .then(editorHtml => {
+            // Replace placeholders with actual URLs
+            editorHtml = editorHtml.replace(/%%EDITOR_URL%%/g, chrome.runtime.getURL('editor/'));
 
-        try {
-            document.open();
-            document.write(editorHtml);
-            document.close();
-        } catch (e) {
-            console.warn("document.open() failed, falling back to innerHTML replacement:", e);
-            document.documentElement.innerHTML = editorHtml;
-        }
+            let parser = new DOMParser();
+            let newDoc = parser.parseFromString(editorHtml, 'text/html');
+            if (document.head) {
+                document.head.replaceWith(document.importNode(newDoc.head, true));
+            }
+            if (document.body) {
+                document.body.replaceWith(document.importNode(newDoc.body, true));
+            }
 
             // Vars
             window.bMode = true;
@@ -111,7 +107,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
                     // if iframe redirect : follow
                     if(window.bMode !== true){
-                        if(iframeReady || iframeURL.indexOf("llimphi_frame") == -1){
+                        if(iframeReady || iframeURL.indexOf("yellow_pencil_frame") == -1){
 
                             // show loading
                             document.querySelector(".wyp-iframe-loader").style.display = "block";
@@ -126,7 +122,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
                             // Clean url
                             iframeURL = new URL(iframeURL);
-                            iframeURL.searchParams.delete("llimphi_frame");
+                            iframeURL.searchParams.delete("yellow_pencil_frame");
                             iframeURL.searchParams.delete("wyp_page_id");
                             iframeURL.searchParams.delete("wyp_page_type");
                             iframeURL.searchParams.delete("wyp_mode");
@@ -190,7 +186,7 @@ if (document.body.classList.contains('yp-llimphi')) {
 
 
                     // Moving styles to iframe
-                    var editorData = document.querySelector("#llimphi-iframe-data");
+                    var editorData = document.querySelector("#yellow-pencil-iframe-data");
                     if(editorData !== null){
                         iframeHead.insertAdjacentHTML('beforeend', editorData.innerHTML.replace(/(^\<\!\-\-|\-\-\>$)/g, ""));
                         document.body.removeChild(editorData);
@@ -216,11 +212,11 @@ if (document.body.classList.contains('yp-llimphi')) {
                     // Loading The Styles
                     var styles = [
                         "//fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap",
-                        chrome.runtime.getURL('editor/') + "css/llimphi.css?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "css/yellow-pencil.css?wypver=7.6.0"
                     ];
 
                     // Load styles in iframe
-                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='llimphi-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
+                    iframeHead.insertAdjacentHTML('beforeend', "<link rel='stylesheet' id='yellow-pencil-frame'  href='"+chrome.runtime.getURL('editor/')+"css/frame.css?wypver=7.6.0' type='text/css' media='all' />");
 
                     // Loading.
                     for(var i = 0; i < styles.length; i++){
@@ -233,7 +229,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                         chrome.runtime.getURL('editor/') + "js/ace/ace.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/ace/ext-language_tools.js?wypver=7.6.0",
                         chrome.runtime.getURL('editor/') + "js/addons.js?wypver=7.6.0",
-                        chrome.runtime.getURL('editor/') + "js/llimphi.js?wypver=7.6.0"
+                        chrome.runtime.getURL('editor/') + "js/yellow-pencil.js?wypver=7.6.0"
                     ];
 
                     // Stop load and call editor function.
@@ -250,7 +246,7 @@ if (document.body.classList.contains('yp-llimphi')) {
                         }
 
                         setTimeout(function(){
-                            var addClasses = ["yp-llimphi", "llimphi-ready"];
+                            var addClasses = ["yp-yellow-pencil", "yellow-pencil-ready"];
 
                             if(window.bMode){
                                 addClasses.push("wyp-b-mode");
@@ -302,6 +298,10 @@ if (document.body.classList.contains('yp-llimphi')) {
                                     };
 
             })();
+        })
+        .catch(error => {
+            console.error('Error loading editor.html:', error);
+            alert('Failed to load editor interface.');
         });
 
 } // End of if

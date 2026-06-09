@@ -3,19 +3,8 @@
   "name": "Ayarachi Visual CSS Editor",
   "version": "7.6.0",
   "description": "Customize any website visually.",
-  "author": "Hector Daniel Ayarachi Fuentes",
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "ayarachi-visual-css-editor@ayarachi.dev",
-      "strict_min_version": "142.0"
-    }
-  },
-  "action": {
-    "default_icon": {
-      "16": "icon.png",
-      "128": "icon.png"
-    }
-  },
+  "author": "AYARACHI",
+  "action": {},
   "icons": {
     "16": "icon.png",
     "128": "icon.png"
@@ -23,22 +12,19 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "storage"
+    "cookies"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "https://github.com/HectorDanielAyarachiFuentes/*"
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   },
   "web_accessible_resources": [
     {
       "resources": [
         "editor.html",
-        "editor/*",
-        "editor/templates/*"
+        "editor/*"
       ],
       "matches": [
         "<all_urls>"
